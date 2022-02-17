@@ -5209,8 +5209,11 @@ var $elm$browser$Browser$application = _Browser_application;
 var $elm$core$Dict$RBEmpty_elm_builtin = {$: 'RBEmpty_elm_builtin'};
 var $elm$core$Dict$empty = $elm$core$Dict$RBEmpty_elm_builtin;
 var $author$project$Main$initialAccessSpec = {allProjects: '', developer: false, network: _List_Nil, project: '', projectCreation: false};
-var $author$project$Main$initialHttpsApp = {ports: _List_Nil, sharedAccess: ''};
-var $author$project$Main$initialRunSpec = {distribution: 'Ubuntu', execDepends: _List_Nil, file: 'src/script.sh', interpreter: 'bash', release: '20.04', restartableEntryPoints: 'master', systemRequirements: $elm$core$Dict$empty, timeoutPolicy: $elm$core$Dict$empty, version: '0'};
+var $author$project$Main$validHttpsPorts = _List_fromArray(
+	[443, 8080, 8081]);
+var $author$project$Main$initialHttpsApp = {ports: $author$project$Main$validHttpsPorts, sharedAccess: 'NONE'};
+var $author$project$Main$Bash = {$: 'Bash'};
+var $author$project$Main$initialRunSpec = {distribution: 'Ubuntu', execDepends: _List_Nil, file: 'src/script.sh', interpreter: $author$project$Main$Bash, release: '20.04', restartableEntryPoints: 'master', systemRequirements: $elm$core$Dict$empty, timeoutPolicy: $elm$core$Dict$empty, version: '0'};
 var $author$project$Main$initialApp = {access: $author$project$Main$initialAccessSpec, authorizedUsers: _List_Nil, categories: _List_Nil, description: '', developerNotes: '', developers: _List_Nil, dxapi: '0.0.1', httpsApp: $author$project$Main$initialHttpsApp, inputSpec: _List_Nil, name: 'my_new_app', outputSpec: _List_Nil, regionalOptions: $elm$core$Dict$empty, runSpec: $author$project$Main$initialRunSpec, summary: 'App Summary', title: 'My New App', version: '0.0.1'};
 var $rundis$elm_bootstrap$Bootstrap$Tab$Showing = {$: 'Showing'};
 var $rundis$elm_bootstrap$Bootstrap$Tab$State = function (a) {
@@ -5223,7 +5226,7 @@ var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
 var $author$project$Main$init = F3(
 	function (flags, url, key) {
 		return _Utils_Tuple2(
-			{accessSpecNetwork: '', app: $author$project$Main$initialApp, authorizedUser: '', customCategory: '', developer: '', editingExecDependsIndex: $elm$core$Maybe$Nothing, editingInputSpecIndex: $elm$core$Maybe$Nothing, editingOutputSpecIndex: $elm$core$Maybe$Nothing, editingSysReqHost: $elm$core$Maybe$Nothing, editingSysReqIndex: $elm$core$Maybe$Nothing, editingTimeoutPolicyIndex: $elm$core$Maybe$Nothing, error: $elm$core$Maybe$Nothing, execDependsStage: '', execDependsToModify: $elm$core$Maybe$Nothing, httpsAppPort: $elm$core$Maybe$Nothing, incomingJson: $elm$core$Maybe$Nothing, inputSpecChoice: '', inputSpecPattern: '', inputSpecToModify: $elm$core$Maybe$Nothing, inputSpecToModifyDefault: '', inputSpecToModifyError: $elm$core$Maybe$Nothing, jsonError: $elm$core$Maybe$Nothing, key: key, outputSpecPattern: '', outputSpecToModify: $elm$core$Maybe$Nothing, outputSpecToModifyError: $elm$core$Maybe$Nothing, regionalOptionsToModify: $elm$core$Maybe$Nothing, sysReqToModify: $elm$core$Maybe$Nothing, tabState: $rundis$elm_bootstrap$Bootstrap$Tab$initialState, timeoutPolicyToModify: $elm$core$Maybe$Nothing, url: url},
+			{accessSpecNetwork: '', app: $author$project$Main$initialApp, authorizedUser: '', customCategory: '', developer: '', editingExecDependsIndex: $elm$core$Maybe$Nothing, editingInputSpecIndex: $elm$core$Maybe$Nothing, editingOutputSpecIndex: $elm$core$Maybe$Nothing, editingSysReqHost: $elm$core$Maybe$Nothing, editingSysReqMinCores: 0, editingSysReqMinGpus: 0, editingSysReqMinMemory: 0, editingTimeoutPolicyIndex: $elm$core$Maybe$Nothing, error: $elm$core$Maybe$Nothing, execDependsStage: '', execDependsToModify: $elm$core$Maybe$Nothing, httpsAppPort: $elm$core$Maybe$Nothing, incomingJson: $elm$core$Maybe$Nothing, inputSpecChoice: '', inputSpecPattern: '', inputSpecToModify: $elm$core$Maybe$Nothing, inputSpecToModifyDefault: '', inputSpecToModifyError: $elm$core$Maybe$Nothing, jsonError: $elm$core$Maybe$Nothing, key: key, outputSpecPattern: '', outputSpecToModify: $elm$core$Maybe$Nothing, outputSpecToModifyError: $elm$core$Maybe$Nothing, regionalOptionsResource: '', regionalOptionsToModify: $elm$core$Maybe$Nothing, sysReqToModify: $elm$core$Maybe$Nothing, tabState: $rundis$elm_bootstrap$Bootstrap$Tab$initialState, timeoutPolicyToModify: $elm$core$Maybe$Nothing, url: url},
 			$elm$core$Platform$Cmd$none);
 	});
 var $author$project$Main$TabMsg = function (a) {
@@ -5385,8 +5388,11 @@ var $rundis$elm_bootstrap$Bootstrap$Tab$subscriptions = F2(
 var $author$project$Main$subscriptions = function (model) {
 	return A2($rundis$elm_bootstrap$Bootstrap$Tab$subscriptions, model.tabState, $author$project$Main$TabMsg);
 };
+var $author$project$Main$Apt = {$: 'Apt'};
 var $author$project$Main$Aws = {$: 'Aws'};
 var $author$project$Main$Azure = {$: 'Azure'};
+var $author$project$Main$Cpan = {$: 'Cpan'};
+var $author$project$Main$Cran = {$: 'Cran'};
 var $author$project$Main$DefaultValBool = function (a) {
 	return {$: 'DefaultValBool', a: a};
 };
@@ -5399,11 +5405,17 @@ var $author$project$Main$DefaultValInt = function (a) {
 var $author$project$Main$DefaultValString = function (a) {
 	return {$: 'DefaultValString', a: a};
 };
-var $author$project$Main$Gpu = {$: 'Gpu'};
+var $author$project$Main$Gem = {$: 'Gem'};
 var $author$project$Main$InputSpecBool = {$: 'InputSpecBool'};
 var $author$project$Main$InputSpecFloat = {$: 'InputSpecFloat'};
 var $author$project$Main$InputSpecInt = {$: 'InputSpecInt'};
 var $author$project$Main$InputSpecString = {$: 'InputSpecString'};
+var $author$project$Main$Pip = {$: 'Pip'};
+var $author$project$Main$Python27 = {$: 'Python27'};
+var $author$project$Main$Python3 = {$: 'Python3'};
+var $author$project$Main$ResourceList = function (a) {
+	return {$: 'ResourceList', a: a};
+};
 var $elm$regex$Regex$Match = F4(
 	function (match, index, number, submatches) {
 		return {index: index, match: match, number: number, submatches: submatches};
@@ -5727,6 +5739,27 @@ var $author$project$Main$RegionalOptions = F2(
 	function (resources, systemRequirements) {
 		return {resources: resources, systemRequirements: systemRequirements};
 	});
+var $author$project$Main$ResourceString = function (a) {
+	return {$: 'ResourceString', a: a};
+};
+var $author$project$Main$decoderRegionOptionsResource = $elm$json$Json$Decode$oneOf(
+	_List_fromArray(
+		[
+			A2(
+			$elm$json$Json$Decode$andThen,
+			function (str) {
+				return $elm$json$Json$Decode$succeed(
+					$author$project$Main$ResourceString(str));
+			},
+			$elm$json$Json$Decode$string),
+			A2(
+			$elm$json$Json$Decode$andThen,
+			function (vals) {
+				return $elm$json$Json$Decode$succeed(
+					$author$project$Main$ResourceList(vals));
+			},
+			$elm$json$Json$Decode$list($elm$json$Json$Decode$string))
+		]));
 var $author$project$Main$SystemRequirements = F2(
 	function (instanceType, clusterSpec) {
 		return {clusterSpec: clusterSpec, instanceType: instanceType};
@@ -5908,8 +5941,8 @@ var $author$project$Main$decoderRegionalOptionsBody = A4(
 	A4(
 		$NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$optional,
 		'resources',
-		$elm$json$Json$Decode$string,
-		'',
+		$author$project$Main$decoderRegionOptionsResource,
+		$author$project$Main$ResourceString(''),
 		$elm$json$Json$Decode$succeed($author$project$Main$RegionalOptions)));
 var $author$project$Main$decoderRegionalOptions = $elm$json$Json$Decode$dict($author$project$Main$decoderRegionalOptionsBody);
 var $author$project$Main$RunSpec = F9(
@@ -5920,6 +5953,24 @@ var $author$project$Main$ExecDepends = F4(
 	function (name, packageManager, version, stages) {
 		return {name: name, packageManager: packageManager, stages: stages, version: version};
 	});
+var $author$project$Main$decoderExecDependsPackageManager = A2(
+	$elm$json$Json$Decode$andThen,
+	function (str) {
+		var _v0 = $elm$core$String$toLower(str);
+		switch (_v0) {
+			case 'cpan':
+				return $elm$json$Json$Decode$succeed($author$project$Main$Cpan);
+			case 'cran':
+				return $elm$json$Json$Decode$succeed($author$project$Main$Cran);
+			case 'gem':
+				return $elm$json$Json$Decode$succeed($author$project$Main$Gem);
+			case 'pip':
+				return $elm$json$Json$Decode$succeed($author$project$Main$Pip);
+			default:
+				return $elm$json$Json$Decode$succeed($author$project$Main$Apt);
+		}
+	},
+	$elm$json$Json$Decode$string);
 var $author$project$Main$decoderExecDepends = A4(
 	$NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$optional,
 	'stages',
@@ -5933,13 +5984,27 @@ var $author$project$Main$decoderExecDepends = A4(
 		A4(
 			$NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$optional,
 			'package_manager',
-			$elm$json$Json$Decode$string,
-			'apt',
+			$author$project$Main$decoderExecDependsPackageManager,
+			$author$project$Main$Apt,
 			A3(
 				$NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
 				'name',
 				$elm$json$Json$Decode$string,
 				$elm$json$Json$Decode$succeed($author$project$Main$ExecDepends)))));
+var $author$project$Main$decoderRunSpecInterpreter = A2(
+	$elm$json$Json$Decode$andThen,
+	function (str) {
+		var _v0 = $elm$core$String$toLower(str);
+		switch (_v0) {
+			case 'python2.7':
+				return $elm$json$Json$Decode$succeed($author$project$Main$Python27);
+			case 'python3':
+				return $elm$json$Json$Decode$succeed($author$project$Main$Python3);
+			default:
+				return $elm$json$Json$Decode$succeed($author$project$Main$Bash);
+		}
+	},
+	$elm$json$Json$Decode$string);
 var $author$project$Main$TimeoutPolicyTime = F2(
 	function (hours, minutes) {
 		return {hours: hours, minutes: minutes};
@@ -6013,7 +6078,7 @@ var $author$project$Main$decoderRunSpec = A4(
 								A3(
 									$NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$required,
 									'interpreter',
-									$elm$json$Json$Decode$string,
+									$author$project$Main$decoderRunSpecInterpreter,
 									$elm$json$Json$Decode$succeed($author$project$Main$RunSpec))))))))));
 var $author$project$Main$decoderApp = A4(
 	$NoRedInk$elm_json_decode_pipeline$Json$Decode$Pipeline$optional,
@@ -6332,6 +6397,30 @@ var $author$project$Main$encodeInputSpec = function (inputSpec) {
 				$elm$json$Json$Encode$string(inputSpec.group))
 			]));
 };
+var $author$project$Main$packageManagerToString = function (packageManager) {
+	switch (packageManager.$) {
+		case 'Apt':
+			return 'apt';
+		case 'Cpan':
+			return 'cpan';
+		case 'Cran':
+			return 'cran';
+		case 'Gem':
+			return 'gem';
+		default:
+			return 'pip';
+	}
+};
+var $author$project$Main$runSpecInterpreterToString = function (interpreter) {
+	switch (interpreter.$) {
+		case 'Bash':
+			return 'bash';
+		case 'Python27':
+			return 'python2.7';
+		default:
+			return 'python3';
+	}
+};
 var $author$project$Main$encodeApp = function (app) {
 	var encodeTimeoutPolicyTime = function (policy) {
 		return $elm$json$Json$Encode$object(
@@ -6381,7 +6470,8 @@ var $author$project$Main$encodeApp = function (app) {
 					$elm$json$Json$Encode$string(execDepends.name)),
 					_Utils_Tuple2(
 					'package_manager',
-					$elm$json$Json$Encode$string(execDepends.packageManager)),
+					$elm$json$Json$Encode$string(
+						$author$project$Main$packageManagerToString(execDepends.packageManager))),
 					_Utils_Tuple2(
 					'version',
 					$elm$json$Json$Encode$string(execDepends.version)),
@@ -6424,12 +6514,24 @@ var $author$project$Main$encodeApp = function (app) {
 				]));
 	};
 	var encodeRegionalOptions = function (opts) {
+		var resources = function () {
+			var _v0 = opts.resources;
+			if (_v0.$ === 'ResourceString') {
+				var s = _v0.a;
+				return A2(
+					$elm$json$Json$Encode$list,
+					$elm$json$Json$Encode$string,
+					_List_fromArray(
+						[s]));
+			} else {
+				var vals = _v0.a;
+				return A2($elm$json$Json$Encode$list, $elm$json$Json$Encode$string, vals);
+			}
+		}();
 		return $elm$json$Json$Encode$object(
 			_List_fromArray(
 				[
-					_Utils_Tuple2(
-					'resources',
-					$elm$json$Json$Encode$string(opts.resources)),
+					_Utils_Tuple2('resources', resources),
 					_Utils_Tuple2(
 					'systemRequirements',
 					A3($elm$json$Json$Encode$dict, $elm$core$Basics$identity, encodeSystemRequirements, opts.systemRequirements))
@@ -6440,7 +6542,8 @@ var $author$project$Main$encodeApp = function (app) {
 			[
 				_Utils_Tuple2(
 				'interpreter',
-				$elm$json$Json$Encode$string(app.runSpec.interpreter)),
+				$elm$json$Json$Encode$string(
+					$author$project$Main$runSpecInterpreterToString(app.runSpec.interpreter))),
 				_Utils_Tuple2(
 				'file',
 				$elm$json$Json$Encode$string(app.runSpec.file)),
@@ -6706,7 +6809,6 @@ var $author$project$Main$mkSortedUniqList = F2(
 							[newVal])))));
 	});
 var $elm$core$Basics$neq = _Utils_notEqual;
-var $elm$core$Basics$not = _Basics_not;
 var $elm$browser$Browser$Navigation$pushUrl = _Browser_pushUrl;
 var $elm$core$List$append = F2(
 	function (xs, ys) {
@@ -7345,7 +7447,7 @@ var $author$project$Main$update = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{editingSysReqHost: $elm$core$Maybe$Nothing, editingSysReqIndex: $elm$core$Maybe$Nothing, sysReqToModify: $elm$core$Maybe$Nothing}),
+						{editingSysReqHost: $elm$core$Maybe$Nothing, sysReqToModify: $elm$core$Maybe$Nothing}),
 					$elm$core$Platform$Cmd$none);
 			case 'CloseTimeoutPolicyDialog':
 				return _Utils_Tuple2(
@@ -7598,15 +7700,53 @@ var $author$project$Main$update = F2(
 						model,
 						{outputSpecToModify: newSpec}),
 					$elm$core$Platform$Cmd$none);
+			case 'DeleteRegionalOptionsResource':
+				var resource = msg.a;
+				var newOpts = A2(
+					$elm$core$Maybe$map,
+					function (_v2) {
+						var regionName = _v2.a;
+						var opts = _v2.b;
+						var curResources = function () {
+							var _v3 = opts.resources;
+							if (_v3.$ === 'ResourceString') {
+								var s = _v3.a;
+								return _List_fromArray(
+									[s]);
+							} else {
+								var vals = _v3.a;
+								return vals;
+							}
+						}();
+						var newResources = A2(
+							$elm$core$List$filter,
+							function (r) {
+								return !_Utils_eq(r, resource);
+							},
+							curResources);
+						return _Utils_Tuple2(
+							regionName,
+							_Utils_update(
+								opts,
+								{
+									resources: $author$project$Main$ResourceList(newResources)
+								}));
+					},
+					model.regionalOptionsToModify);
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{regionalOptionsToModify: newOpts}),
+					$elm$core$Platform$Cmd$none);
 			case 'DeleteRegionalOptions':
 				var regionName = msg.a;
 				var app = model.app;
 				var newOpts = $elm$core$Dict$fromList(
 					A2(
 						$elm$core$List$filter,
-						function (_v2) {
-							var regName = _v2.a;
-							var opt = _v2.b;
+						function (_v4) {
+							var regName = _v4.a;
+							var opt = _v4.b;
 							return !_Utils_eq(regName, regionName);
 						},
 						$elm$core$Dict$toList(app.regionalOptions)));
@@ -7721,18 +7861,17 @@ var $author$project$Main$update = F2(
 					$elm$core$Platform$Cmd$none);
 			case 'ModifySysReqDialog':
 				var entryPointName = msg.a;
-				var newSysReq = msg.b;
-				var index = msg.c;
+				var regionName = msg.b;
+				var newSysReq = msg.c;
 				var instanceType = newSysReq.instanceType;
-				var newHost = A2($elm$core$String$contains, 'gpu', instanceType) ? $author$project$Main$Gpu : (A2($elm$core$String$contains, 'azure', instanceType) ? $author$project$Main$Azure : $author$project$Main$Aws);
+				var newHost = A2($elm$core$String$contains, 'azure', instanceType) ? $author$project$Main$Azure : $author$project$Main$Aws;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
 						{
 							editingSysReqHost: $elm$core$Maybe$Just(newHost),
-							editingSysReqIndex: index,
 							sysReqToModify: $elm$core$Maybe$Just(
-								_Utils_Tuple2(entryPointName, newSysReq))
+								_Utils_Tuple3(entryPointName, regionName, newSysReq))
 						}),
 					$elm$core$Platform$Cmd$none);
 			case 'ModifyTimeoutPolicyDialog':
@@ -7752,16 +7891,16 @@ var $author$project$Main$update = F2(
 				var app = model.app;
 				var runSpec = app.runSpec;
 				var newExecDepends = function () {
-					var _v4 = model.execDependsToModify;
-					if (_v4.$ === 'Just') {
-						var val = _v4.a;
-						var _v5 = model.editingExecDependsIndex;
-						if (_v5.$ === 'Just') {
-							var i = _v5.a;
+					var _v6 = model.execDependsToModify;
+					if (_v6.$ === 'Just') {
+						var val = _v6.a;
+						var _v7 = model.editingExecDependsIndex;
+						if (_v7.$ === 'Just') {
+							var i = _v7.a;
 							return A3(
 								$elm_community$list_extra$List$Extra$updateAt,
 								i,
-								function (_v6) {
+								function (_v8) {
 									return val;
 								},
 								runSpec.execDepends);
@@ -7792,11 +7931,11 @@ var $author$project$Main$update = F2(
 				};
 				var curDefault = model.inputSpecToModifyDefault;
 				var convertedDefault = function () {
-					var _v10 = model.inputSpecToModify;
-					if (_v10.$ === 'Just') {
-						var spec = _v10.a;
-						var _v11 = spec._class;
-						switch (_v11.$) {
+					var _v12 = model.inputSpecToModify;
+					if (_v12.$ === 'Just') {
+						var spec = _v12.a;
+						var _v13 = spec._class;
+						switch (_v13.$) {
 							case 'InputSpecBool':
 								return $elm$core$Maybe$Just(
 									$author$project$Main$DefaultValBool(
@@ -7824,10 +7963,10 @@ var $author$project$Main$update = F2(
 					}
 				}();
 				var app = model.app;
-				var _v7 = function () {
-					var _v8 = model.inputSpecToModify;
-					if (_v8.$ === 'Just') {
-						var inputSpecToModify = _v8.a;
+				var _v9 = function () {
+					var _v10 = model.inputSpecToModify;
+					if (_v10.$ === 'Just') {
+						var inputSpecToModify = _v10.a;
 						if (convertedDefault.$ === 'Just') {
 							var def = convertedDefault.a;
 							return _Utils_Tuple2(
@@ -7845,8 +7984,8 @@ var $author$project$Main$update = F2(
 						return _Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing);
 					}
 				}();
-				var newInputSpec = _v7.a;
-				var newErr = _v7.b;
+				var newInputSpec = _v9.a;
+				var newErr = _v9.b;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
@@ -7855,16 +7994,16 @@ var $author$project$Main$update = F2(
 			case 'SaveInputSpec':
 				var app = model.app;
 				var newInputSpec = function () {
-					var _v12 = model.inputSpecToModify;
-					if (_v12.$ === 'Just') {
-						var spec = _v12.a;
-						var _v13 = model.editingInputSpecIndex;
-						if (_v13.$ === 'Just') {
-							var i = _v13.a;
+					var _v14 = model.inputSpecToModify;
+					if (_v14.$ === 'Just') {
+						var spec = _v14.a;
+						var _v15 = model.editingInputSpecIndex;
+						if (_v15.$ === 'Just') {
+							var i = _v15.a;
 							return A3(
 								$elm_community$list_extra$List$Extra$updateAt,
 								i,
-								function (_v14) {
+								function (_v16) {
 									return spec;
 								},
 								app.inputSpec);
@@ -7889,16 +8028,16 @@ var $author$project$Main$update = F2(
 			case 'SaveOutputSpec':
 				var app = model.app;
 				var newOutputSpec = function () {
-					var _v15 = model.outputSpecToModify;
-					if (_v15.$ === 'Just') {
-						var spec = _v15.a;
-						var _v16 = model.editingOutputSpecIndex;
-						if (_v16.$ === 'Just') {
-							var i = _v16.a;
+					var _v17 = model.outputSpecToModify;
+					if (_v17.$ === 'Just') {
+						var spec = _v17.a;
+						var _v18 = model.editingOutputSpecIndex;
+						if (_v18.$ === 'Just') {
+							var i = _v18.a;
 							return A3(
 								$elm_community$list_extra$List$Extra$updateAt,
 								i,
-								function (_v17) {
+								function (_v19) {
 									return spec;
 								},
 								app.outputSpec);
@@ -7923,17 +8062,17 @@ var $author$project$Main$update = F2(
 			case 'SaveRegionalOptions':
 				var app = model.app;
 				var curOpts = app.regionalOptions;
-				var _v18 = function () {
-					var _v19 = model.regionalOptionsToModify;
-					if (_v19.$ === 'Just') {
-						var _v20 = _v19.a;
-						var regionName = _v20.a;
-						var opt = _v20.b;
+				var _v20 = function () {
+					var _v21 = model.regionalOptionsToModify;
+					if (_v21.$ === 'Just') {
+						var _v22 = _v21.a;
+						var regionName = _v22.a;
+						var opt = _v22.b;
 						return _Utils_Tuple2(
 							A3(
 								$elm$core$Dict$update,
 								regionName,
-								function (_v21) {
+								function (_v23) {
 									return $elm$core$Maybe$Just(opt);
 								},
 								curOpts),
@@ -7942,8 +8081,8 @@ var $author$project$Main$update = F2(
 						return _Utils_Tuple2(curOpts, model.regionalOptionsToModify);
 					}
 				}();
-				var newOpts = _v18.a;
-				var editingOpt = _v18.b;
+				var newOpts = _v20.a;
+				var editingOpt = _v20.b;
 				var newApp = _Utils_update(
 					app,
 					{regionalOptions: newOpts});
@@ -7952,68 +8091,106 @@ var $author$project$Main$update = F2(
 						model,
 						{app: newApp, regionalOptionsToModify: editingOpt}),
 					$elm$core$Platform$Cmd$none);
-			case 'SaveSysReq':
+			case 'SaveSysReqToRunSpec':
 				var app = model.app;
 				var runSpec = app.runSpec;
-				var sysReqs = $elm$core$Dict$toList(runSpec.systemRequirements);
-				var newSysReq = function () {
-					var _v22 = model.sysReqToModify;
-					if (_v22.$ === 'Just') {
-						var _v23 = _v22.a;
-						var entryPointName = _v23.a;
-						var req = _v23.b;
-						var _v24 = model.editingSysReqIndex;
-						if (_v24.$ === 'Just') {
-							var i = _v24.a;
-							return A3(
-								$elm_community$list_extra$List$Extra$updateAt,
-								i,
-								function (_v25) {
-									return _Utils_Tuple2(entryPointName, req);
+				var sysReqs = runSpec.systemRequirements;
+				var _v24 = function () {
+					var _v25 = model.sysReqToModify;
+					if (_v25.$ === 'Just') {
+						var _v26 = _v25.a;
+						var entryPointName = _v26.a;
+						var req = _v26.c;
+						return _Utils_Tuple2(
+							A3(
+								$elm$core$Dict$update,
+								entryPointName,
+								function (_v27) {
+									return $elm$core$Maybe$Just(req);
 								},
-								sysReqs);
-						} else {
-							return _Utils_ap(
-								sysReqs,
-								_List_fromArray(
-									[
-										_Utils_Tuple2(entryPointName, req)
-									]));
-						}
+								sysReqs),
+							$elm$core$Maybe$Nothing);
 					} else {
-						return sysReqs;
+						return _Utils_Tuple2(sysReqs, model.sysReqToModify);
 					}
 				}();
+				var newSysReq = _v24.a;
+				var newEditingSysReq = _v24.b;
 				var newRunSpec = _Utils_update(
 					runSpec,
-					{
-						systemRequirements: $elm$core$Dict$fromList(newSysReq)
-					});
+					{systemRequirements: newSysReq});
 				var newApp = _Utils_update(
 					app,
 					{runSpec: newRunSpec});
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{app: newApp, editingSysReqIndex: $elm$core$Maybe$Nothing, sysReqToModify: $elm$core$Maybe$Nothing}),
+						{app: newApp, sysReqToModify: newEditingSysReq}),
+					$elm$core$Platform$Cmd$none);
+			case 'SaveSysReqToRegionalOptions':
+				var regionName = msg.a;
+				var app = model.app;
+				var _v28 = function () {
+					var _v29 = model.sysReqToModify;
+					if (_v29.$ === 'Just') {
+						var _v30 = _v29.a;
+						var entryPointName = _v30.a;
+						var editingSysReq = _v30.c;
+						var _v31 = A2($elm$core$Dict$get, regionName, app.regionalOptions);
+						if (_v31.$ === 'Just') {
+							var regionalOptions = _v31.a;
+							var newSysReqs = A3(
+								$elm$core$Dict$update,
+								entryPointName,
+								function (_v33) {
+									return $elm$core$Maybe$Just(editingSysReq);
+								},
+								regionalOptions.systemRequirements);
+							var newOpts = _Utils_update(
+								regionalOptions,
+								{systemRequirements: newSysReqs});
+							var newRegOptsDict = A3(
+								$elm$core$Dict$update,
+								regionName,
+								function (_v32) {
+									return $elm$core$Maybe$Just(newOpts);
+								},
+								app.regionalOptions);
+							return _Utils_Tuple2(newRegOptsDict, $elm$core$Maybe$Nothing);
+						} else {
+							return _Utils_Tuple2(app.regionalOptions, model.sysReqToModify);
+						}
+					} else {
+						return _Utils_Tuple2(app.regionalOptions, model.sysReqToModify);
+					}
+				}();
+				var newRegionalOptions = _v28.a;
+				var newEditingSysReq = _v28.b;
+				var newApp = _Utils_update(
+					app,
+					{regionalOptions: newRegionalOptions});
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{app: newApp, sysReqToModify: newEditingSysReq}),
 					$elm$core$Platform$Cmd$none);
 			case 'SaveTimeoutPolicy':
 				var app = model.app;
 				var runSpec = app.runSpec;
 				var timeoutPolicy = $elm$core$Dict$toList(runSpec.timeoutPolicy);
 				var newTimeoutPolicy = function () {
-					var _v26 = model.timeoutPolicyToModify;
-					if (_v26.$ === 'Just') {
-						var _v27 = _v26.a;
-						var entryPointName = _v27.a;
-						var policy = _v27.b;
-						var _v28 = model.editingTimeoutPolicyIndex;
-						if (_v28.$ === 'Just') {
-							var i = _v28.a;
+					var _v34 = model.timeoutPolicyToModify;
+					if (_v34.$ === 'Just') {
+						var _v35 = _v34.a;
+						var entryPointName = _v35.a;
+						var policy = _v35.b;
+						var _v36 = model.editingTimeoutPolicyIndex;
+						if (_v36.$ === 'Just') {
+							var i = _v36.a;
 							return A3(
 								$elm_community$list_extra$List$Extra$updateAt,
 								i,
-								function (_v29) {
+								function (_v37) {
 									return _Utils_Tuple2(entryPointName, policy);
 								},
 								timeoutPolicy);
@@ -8044,10 +8221,10 @@ var $author$project$Main$update = F2(
 					$elm$core$Platform$Cmd$none);
 			case 'SetExecDependsToModify':
 				var index = msg.a;
-				var _v30 = function () {
-					var _v31 = A2($elm_community$list_extra$List$Extra$getAt, index, model.app.runSpec.execDepends);
-					if (_v31.$ === 'Just') {
-						var val = _v31.a;
+				var _v38 = function () {
+					var _v39 = A2($elm_community$list_extra$List$Extra$getAt, index, model.app.runSpec.execDepends);
+					if (_v39.$ === 'Just') {
+						var val = _v39.a;
 						return _Utils_Tuple2(
 							$elm$core$Maybe$Just(val),
 							$elm$core$Maybe$Just(index));
@@ -8055,8 +8232,8 @@ var $author$project$Main$update = F2(
 						return _Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing);
 					}
 				}();
-				var newExecDepends = _v30.a;
-				var indexValue = _v30.b;
+				var newExecDepends = _v38.a;
+				var indexValue = _v38.b;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
@@ -8064,10 +8241,10 @@ var $author$project$Main$update = F2(
 					$elm$core$Platform$Cmd$none);
 			case 'SetInputSpecToModify':
 				var index = msg.a;
-				var _v32 = function () {
-					var _v33 = A2($elm_community$list_extra$List$Extra$getAt, index, model.app.inputSpec);
-					if (_v33.$ === 'Just') {
-						var val = _v33.a;
+				var _v40 = function () {
+					var _v41 = A2($elm_community$list_extra$List$Extra$getAt, index, model.app.inputSpec);
+					if (_v41.$ === 'Just') {
+						var val = _v41.a;
 						return _Utils_Tuple2(
 							$elm$core$Maybe$Just(val),
 							$elm$core$Maybe$Just(index));
@@ -8075,8 +8252,8 @@ var $author$project$Main$update = F2(
 						return _Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing);
 					}
 				}();
-				var newInputSpec = _v32.a;
-				var indexValue = _v32.b;
+				var newInputSpec = _v40.a;
+				var indexValue = _v40.b;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
@@ -8084,10 +8261,10 @@ var $author$project$Main$update = F2(
 					$elm$core$Platform$Cmd$none);
 			case 'SetOutputSpecToModify':
 				var index = msg.a;
-				var _v34 = function () {
-					var _v35 = A2($elm_community$list_extra$List$Extra$getAt, index, model.app.outputSpec);
-					if (_v35.$ === 'Just') {
-						var val = _v35.a;
+				var _v42 = function () {
+					var _v43 = A2($elm_community$list_extra$List$Extra$getAt, index, model.app.outputSpec);
+					if (_v43.$ === 'Just') {
+						var val = _v43.a;
 						return _Utils_Tuple2(
 							$elm$core$Maybe$Just(val),
 							$elm$core$Maybe$Just(index));
@@ -8095,8 +8272,8 @@ var $author$project$Main$update = F2(
 						return _Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing);
 					}
 				}();
-				var newOutputSpec = _v34.a;
-				var indexValue = _v34.b;
+				var newOutputSpec = _v42.a;
+				var indexValue = _v42.b;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
@@ -8115,34 +8292,42 @@ var $author$project$Main$update = F2(
 						model,
 						{regionalOptionsToModify: optToModify}),
 					$elm$core$Platform$Cmd$none);
-			case 'SetSysReqToModify':
-				var index = msg.a;
-				var sysReqs = $elm$core$Dict$toList(model.app.runSpec.systemRequirements);
-				var _v36 = function () {
-					var _v37 = A2($elm_community$list_extra$List$Extra$getAt, index, sysReqs);
-					if (_v37.$ === 'Just') {
-						var val = _v37.a;
-						return _Utils_Tuple2(
-							$elm$core$Maybe$Just(val),
-							$elm$core$Maybe$Just(index));
-					} else {
-						return _Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing);
-					}
-				}();
-				var newSysReq = _v36.a;
-				var indexValue = _v36.b;
+			case 'SetRegionalOptionsSysReqToModify':
+				var regionName = msg.a;
+				var entryPointName = msg.b;
+				var sysReq = msg.c;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{editingSysReqIndex: indexValue, sysReqToModify: newSysReq}),
+						{
+							sysReqToModify: $elm$core$Maybe$Just(
+								_Utils_Tuple3(
+									entryPointName,
+									$elm$core$Maybe$Just(regionName),
+									sysReq))
+						}),
+					$elm$core$Platform$Cmd$none);
+			case 'SetRunSpecSysReqToModify':
+				var entryPointName = msg.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{
+							sysReqToModify: A2(
+								$elm$core$Maybe$map,
+								function (val) {
+									return _Utils_Tuple3(entryPointName, $elm$core$Maybe$Nothing, val);
+								},
+								A2($elm$core$Dict$get, entryPointName, model.app.runSpec.systemRequirements))
+						}),
 					$elm$core$Platform$Cmd$none);
 			case 'SetTimeoutPolicyToModify':
 				var index = msg.a;
 				var policies = $elm$core$Dict$toList(model.app.runSpec.timeoutPolicy);
-				var _v38 = function () {
-					var _v39 = A2($elm_community$list_extra$List$Extra$getAt, index, policies);
-					if (_v39.$ === 'Just') {
-						var val = _v39.a;
+				var _v44 = function () {
+					var _v45 = A2($elm_community$list_extra$List$Extra$getAt, index, policies);
+					if (_v45.$ === 'Just') {
+						var val = _v45.a;
 						return _Utils_Tuple2(
 							$elm$core$Maybe$Just(val),
 							$elm$core$Maybe$Just(index));
@@ -8150,8 +8335,8 @@ var $author$project$Main$update = F2(
 						return _Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing);
 					}
 				}();
-				var newTimeoutPolicy = _v38.a;
-				var indexValue = _v38.b;
+				var newTimeoutPolicy = _v44.a;
+				var indexValue = _v44.b;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
@@ -8173,12 +8358,13 @@ var $author$project$Main$update = F2(
 						model,
 						{tabState: state}),
 					$elm$core$Platform$Cmd$none);
-			case 'ToggleAccessSpecDeveloper':
+			case 'UpdateAccessSpecDeveloper':
+				var val = msg.a;
 				var app = model.app;
 				var access = app.access;
 				var newAccess = _Utils_update(
 					access,
-					{developer: !access.developer});
+					{developer: val});
 				var newApp = _Utils_update(
 					app,
 					{access: newAccess});
@@ -8187,12 +8373,13 @@ var $author$project$Main$update = F2(
 						model,
 						{app: newApp}),
 					$elm$core$Platform$Cmd$none);
-			case 'ToggleAccessSpecProjectCreation':
+			case 'UpdateAccessSpecProjectCreation':
+				var val = msg.a;
 				var app = model.app;
 				var access = app.access;
 				var newAccess = _Utils_update(
 					access,
-					{projectCreation: !access.projectCreation});
+					{projectCreation: val});
 				var newApp = _Utils_update(
 					app,
 					{access: newAccess});
@@ -8201,15 +8388,16 @@ var $author$project$Main$update = F2(
 						model,
 						{app: newApp}),
 					$elm$core$Platform$Cmd$none);
-			case 'ToggleInputSpecOptional':
+			case 'UpdateInputSpecOptional':
+				var val = msg.a;
 				var newInputSpecToModify = function () {
-					var _v40 = model.inputSpecToModify;
-					if (_v40.$ === 'Just') {
-						var spec = _v40.a;
+					var _v46 = model.inputSpecToModify;
+					if (_v46.$ === 'Just') {
+						var spec = _v46.a;
 						return $elm$core$Maybe$Just(
 							_Utils_update(
 								spec,
-								{optional: !spec.optional}));
+								{optional: val}));
 					} else {
 						return $elm$core$Maybe$Nothing;
 					}
@@ -8269,22 +8457,18 @@ var $author$project$Main$update = F2(
 			case 'UpdateAppAddCustomCategory':
 				var customCat = $elm$core$String$trim(model.customCategory);
 				var app = model.app;
-				var _v41 = function () {
-					var _v42 = !$elm$core$String$length(customCat);
-					if (_v42) {
+				var _v47 = function () {
+					var _v48 = $elm$core$String$isEmpty(customCat);
+					if (_v48) {
 						return _Utils_Tuple2(customCat, app.categories);
 					} else {
 						return _Utils_Tuple2(
 							'',
-							$elm$core$List$sort(
-								_Utils_ap(
-									app.categories,
-									_List_fromArray(
-										[customCat]))));
+							A2($author$project$Main$mkSortedUniqList, app.categories, customCat));
 					}
 				}();
-				var newCustomCat = _v41.a;
-				var newCats = _v41.b;
+				var newCustomCat = _v47.a;
+				var newCats = _v47.b;
 				var newApp = _Utils_update(
 					app,
 					{categories: newCats});
@@ -8353,15 +8537,11 @@ var $author$project$Main$update = F2(
 				var newCat = msg.a;
 				var app = model.app;
 				var newCats = function () {
-					var _v43 = A2($elm$core$String$startsWith, '--', newCat);
-					if (_v43) {
+					var _v49 = A2($elm$core$String$startsWith, '--', newCat);
+					if (_v49) {
 						return app.categories;
 					} else {
-						return $elm$core$List$sort(
-							_Utils_ap(
-								app.categories,
-								_List_fromArray(
-									[newCat])));
+						return A2($author$project$Main$mkSortedUniqList, app.categories, newCat);
 					}
 				}();
 				var newApp = _Utils_update(
@@ -8406,9 +8586,9 @@ var $author$project$Main$update = F2(
 					$elm$regex$Regex$never,
 					$elm$regex$Regex$fromString('[^a-z0-9_]'));
 				var app = model.app;
-				var _v44 = function () {
-					var _v45 = A2($elm$regex$Regex$contains, badChars, newVal);
-					if (_v45) {
+				var _v50 = function () {
+					var _v51 = A2($elm$regex$Regex$contains, badChars, newVal);
+					if (_v51) {
 						return _Utils_Tuple2(
 							app.name,
 							$elm$core$Maybe$Just('Disallowed character in name'));
@@ -8416,8 +8596,8 @@ var $author$project$Main$update = F2(
 						return _Utils_Tuple2(newVal, $elm$core$Maybe$Nothing);
 					}
 				}();
-				var newName = _v44.a;
-				var err = _v44.b;
+				var newName = _v50.a;
+				var err = _v50.b;
 				var newApp = _Utils_update(
 					app,
 					{name: newName});
@@ -8462,8 +8642,8 @@ var $author$project$Main$update = F2(
 			case 'UpdateAppVersion':
 				var val = msg.a;
 				var error = function () {
-					var _v46 = $author$project$Main$isSemanticVersion(val);
-					if (_v46) {
+					var _v52 = $author$project$Main$isSemanticVersion(val);
+					if (_v52) {
 						return $elm$core$Maybe$Nothing;
 					} else {
 						return $elm$core$Maybe$Just('Not a semantic version');
@@ -8509,9 +8689,9 @@ var $author$project$Main$update = F2(
 			case 'UpdateExecDependsName':
 				var val = msg.a;
 				var newExecDependsToModify = function () {
-					var _v47 = model.execDependsToModify;
-					if (_v47.$ === 'Just') {
-						var execDependsToModify = _v47.a;
+					var _v53 = model.execDependsToModify;
+					if (_v53.$ === 'Just') {
+						var execDependsToModify = _v53.a;
 						return $elm$core$Maybe$Just(
 							_Utils_update(
 								execDependsToModify,
@@ -8527,14 +8707,28 @@ var $author$project$Main$update = F2(
 					$elm$core$Platform$Cmd$none);
 			case 'UpdateExecDependsPackageManager':
 				var val = msg.a;
+				var newPackageManager = function () {
+					switch (val) {
+						case 'cpan':
+							return $author$project$Main$Cpan;
+						case 'cran':
+							return $author$project$Main$Cran;
+						case 'gem':
+							return $author$project$Main$Gem;
+						case 'pip':
+							return $author$project$Main$Pip;
+						default:
+							return $author$project$Main$Apt;
+					}
+				}();
 				var newExecDependsToModify = function () {
-					var _v48 = model.execDependsToModify;
-					if (_v48.$ === 'Just') {
-						var execDependsToModify = _v48.a;
+					var _v54 = model.execDependsToModify;
+					if (_v54.$ === 'Just') {
+						var execDependsToModify = _v54.a;
 						return $elm$core$Maybe$Just(
 							_Utils_update(
 								execDependsToModify,
-								{packageManager: val}));
+								{packageManager: newPackageManager}));
 					} else {
 						return $elm$core$Maybe$Nothing;
 					}
@@ -8547,9 +8741,9 @@ var $author$project$Main$update = F2(
 			case 'UpdateExecDependsVersion':
 				var val = msg.a;
 				var newExecDependsToModify = function () {
-					var _v49 = model.execDependsToModify;
-					if (_v49.$ === 'Just') {
-						var execDependsToModify = _v49.a;
+					var _v56 = model.execDependsToModify;
+					if (_v56.$ === 'Just') {
+						var execDependsToModify = _v56.a;
 						return $elm$core$Maybe$Just(
 							_Utils_update(
 								execDependsToModify,
@@ -8563,26 +8757,15 @@ var $author$project$Main$update = F2(
 						model,
 						{execDependsToModify: newExecDependsToModify}),
 					$elm$core$Platform$Cmd$none);
-			case 'UpdateHttpsAppPort':
-				var val = msg.a;
-				var newPort = $elm$core$String$toInt(
-					$elm$core$String$trim(val));
-				return _Utils_Tuple2(
-					_Utils_update(
-						model,
-						{httpsAppPort: newPort}),
-					$elm$core$Platform$Cmd$none);
 			case 'UpdateHttpsAppAddPort':
+				var val = msg.a;
 				var app = model.app;
 				var httpsApp = app.httpsApp;
 				var newPorts = function () {
-					var _v50 = model.httpsAppPort;
-					if (_v50.$ === 'Just') {
-						var newPort = _v50.a;
-						return _Utils_ap(
-							httpsApp.ports,
-							_List_fromArray(
-								[newPort]));
+					var _v57 = $elm$core$String$toInt(val);
+					if (_v57.$ === 'Just') {
+						var newPort = _v57.a;
+						return A2($author$project$Main$mkSortedUniqList, httpsApp.ports, newPort);
 					} else {
 						return httpsApp.ports;
 					}
@@ -8623,14 +8806,14 @@ var $author$project$Main$update = F2(
 				var cleaned = A3(
 					$elm$regex$Regex$replace,
 					notAllowed,
-					function (_v52) {
+					function (_v59) {
 						return '';
 					},
 					newName);
 				var newInputSpecToModify = function () {
-					var _v51 = model.inputSpecToModify;
-					if (_v51.$ === 'Just') {
-						var spec = _v51.a;
+					var _v58 = model.inputSpecToModify;
+					if (_v58.$ === 'Just') {
+						var spec = _v58.a;
 						return $elm$core$Maybe$Just(
 							_Utils_update(
 								spec,
@@ -8646,32 +8829,43 @@ var $author$project$Main$update = F2(
 					$elm$core$Platform$Cmd$none);
 			case 'UpdateInputSpecClass':
 				var val = msg.a;
-				var _v53 = function () {
+				var _v60 = function () {
 					switch (val) {
 						case 'int':
-							return _Utils_Tuple2($author$project$Main$InputSpecInt, '0');
+							return _Utils_Tuple2(
+								$author$project$Main$InputSpecInt,
+								$author$project$Main$DefaultValInt(0));
 						case 'float':
-							return _Utils_Tuple2($author$project$Main$InputSpecFloat, '0.0');
+							return _Utils_Tuple2(
+								$author$project$Main$InputSpecFloat,
+								$author$project$Main$DefaultValFloat(0.0));
 						case 'boolean':
-							return _Utils_Tuple2($author$project$Main$InputSpecBool, 'False');
+							return _Utils_Tuple2(
+								$author$project$Main$InputSpecBool,
+								$author$project$Main$DefaultValBool(false));
 						default:
-							return _Utils_Tuple2($author$project$Main$InputSpecString, '');
+							return _Utils_Tuple2(
+								$author$project$Main$InputSpecString,
+								$author$project$Main$DefaultValString(''));
 					}
 				}();
-				var newType = _v53.a;
-				var newDefaultValue = _v53.b;
+				var newType = _v60.a;
+				var newDefaultValue = _v60.b;
 				var newInputSpecToModify = A2(
 					$elm$core$Maybe$map,
 					function (spec) {
 						return _Utils_update(
 							spec,
-							{_class: newType});
+							{_class: newType, _default: newDefaultValue});
 					},
 					model.inputSpecToModify);
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{inputSpecToModify: newInputSpecToModify, inputSpecToModifyDefault: newDefaultValue}),
+						{
+							inputSpecToModify: newInputSpecToModify,
+							inputSpecToModifyDefault: $author$project$Main$defaultValueToString(newDefaultValue)
+						}),
 					$elm$core$Platform$Cmd$none);
 			case 'UpdateInputSpecDefault':
 				var val = msg.a;
@@ -8683,9 +8877,9 @@ var $author$project$Main$update = F2(
 			case 'UpdateInputSpecHelp':
 				var val = msg.a;
 				var newInputSpecToModify = function () {
-					var _v55 = model.inputSpecToModify;
-					if (_v55.$ === 'Just') {
-						var spec = _v55.a;
+					var _v62 = model.inputSpecToModify;
+					if (_v62.$ === 'Just') {
+						var spec = _v62.a;
 						return $elm$core$Maybe$Just(
 							_Utils_update(
 								spec,
@@ -8891,14 +9085,14 @@ var $author$project$Main$update = F2(
 				var cleaned = A3(
 					$elm$regex$Regex$replace,
 					notAllowed,
-					function (_v57) {
+					function (_v64) {
 						return '';
 					},
 					newName);
 				var newOutputSpecToModify = function () {
-					var _v56 = model.outputSpecToModify;
-					if (_v56.$ === 'Just') {
-						var spec = _v56.a;
+					var _v63 = model.outputSpecToModify;
+					if (_v63.$ === 'Just') {
+						var spec = _v63.a;
 						return $elm$core$Maybe$Just(
 							_Utils_update(
 								spec,
@@ -8916,9 +9110,9 @@ var $author$project$Main$update = F2(
 				var val = msg.a;
 				var newOpts = A2(
 					$elm$core$Maybe$map,
-					function (_v58) {
-						var regionName = _v58.a;
-						var opts = _v58.b;
+					function (_v65) {
+						var regionName = _v65.a;
+						var opts = _v65.b;
 						return _Utils_Tuple2(val, opts);
 					},
 					model.regionalOptionsToModify);
@@ -8927,32 +9121,64 @@ var $author$project$Main$update = F2(
 						model,
 						{regionalOptionsToModify: newOpts}),
 					$elm$core$Platform$Cmd$none);
-			case 'UpdateRegionalOptionsResources':
+			case 'UpdateRegionalOptionsResource':
 				var val = msg.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{regionalOptionsResource: val}),
+					$elm$core$Platform$Cmd$none);
+			case 'UpdateRegionalOptionsAddResource':
 				var newOpts = A2(
 					$elm$core$Maybe$map,
-					function (_v59) {
-						var regionName = _v59.a;
-						var opts = _v59.b;
+					function (_v66) {
+						var regionName = _v66.a;
+						var opts = _v66.b;
+						var curResources = function () {
+							var _v67 = opts.resources;
+							if (_v67.$ === 'ResourceString') {
+								var s = _v67.a;
+								return _List_fromArray(
+									[s]);
+							} else {
+								var vals = _v67.a;
+								return vals;
+							}
+						}();
+						var newResources = $author$project$Main$ResourceList(
+							_Utils_ap(
+								curResources,
+								_List_fromArray(
+									[model.regionalOptionsResource])));
 						return _Utils_Tuple2(
 							regionName,
 							_Utils_update(
 								opts,
-								{resources: val}));
+								{resources: newResources}));
 					},
 					model.regionalOptionsToModify);
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{regionalOptionsToModify: newOpts}),
+						{regionalOptionsResource: '', regionalOptionsToModify: newOpts}),
 					$elm$core$Platform$Cmd$none);
 			case 'UpdateRunSpecInterpreter':
 				var val = msg.a;
+				var newInterpreter = function () {
+					switch (val) {
+						case 'python2.7':
+							return $author$project$Main$Python27;
+						case 'python3':
+							return $author$project$Main$Python3;
+						default:
+							return $author$project$Main$Bash;
+					}
+				}();
 				var app = model.app;
 				var runSpec = app.runSpec;
 				var newRunSpec = _Utils_update(
 					runSpec,
-					{interpreter: val});
+					{interpreter: newInterpreter});
 				var newApp = _Utils_update(
 					app,
 					{runSpec: newRunSpec});
@@ -8982,7 +9208,7 @@ var $author$project$Main$update = F2(
 				var runSpec = app.runSpec;
 				var newRunSpec = _Utils_update(
 					runSpec,
-					{release: val});
+					{interpreter: $author$project$Main$Bash, release: val});
 				var newApp = _Utils_update(
 					app,
 					{runSpec: newRunSpec});
@@ -9036,35 +9262,67 @@ var $author$project$Main$update = F2(
 						model,
 						{app: newApp}),
 					$elm$core$Platform$Cmd$none);
+			case 'UpdateSysReqMinGpus':
+				var val = msg.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{
+							editingSysReqMinGpus: A2(
+								$elm$core$Maybe$withDefault,
+								0,
+								$elm$core$String$toInt(val))
+						}),
+					$elm$core$Platform$Cmd$none);
+			case 'UpdateSysReqMinCores':
+				var val = msg.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{
+							editingSysReqMinCores: A2(
+								$elm$core$Maybe$withDefault,
+								0,
+								$elm$core$String$toInt(val))
+						}),
+					$elm$core$Platform$Cmd$none);
+			case 'UpdateSysReqMinMemory':
+				var val = msg.a;
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{
+							editingSysReqMinMemory: A2(
+								$elm$core$Maybe$withDefault,
+								0,
+								$elm$core$String$toInt(val))
+						}),
+					$elm$core$Platform$Cmd$none);
 			case 'UpdateSysReqHost':
 				var val = msg.a;
 				var newHost = function () {
-					switch (val) {
-						case 'Azure':
-							return $author$project$Main$Azure;
-						case 'GPU':
-							return $author$project$Main$Gpu;
-						default:
-							return $author$project$Main$Aws;
+					if (val === 'Azure') {
+						return $author$project$Main$Azure;
+					} else {
+						return $author$project$Main$Aws;
 					}
 				}();
 				var newInstanceType = function () {
-					switch (newHost.$) {
-						case 'Aws':
-							return 'mem2_hdd2_x2';
-						case 'Azure':
-							return 'azure:mem1_ssd1_x2';
-						default:
-							return 'mem1_ssd1_gpu2_x8';
+					if (newHost.$ === 'Aws') {
+						return 'mem2_hdd2_x2';
+					} else {
+						return 'azure:mem1_ssd1_x2';
 					}
 				}();
 				var newSysReq = A2(
 					$elm$core$Maybe$map,
-					function (_v60) {
-						var entryPointName = _v60.a;
-						var sysReq = _v60.b;
-						return _Utils_Tuple2(
+					function (_v69) {
+						var entryPointName = _v69.a;
+						var regionName = _v69.b;
+						var sysReq = _v69.c;
+						return _Utils_Tuple3(
 							entryPointName,
+							regionName,
 							_Utils_update(
 								sysReq,
 								{instanceType: newInstanceType}));
@@ -9082,10 +9340,11 @@ var $author$project$Main$update = F2(
 				var val = msg.a;
 				var newSysReq = A2(
 					$elm$core$Maybe$map,
-					function (_v63) {
-						var entryPointName = _v63.a;
-						var sysReq = _v63.b;
-						return _Utils_Tuple2(val, sysReq);
+					function (_v72) {
+						var entryPointName = _v72.a;
+						var regionName = _v72.b;
+						var sysReq = _v72.c;
+						return _Utils_Tuple3(val, regionName, sysReq);
 					},
 					model.sysReqToModify);
 				return _Utils_Tuple2(
@@ -9097,11 +9356,13 @@ var $author$project$Main$update = F2(
 				var val = msg.a;
 				var newSysReq = A2(
 					$elm$core$Maybe$map,
-					function (_v64) {
-						var entryPointName = _v64.a;
-						var sysReq = _v64.b;
-						return _Utils_Tuple2(
+					function (_v73) {
+						var entryPointName = _v73.a;
+						var regionName = _v73.b;
+						var sysReq = _v73.c;
+						return _Utils_Tuple3(
 							entryPointName,
+							regionName,
 							_Utils_update(
 								sysReq,
 								{instanceType: val}));
@@ -9116,15 +9377,17 @@ var $author$project$Main$update = F2(
 				var val = msg.a;
 				var newSysReq = A2(
 					$elm$core$Maybe$map,
-					function (_v65) {
-						var entryPointName = _v65.a;
-						var sysReq = _v65.b;
+					function (_v74) {
+						var entryPointName = _v74.a;
+						var regionName = _v74.b;
+						var sysReq = _v74.c;
 						var clusterSpec = sysReq.clusterSpec;
 						var newClusterSpec = _Utils_update(
 							clusterSpec,
 							{type_: val, version: ''});
-						return _Utils_Tuple2(
+						return _Utils_Tuple3(
 							entryPointName,
+							regionName,
 							_Utils_update(
 								sysReq,
 								{clusterSpec: newClusterSpec}));
@@ -9143,15 +9406,17 @@ var $author$project$Main$update = F2(
 					$elm$core$String$toInt(val));
 				var newSysReq = A2(
 					$elm$core$Maybe$map,
-					function (_v66) {
-						var entryPointName = _v66.a;
-						var sysReq = _v66.b;
+					function (_v75) {
+						var entryPointName = _v75.a;
+						var regionName = _v75.b;
+						var sysReq = _v75.c;
 						var clusterSpec = sysReq.clusterSpec;
 						var newClusterSpec = _Utils_update(
 							clusterSpec,
 							{initialInstanceCount: newCount});
-						return _Utils_Tuple2(
+						return _Utils_Tuple3(
 							entryPointName,
+							regionName,
 							_Utils_update(
 								sysReq,
 								{clusterSpec: newClusterSpec}));
@@ -9166,15 +9431,17 @@ var $author$project$Main$update = F2(
 				var val = msg.a;
 				var newSysReq = A2(
 					$elm$core$Maybe$map,
-					function (_v67) {
-						var entryPointName = _v67.a;
-						var sysReq = _v67.b;
+					function (_v76) {
+						var entryPointName = _v76.a;
+						var regionName = _v76.b;
+						var sysReq = _v76.c;
 						var clusterSpec = sysReq.clusterSpec;
 						var newClusterSpec = _Utils_update(
 							clusterSpec,
 							{bootstrapScript: val});
-						return _Utils_Tuple2(
+						return _Utils_Tuple3(
 							entryPointName,
+							regionName,
 							_Utils_update(
 								sysReq,
 								{clusterSpec: newClusterSpec}));
@@ -9189,15 +9456,17 @@ var $author$project$Main$update = F2(
 				var val = msg.a;
 				var newSysReq = A2(
 					$elm$core$Maybe$map,
-					function (_v68) {
-						var entryPointName = _v68.a;
-						var sysReq = _v68.b;
+					function (_v77) {
+						var entryPointName = _v77.a;
+						var regionName = _v77.b;
+						var sysReq = _v77.c;
 						var clusterSpec = sysReq.clusterSpec;
 						var newClusterSpec = _Utils_update(
 							clusterSpec,
 							{ports: val});
-						return _Utils_Tuple2(
+						return _Utils_Tuple3(
 							entryPointName,
+							regionName,
 							_Utils_update(
 								sysReq,
 								{clusterSpec: newClusterSpec}));
@@ -9212,15 +9481,17 @@ var $author$project$Main$update = F2(
 				var val = msg.a;
 				var newSysReq = A2(
 					$elm$core$Maybe$map,
-					function (_v69) {
-						var entryPointName = _v69.a;
-						var sysReq = _v69.b;
+					function (_v78) {
+						var entryPointName = _v78.a;
+						var regionName = _v78.b;
+						var sysReq = _v78.c;
 						var clusterSpec = sysReq.clusterSpec;
 						var newClusterSpec = _Utils_update(
 							clusterSpec,
 							{version: val});
-						return _Utils_Tuple2(
+						return _Utils_Tuple3(
 							entryPointName,
+							regionName,
 							_Utils_update(
 								sysReq,
 								{clusterSpec: newClusterSpec}));
@@ -9235,9 +9506,9 @@ var $author$project$Main$update = F2(
 				var val = msg.a;
 				var newTimeout = A2(
 					$elm$core$Maybe$map,
-					function (_v70) {
-						var entryPointName = _v70.a;
-						var policy = _v70.b;
+					function (_v79) {
+						var entryPointName = _v79.a;
+						var policy = _v79.b;
 						return _Utils_Tuple2(val, policy);
 					},
 					model.timeoutPolicyToModify);
@@ -9252,9 +9523,9 @@ var $author$project$Main$update = F2(
 				var newVal = $elm$core$String$isEmpty(trimmed) ? '0' : trimmed;
 				var newTimeout = A2(
 					$elm$core$Maybe$map,
-					function (_v71) {
-						var entryPointName = _v71.a;
-						var timeout = _v71.b;
+					function (_v80) {
+						var entryPointName = _v80.a;
+						var timeout = _v80.b;
 						var newHours = A2(
 							$elm$core$Maybe$withDefault,
 							timeout.hours,
@@ -9277,9 +9548,9 @@ var $author$project$Main$update = F2(
 				var newVal = $elm$core$String$isEmpty(trimmed) ? '0' : trimmed;
 				var newTimeout = A2(
 					$elm$core$Maybe$map,
-					function (_v72) {
-						var entryPointName = _v72.a;
-						var timeout = _v72.b;
+					function (_v81) {
+						var entryPointName = _v81.a;
+						var timeout = _v81.b;
 						var newMinutes = A2(
 							$elm$core$Maybe$withDefault,
 							timeout.minutes,
@@ -9296,15 +9567,13 @@ var $author$project$Main$update = F2(
 						model,
 						{timeoutPolicyToModify: newTimeout}),
 					$elm$core$Platform$Cmd$none);
-			case 'UrlChanged':
+			default:
 				var url = msg.a;
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
 						{url: url}),
 					$elm$core$Platform$Cmd$none);
-			default:
-				return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
 		}
 	});
 var $elm$html$Html$br = _VirtualDom_node('br');
@@ -9371,11 +9640,12 @@ var $rundis$elm_bootstrap$Bootstrap$Tab$pane = F2(
 var $author$project$Main$DeleteAccessSpecNetwork = function (a) {
 	return {$: 'DeleteAccessSpecNetwork', a: a};
 };
-var $author$project$Main$ToggleAccessSpecDeveloper = {$: 'ToggleAccessSpecDeveloper'};
-var $author$project$Main$ToggleAccessSpecProjectCreation = {$: 'ToggleAccessSpecProjectCreation'};
 var $author$project$Main$UpdateAccessSpecAddNetwork = {$: 'UpdateAccessSpecAddNetwork'};
 var $author$project$Main$UpdateAccessSpecAllProjects = function (a) {
 	return {$: 'UpdateAccessSpecAllProjects', a: a};
+};
+var $author$project$Main$UpdateAccessSpecDeveloper = function (a) {
+	return {$: 'UpdateAccessSpecDeveloper', a: a};
 };
 var $author$project$Main$UpdateAccessSpecNetwork = function (a) {
 	return {$: 'UpdateAccessSpecNetwork', a: a};
@@ -9383,9 +9653,69 @@ var $author$project$Main$UpdateAccessSpecNetwork = function (a) {
 var $author$project$Main$UpdateAccessSpecProject = function (a) {
 	return {$: 'UpdateAccessSpecProject', a: a};
 };
+var $author$project$Main$UpdateAccessSpecProjectCreation = function (a) {
+	return {$: 'UpdateAccessSpecProjectCreation', a: a};
+};
 var $elm$html$Html$button = _VirtualDom_node('button');
-var $elm$html$Html$form = _VirtualDom_node('form');
-var $elm$html$Html$li = _VirtualDom_node('li');
+var $elm$core$Maybe$andThen = F2(
+	function (callback, maybeValue) {
+		if (maybeValue.$ === 'Just') {
+			var value = maybeValue.a;
+			return callback(value);
+		} else {
+			return $elm$core$Maybe$Nothing;
+		}
+	});
+var $rundis$elm_bootstrap$Bootstrap$Internal$Button$applyModifier = F2(
+	function (modifier, options) {
+		switch (modifier.$) {
+			case 'Size':
+				var size = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						size: $elm$core$Maybe$Just(size)
+					});
+			case 'Coloring':
+				var coloring = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						coloring: $elm$core$Maybe$Just(coloring)
+					});
+			case 'Block':
+				return _Utils_update(
+					options,
+					{block: true});
+			case 'Disabled':
+				var val = modifier.a;
+				return _Utils_update(
+					options,
+					{disabled: val});
+			default:
+				var attrs = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						attributes: _Utils_ap(options.attributes, attrs)
+					});
+		}
+	});
+var $elm$core$Tuple$second = function (_v0) {
+	var y = _v0.b;
+	return y;
+};
+var $elm$html$Html$Attributes$classList = function (classes) {
+	return $elm$html$Html$Attributes$class(
+		A2(
+			$elm$core$String$join,
+			' ',
+			A2(
+				$elm$core$List$map,
+				$elm$core$Tuple$first,
+				A2($elm$core$List$filter, $elm$core$Tuple$second, classes))));
+};
+var $rundis$elm_bootstrap$Bootstrap$Internal$Button$defaultOptions = {attributes: _List_Nil, block: false, coloring: $elm$core$Maybe$Nothing, disabled: false, size: $elm$core$Maybe$Nothing};
 var $elm$html$Html$Attributes$boolProperty = F2(
 	function (key, bool) {
 		return A2(
@@ -9393,25 +9723,210 @@ var $elm$html$Html$Attributes$boolProperty = F2(
 			key,
 			$elm$json$Json$Encode$bool(bool));
 	});
-var $elm$html$Html$Attributes$checked = $elm$html$Html$Attributes$boolProperty('checked');
+var $elm$html$Html$Attributes$disabled = $elm$html$Html$Attributes$boolProperty('disabled');
+var $rundis$elm_bootstrap$Bootstrap$Internal$Button$roleClass = function (role) {
+	switch (role.$) {
+		case 'Primary':
+			return 'primary';
+		case 'Secondary':
+			return 'secondary';
+		case 'Success':
+			return 'success';
+		case 'Info':
+			return 'info';
+		case 'Warning':
+			return 'warning';
+		case 'Danger':
+			return 'danger';
+		case 'Dark':
+			return 'dark';
+		case 'Light':
+			return 'light';
+		default:
+			return 'link';
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$General$Internal$screenSizeOption = function (size) {
+	switch (size.$) {
+		case 'XS':
+			return $elm$core$Maybe$Nothing;
+		case 'SM':
+			return $elm$core$Maybe$Just('sm');
+		case 'MD':
+			return $elm$core$Maybe$Just('md');
+		case 'LG':
+			return $elm$core$Maybe$Just('lg');
+		default:
+			return $elm$core$Maybe$Just('xl');
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Internal$Button$buttonAttributes = function (modifiers) {
+	var options = A3($elm$core$List$foldl, $rundis$elm_bootstrap$Bootstrap$Internal$Button$applyModifier, $rundis$elm_bootstrap$Bootstrap$Internal$Button$defaultOptions, modifiers);
+	return _Utils_ap(
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$classList(
+				_List_fromArray(
+					[
+						_Utils_Tuple2('btn', true),
+						_Utils_Tuple2('btn-block', options.block),
+						_Utils_Tuple2('disabled', options.disabled)
+					])),
+				$elm$html$Html$Attributes$disabled(options.disabled)
+			]),
+		_Utils_ap(
+			function () {
+				var _v0 = A2($elm$core$Maybe$andThen, $rundis$elm_bootstrap$Bootstrap$General$Internal$screenSizeOption, options.size);
+				if (_v0.$ === 'Just') {
+					var s = _v0.a;
+					return _List_fromArray(
+						[
+							$elm$html$Html$Attributes$class('btn-' + s)
+						]);
+				} else {
+					return _List_Nil;
+				}
+			}(),
+			_Utils_ap(
+				function () {
+					var _v1 = options.coloring;
+					if (_v1.$ === 'Just') {
+						if (_v1.a.$ === 'Roled') {
+							var role = _v1.a.a;
+							return _List_fromArray(
+								[
+									$elm$html$Html$Attributes$class(
+									'btn-' + $rundis$elm_bootstrap$Bootstrap$Internal$Button$roleClass(role))
+								]);
+						} else {
+							var role = _v1.a.a;
+							return _List_fromArray(
+								[
+									$elm$html$Html$Attributes$class(
+									'btn-outline-' + $rundis$elm_bootstrap$Bootstrap$Internal$Button$roleClass(role))
+								]);
+						}
+					} else {
+						return _List_Nil;
+					}
+				}(),
+				options.attributes)));
+};
+var $rundis$elm_bootstrap$Bootstrap$Button$button = F2(
+	function (options, children) {
+		return A2(
+			$elm$html$Html$button,
+			$rundis$elm_bootstrap$Bootstrap$Internal$Button$buttonAttributes(options),
+			children);
+	});
+var $elm$html$Html$form = _VirtualDom_node('form');
+var $rundis$elm_bootstrap$Bootstrap$Form$form = F2(
+	function (attributes, children) {
+		return A2($elm$html$Html$form, attributes, children);
+	});
+var $elm$core$List$isEmpty = function (xs) {
+	if (!xs.b) {
+		return true;
+	} else {
+		return false;
+	}
+};
+var $elm$html$Html$li = _VirtualDom_node('li');
+var $rundis$elm_bootstrap$Bootstrap$Internal$Button$Coloring = function (a) {
+	return {$: 'Coloring', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Internal$Button$Light = {$: 'Light'};
+var $rundis$elm_bootstrap$Bootstrap$Internal$Button$Roled = function (a) {
+	return {$: 'Roled', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Button$light = $rundis$elm_bootstrap$Bootstrap$Internal$Button$Coloring(
+	$rundis$elm_bootstrap$Bootstrap$Internal$Button$Roled($rundis$elm_bootstrap$Bootstrap$Internal$Button$Light));
+var $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$Checkbox = function (a) {
+	return {$: 'Checkbox', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$create = F2(
+	function (options, label) {
+		return $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$Checkbox(
+			{label: label, options: options});
+	});
+var $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$applyModifier = F2(
+	function (modifier, options) {
+		switch (modifier.$) {
+			case 'Id':
+				var val = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						id: $elm$core$Maybe$Just(val)
+					});
+			case 'Value':
+				var val = modifier.a;
+				return _Utils_update(
+					options,
+					{state: val});
+			case 'Inline':
+				return _Utils_update(
+					options,
+					{inline: true});
+			case 'OnChecked':
+				var toMsg = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						onChecked: $elm$core$Maybe$Just(toMsg)
+					});
+			case 'Custom':
+				return _Utils_update(
+					options,
+					{custom: true});
+			case 'Disabled':
+				var val = modifier.a;
+				return _Utils_update(
+					options,
+					{disabled: val});
+			case 'Validation':
+				var validation = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						validation: $elm$core$Maybe$Just(validation)
+					});
+			default:
+				var attrs_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						attributes: _Utils_ap(options.attributes, attrs_)
+					});
+		}
+	});
+var $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$Off = {$: 'Off'};
+var $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$defaultOptions = {attributes: _List_Nil, custom: false, disabled: false, id: $elm$core$Maybe$Nothing, inline: false, onChecked: $elm$core$Maybe$Nothing, state: $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$Off, validation: $elm$core$Maybe$Nothing};
+var $elm$html$Html$Attributes$for = $elm$html$Html$Attributes$stringProperty('htmlFor');
 var $elm$html$Html$input = _VirtualDom_node('input');
-var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
-var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
+var $elm$html$Html$label = _VirtualDom_node('label');
+var $elm$core$Basics$not = _Basics_not;
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
-var $elm$html$Html$th = _VirtualDom_node('th');
-var $author$project$Main$mkTh = function (label) {
-	return A2(
-		$elm$html$Html$th,
-		_List_fromArray(
-			[
-				A2($elm$html$Html$Attributes$style, 'align', 'right')
-			]),
-		_List_fromArray(
-			[
-				$elm$html$Html$text(label)
-			]));
-};
+var $elm$core$List$maybeCons = F3(
+	function (f, mx, xs) {
+		var _v0 = f(mx);
+		if (_v0.$ === 'Just') {
+			var x = _v0.a;
+			return A2($elm$core$List$cons, x, xs);
+		} else {
+			return xs;
+		}
+	});
+var $elm$core$List$filterMap = F2(
+	function (f, xs) {
+		return A3(
+			$elm$core$List$foldr,
+			$elm$core$List$maybeCons(f),
+			_List_Nil,
+			xs);
+	});
+var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
 var $elm$virtual_dom$VirtualDom$Normal = function (a) {
 	return {$: 'Normal', a: a};
 };
@@ -9423,56 +9938,1346 @@ var $elm$html$Html$Events$on = F2(
 			event,
 			$elm$virtual_dom$VirtualDom$Normal(decoder));
 	});
-var $elm$html$Html$Events$onClick = function (msg) {
+var $elm$html$Html$Events$targetChecked = A2(
+	$elm$json$Json$Decode$at,
+	_List_fromArray(
+		['target', 'checked']),
+	$elm$json$Json$Decode$bool);
+var $elm$html$Html$Events$onCheck = function (tagger) {
 	return A2(
 		$elm$html$Html$Events$on,
-		'click',
-		$elm$json$Json$Decode$succeed(msg));
+		'change',
+		A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetChecked));
 };
-var $elm$html$Html$td = _VirtualDom_node('td');
-var $elm$html$Html$tr = _VirtualDom_node('tr');
+var $elm$virtual_dom$VirtualDom$attribute = F2(
+	function (key, value) {
+		return A2(
+			_VirtualDom_attribute,
+			_VirtualDom_noOnOrFormAction(key),
+			_VirtualDom_noJavaScriptOrHtmlUri(value));
+	});
+var $elm$html$Html$Attributes$attribute = $elm$virtual_dom$VirtualDom$attribute;
+var $elm$html$Html$Attributes$checked = $elm$html$Html$Attributes$boolProperty('checked');
+var $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$stateAttribute = function (state) {
+	switch (state.$) {
+		case 'On':
+			return $elm$html$Html$Attributes$checked(true);
+		case 'Off':
+			return $elm$html$Html$Attributes$checked(false);
+		default:
+			return A2($elm$html$Html$Attributes$attribute, 'indeterminate', 'true');
+	}
+};
 var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
-var $author$project$Main$mkRowCheckbox = F3(
+var $rundis$elm_bootstrap$Bootstrap$Form$FormInternal$validationToString = function (validation) {
+	if (validation.$ === 'Success') {
+		return 'is-valid';
+	} else {
+		return 'is-invalid';
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$toAttributes = function (options) {
+	return _Utils_ap(
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$classList(
+				_List_fromArray(
+					[
+						_Utils_Tuple2('form-check-input', !options.custom),
+						_Utils_Tuple2('custom-control-input', options.custom)
+					])),
+				$elm$html$Html$Attributes$type_('checkbox'),
+				$elm$html$Html$Attributes$disabled(options.disabled),
+				$rundis$elm_bootstrap$Bootstrap$Form$Checkbox$stateAttribute(options.state)
+			]),
+		_Utils_ap(
+			A2(
+				$elm$core$List$filterMap,
+				$elm$core$Basics$identity,
+				_List_fromArray(
+					[
+						A2($elm$core$Maybe$map, $elm$html$Html$Events$onCheck, options.onChecked),
+						A2($elm$core$Maybe$map, $elm$html$Html$Attributes$id, options.id)
+					])),
+			_Utils_ap(
+				function () {
+					var _v0 = options.validation;
+					if (_v0.$ === 'Just') {
+						var v = _v0.a;
+						return _List_fromArray(
+							[
+								$elm$html$Html$Attributes$class(
+								$rundis$elm_bootstrap$Bootstrap$Form$FormInternal$validationToString(v))
+							]);
+					} else {
+						return _List_Nil;
+					}
+				}(),
+				options.attributes)));
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$view = function (_v0) {
+	var chk = _v0.a;
+	var opts = A3($elm$core$List$foldl, $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$applyModifier, $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$defaultOptions, chk.options);
+	return A2(
+		$elm$html$Html$div,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$classList(
+				_List_fromArray(
+					[
+						_Utils_Tuple2('form-check', !opts.custom),
+						_Utils_Tuple2('form-check-inline', (!opts.custom) && opts.inline),
+						_Utils_Tuple2('custom-control', opts.custom),
+						_Utils_Tuple2('custom-checkbox', opts.custom),
+						_Utils_Tuple2('custom-control-inline', opts.inline && opts.custom)
+					]))
+			]),
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$input,
+				$rundis$elm_bootstrap$Bootstrap$Form$Checkbox$toAttributes(opts),
+				_List_Nil),
+				A2(
+				$elm$html$Html$label,
+				_Utils_ap(
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$classList(
+							_List_fromArray(
+								[
+									_Utils_Tuple2('form-check-label', !opts.custom),
+									_Utils_Tuple2('custom-control-label', opts.custom)
+								]))
+						]),
+					function () {
+						var _v1 = opts.id;
+						if (_v1.$ === 'Just') {
+							var v = _v1.a;
+							return _List_fromArray(
+								[
+									$elm$html$Html$Attributes$for(v)
+								]);
+						} else {
+							return _List_Nil;
+						}
+					}()),
+				_List_fromArray(
+					[
+						$elm$html$Html$text(chk.label)
+					]))
+			]));
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$checkbox = F2(
+	function (options, label) {
+		return $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$view(
+			A2($rundis$elm_bootstrap$Bootstrap$Form$Checkbox$create, options, label));
+	});
+var $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$On = {$: 'On'};
+var $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$Value = function (a) {
+	return {$: 'Value', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$checked = function (isCheck) {
+	return $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$Value(
+		isCheck ? $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$On : $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$Off);
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Col = function (a) {
+	return {$: 'Col', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$col = F2(
+	function (options, children) {
+		return $rundis$elm_bootstrap$Bootstrap$Form$Col(
+			{children: children, elemFn: $elm$html$Html$div, options: options});
+	});
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$ColAttrs = function (a) {
+	return {$: 'ColAttrs', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Col$attrs = function (attrs_) {
+	return $rundis$elm_bootstrap$Bootstrap$Grid$Internal$ColAttrs(attrs_);
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$colLabel = F2(
+	function (options, children) {
+		return $rundis$elm_bootstrap$Bootstrap$Form$Col(
+			{
+				children: children,
+				elemFn: $elm$html$Html$label,
+				options: A2(
+					$elm$core$List$cons,
+					$rundis$elm_bootstrap$Bootstrap$Grid$Col$attrs(
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$class('col-form-label')
+							])),
+					options)
+			});
+	});
+var $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$OnChecked = function (a) {
+	return {$: 'OnChecked', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$onCheck = function (toMsg) {
+	return $rundis$elm_bootstrap$Bootstrap$Form$Checkbox$OnChecked(toMsg);
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$Col = {$: 'Col'};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$Width = F2(
+	function (screenSize, columnCount) {
+		return {columnCount: columnCount, screenSize: screenSize};
+	});
+var $rundis$elm_bootstrap$Bootstrap$General$Internal$XS = {$: 'XS'};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyColAlign = F2(
+	function (align_, options) {
+		var _v0 = align_.screenSize;
+		switch (_v0.$) {
+			case 'XS':
+				return _Utils_update(
+					options,
+					{
+						alignXs: $elm$core$Maybe$Just(align_)
+					});
+			case 'SM':
+				return _Utils_update(
+					options,
+					{
+						alignSm: $elm$core$Maybe$Just(align_)
+					});
+			case 'MD':
+				return _Utils_update(
+					options,
+					{
+						alignMd: $elm$core$Maybe$Just(align_)
+					});
+			case 'LG':
+				return _Utils_update(
+					options,
+					{
+						alignLg: $elm$core$Maybe$Just(align_)
+					});
+			default:
+				return _Utils_update(
+					options,
+					{
+						alignXl: $elm$core$Maybe$Just(align_)
+					});
+		}
+	});
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyColOffset = F2(
+	function (offset_, options) {
+		var _v0 = offset_.screenSize;
+		switch (_v0.$) {
+			case 'XS':
+				return _Utils_update(
+					options,
+					{
+						offsetXs: $elm$core$Maybe$Just(offset_)
+					});
+			case 'SM':
+				return _Utils_update(
+					options,
+					{
+						offsetSm: $elm$core$Maybe$Just(offset_)
+					});
+			case 'MD':
+				return _Utils_update(
+					options,
+					{
+						offsetMd: $elm$core$Maybe$Just(offset_)
+					});
+			case 'LG':
+				return _Utils_update(
+					options,
+					{
+						offsetLg: $elm$core$Maybe$Just(offset_)
+					});
+			default:
+				return _Utils_update(
+					options,
+					{
+						offsetXl: $elm$core$Maybe$Just(offset_)
+					});
+		}
+	});
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyColOrder = F2(
+	function (order_, options) {
+		var _v0 = order_.screenSize;
+		switch (_v0.$) {
+			case 'XS':
+				return _Utils_update(
+					options,
+					{
+						orderXs: $elm$core$Maybe$Just(order_)
+					});
+			case 'SM':
+				return _Utils_update(
+					options,
+					{
+						orderSm: $elm$core$Maybe$Just(order_)
+					});
+			case 'MD':
+				return _Utils_update(
+					options,
+					{
+						orderMd: $elm$core$Maybe$Just(order_)
+					});
+			case 'LG':
+				return _Utils_update(
+					options,
+					{
+						orderLg: $elm$core$Maybe$Just(order_)
+					});
+			default:
+				return _Utils_update(
+					options,
+					{
+						orderXl: $elm$core$Maybe$Just(order_)
+					});
+		}
+	});
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyColPull = F2(
+	function (pull_, options) {
+		var _v0 = pull_.screenSize;
+		switch (_v0.$) {
+			case 'XS':
+				return _Utils_update(
+					options,
+					{
+						pullXs: $elm$core$Maybe$Just(pull_)
+					});
+			case 'SM':
+				return _Utils_update(
+					options,
+					{
+						pullSm: $elm$core$Maybe$Just(pull_)
+					});
+			case 'MD':
+				return _Utils_update(
+					options,
+					{
+						pullMd: $elm$core$Maybe$Just(pull_)
+					});
+			case 'LG':
+				return _Utils_update(
+					options,
+					{
+						pullLg: $elm$core$Maybe$Just(pull_)
+					});
+			default:
+				return _Utils_update(
+					options,
+					{
+						pullXl: $elm$core$Maybe$Just(pull_)
+					});
+		}
+	});
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyColPush = F2(
+	function (push_, options) {
+		var _v0 = push_.screenSize;
+		switch (_v0.$) {
+			case 'XS':
+				return _Utils_update(
+					options,
+					{
+						pushXs: $elm$core$Maybe$Just(push_)
+					});
+			case 'SM':
+				return _Utils_update(
+					options,
+					{
+						pushSm: $elm$core$Maybe$Just(push_)
+					});
+			case 'MD':
+				return _Utils_update(
+					options,
+					{
+						pushMd: $elm$core$Maybe$Just(push_)
+					});
+			case 'LG':
+				return _Utils_update(
+					options,
+					{
+						pushLg: $elm$core$Maybe$Just(push_)
+					});
+			default:
+				return _Utils_update(
+					options,
+					{
+						pushXl: $elm$core$Maybe$Just(push_)
+					});
+		}
+	});
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyColWidth = F2(
+	function (width_, options) {
+		var _v0 = width_.screenSize;
+		switch (_v0.$) {
+			case 'XS':
+				return _Utils_update(
+					options,
+					{
+						widthXs: $elm$core$Maybe$Just(width_)
+					});
+			case 'SM':
+				return _Utils_update(
+					options,
+					{
+						widthSm: $elm$core$Maybe$Just(width_)
+					});
+			case 'MD':
+				return _Utils_update(
+					options,
+					{
+						widthMd: $elm$core$Maybe$Just(width_)
+					});
+			case 'LG':
+				return _Utils_update(
+					options,
+					{
+						widthLg: $elm$core$Maybe$Just(width_)
+					});
+			default:
+				return _Utils_update(
+					options,
+					{
+						widthXl: $elm$core$Maybe$Just(width_)
+					});
+		}
+	});
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyColOption = F2(
+	function (modifier, options) {
+		switch (modifier.$) {
+			case 'ColAttrs':
+				var attrs = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						attributes: _Utils_ap(options.attributes, attrs)
+					});
+			case 'ColWidth':
+				var width_ = modifier.a;
+				return A2($rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyColWidth, width_, options);
+			case 'ColOffset':
+				var offset_ = modifier.a;
+				return A2($rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyColOffset, offset_, options);
+			case 'ColPull':
+				var pull_ = modifier.a;
+				return A2($rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyColPull, pull_, options);
+			case 'ColPush':
+				var push_ = modifier.a;
+				return A2($rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyColPush, push_, options);
+			case 'ColOrder':
+				var order_ = modifier.a;
+				return A2($rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyColOrder, order_, options);
+			case 'ColAlign':
+				var align = modifier.a;
+				return A2($rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyColAlign, align, options);
+			default:
+				var align = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						textAlign: $elm$core$Maybe$Just(align)
+					});
+		}
+	});
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$columnCountOption = function (size) {
+	switch (size.$) {
+		case 'Col':
+			return $elm$core$Maybe$Nothing;
+		case 'Col1':
+			return $elm$core$Maybe$Just('1');
+		case 'Col2':
+			return $elm$core$Maybe$Just('2');
+		case 'Col3':
+			return $elm$core$Maybe$Just('3');
+		case 'Col4':
+			return $elm$core$Maybe$Just('4');
+		case 'Col5':
+			return $elm$core$Maybe$Just('5');
+		case 'Col6':
+			return $elm$core$Maybe$Just('6');
+		case 'Col7':
+			return $elm$core$Maybe$Just('7');
+		case 'Col8':
+			return $elm$core$Maybe$Just('8');
+		case 'Col9':
+			return $elm$core$Maybe$Just('9');
+		case 'Col10':
+			return $elm$core$Maybe$Just('10');
+		case 'Col11':
+			return $elm$core$Maybe$Just('11');
+		case 'Col12':
+			return $elm$core$Maybe$Just('12');
+		default:
+			return $elm$core$Maybe$Just('auto');
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$colWidthClass = function (_v0) {
+	var screenSize = _v0.screenSize;
+	var columnCount = _v0.columnCount;
+	return $elm$html$Html$Attributes$class(
+		'col' + (A2(
+			$elm$core$Maybe$withDefault,
+			'',
+			A2(
+				$elm$core$Maybe$map,
+				function (v) {
+					return '-' + v;
+				},
+				$rundis$elm_bootstrap$Bootstrap$General$Internal$screenSizeOption(screenSize))) + A2(
+			$elm$core$Maybe$withDefault,
+			'',
+			A2(
+				$elm$core$Maybe$map,
+				function (v) {
+					return '-' + v;
+				},
+				$rundis$elm_bootstrap$Bootstrap$Grid$Internal$columnCountOption(columnCount)))));
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$colWidthsToAttributes = function (widths) {
+	var width_ = function (w) {
+		return A2($elm$core$Maybe$map, $rundis$elm_bootstrap$Bootstrap$Grid$Internal$colWidthClass, w);
+	};
+	return A2(
+		$elm$core$List$filterMap,
+		$elm$core$Basics$identity,
+		A2($elm$core$List$map, width_, widths));
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$defaultColOptions = {alignLg: $elm$core$Maybe$Nothing, alignMd: $elm$core$Maybe$Nothing, alignSm: $elm$core$Maybe$Nothing, alignXl: $elm$core$Maybe$Nothing, alignXs: $elm$core$Maybe$Nothing, attributes: _List_Nil, offsetLg: $elm$core$Maybe$Nothing, offsetMd: $elm$core$Maybe$Nothing, offsetSm: $elm$core$Maybe$Nothing, offsetXl: $elm$core$Maybe$Nothing, offsetXs: $elm$core$Maybe$Nothing, orderLg: $elm$core$Maybe$Nothing, orderMd: $elm$core$Maybe$Nothing, orderSm: $elm$core$Maybe$Nothing, orderXl: $elm$core$Maybe$Nothing, orderXs: $elm$core$Maybe$Nothing, pullLg: $elm$core$Maybe$Nothing, pullMd: $elm$core$Maybe$Nothing, pullSm: $elm$core$Maybe$Nothing, pullXl: $elm$core$Maybe$Nothing, pullXs: $elm$core$Maybe$Nothing, pushLg: $elm$core$Maybe$Nothing, pushMd: $elm$core$Maybe$Nothing, pushSm: $elm$core$Maybe$Nothing, pushXl: $elm$core$Maybe$Nothing, pushXs: $elm$core$Maybe$Nothing, textAlign: $elm$core$Maybe$Nothing, widthLg: $elm$core$Maybe$Nothing, widthMd: $elm$core$Maybe$Nothing, widthSm: $elm$core$Maybe$Nothing, widthXl: $elm$core$Maybe$Nothing, widthXs: $elm$core$Maybe$Nothing};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$offsetCountOption = function (size) {
+	switch (size.$) {
+		case 'Offset0':
+			return '0';
+		case 'Offset1':
+			return '1';
+		case 'Offset2':
+			return '2';
+		case 'Offset3':
+			return '3';
+		case 'Offset4':
+			return '4';
+		case 'Offset5':
+			return '5';
+		case 'Offset6':
+			return '6';
+		case 'Offset7':
+			return '7';
+		case 'Offset8':
+			return '8';
+		case 'Offset9':
+			return '9';
+		case 'Offset10':
+			return '10';
+		default:
+			return '11';
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$screenSizeToPartialString = function (screenSize) {
+	var _v0 = $rundis$elm_bootstrap$Bootstrap$General$Internal$screenSizeOption(screenSize);
+	if (_v0.$ === 'Just') {
+		var s = _v0.a;
+		return '-' + (s + '-');
+	} else {
+		return '-';
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$offsetClass = function (_v0) {
+	var screenSize = _v0.screenSize;
+	var offsetCount = _v0.offsetCount;
+	return $elm$html$Html$Attributes$class(
+		'offset' + ($rundis$elm_bootstrap$Bootstrap$Grid$Internal$screenSizeToPartialString(screenSize) + $rundis$elm_bootstrap$Bootstrap$Grid$Internal$offsetCountOption(offsetCount)));
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$offsetsToAttributes = function (offsets) {
+	var offset_ = function (m) {
+		return A2($elm$core$Maybe$map, $rundis$elm_bootstrap$Bootstrap$Grid$Internal$offsetClass, m);
+	};
+	return A2(
+		$elm$core$List$filterMap,
+		$elm$core$Basics$identity,
+		A2($elm$core$List$map, offset_, offsets));
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$orderColOption = function (size) {
+	switch (size.$) {
+		case 'OrderFirst':
+			return 'first';
+		case 'Order1':
+			return '1';
+		case 'Order2':
+			return '2';
+		case 'Order3':
+			return '3';
+		case 'Order4':
+			return '4';
+		case 'Order5':
+			return '5';
+		case 'Order6':
+			return '6';
+		case 'Order7':
+			return '7';
+		case 'Order8':
+			return '8';
+		case 'Order9':
+			return '9';
+		case 'Order10':
+			return '10';
+		case 'Order11':
+			return '11';
+		case 'Order12':
+			return '12';
+		default:
+			return 'last';
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$orderToAttributes = function (orders) {
+	var order_ = function (m) {
+		if (m.$ === 'Just') {
+			var screenSize = m.a.screenSize;
+			var moveCount = m.a.moveCount;
+			return $elm$core$Maybe$Just(
+				$elm$html$Html$Attributes$class(
+					'order' + ($rundis$elm_bootstrap$Bootstrap$Grid$Internal$screenSizeToPartialString(screenSize) + $rundis$elm_bootstrap$Bootstrap$Grid$Internal$orderColOption(moveCount))));
+		} else {
+			return $elm$core$Maybe$Nothing;
+		}
+	};
+	return A2(
+		$elm$core$List$filterMap,
+		$elm$core$Basics$identity,
+		A2($elm$core$List$map, order_, orders));
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$moveCountOption = function (size) {
+	switch (size.$) {
+		case 'Move0':
+			return '0';
+		case 'Move1':
+			return '1';
+		case 'Move2':
+			return '2';
+		case 'Move3':
+			return '3';
+		case 'Move4':
+			return '4';
+		case 'Move5':
+			return '5';
+		case 'Move6':
+			return '6';
+		case 'Move7':
+			return '7';
+		case 'Move8':
+			return '8';
+		case 'Move9':
+			return '9';
+		case 'Move10':
+			return '10';
+		case 'Move11':
+			return '11';
+		default:
+			return '12';
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$pullsToAttributes = function (pulls) {
+	var pull_ = function (m) {
+		if (m.$ === 'Just') {
+			var screenSize = m.a.screenSize;
+			var moveCount = m.a.moveCount;
+			return $elm$core$Maybe$Just(
+				$elm$html$Html$Attributes$class(
+					'pull' + ($rundis$elm_bootstrap$Bootstrap$Grid$Internal$screenSizeToPartialString(screenSize) + $rundis$elm_bootstrap$Bootstrap$Grid$Internal$moveCountOption(moveCount))));
+		} else {
+			return $elm$core$Maybe$Nothing;
+		}
+	};
+	return A2(
+		$elm$core$List$filterMap,
+		$elm$core$Basics$identity,
+		A2($elm$core$List$map, pull_, pulls));
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$pushesToAttributes = function (pushes) {
+	var push_ = function (m) {
+		if (m.$ === 'Just') {
+			var screenSize = m.a.screenSize;
+			var moveCount = m.a.moveCount;
+			return $elm$core$Maybe$Just(
+				$elm$html$Html$Attributes$class(
+					'push' + ($rundis$elm_bootstrap$Bootstrap$Grid$Internal$screenSizeToPartialString(screenSize) + $rundis$elm_bootstrap$Bootstrap$Grid$Internal$moveCountOption(moveCount))));
+		} else {
+			return $elm$core$Maybe$Nothing;
+		}
+	};
+	return A2(
+		$elm$core$List$filterMap,
+		$elm$core$Basics$identity,
+		A2($elm$core$List$map, push_, pushes));
+};
+var $rundis$elm_bootstrap$Bootstrap$Internal$Text$textAlignDirOption = function (dir) {
+	switch (dir.$) {
+		case 'Center':
+			return 'center';
+		case 'Left':
+			return 'left';
+		default:
+			return 'right';
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Internal$Text$textAlignClass = function (_v0) {
+	var dir = _v0.dir;
+	var size = _v0.size;
+	return $elm$html$Html$Attributes$class(
+		'text' + (A2(
+			$elm$core$Maybe$withDefault,
+			'-',
+			A2(
+				$elm$core$Maybe$map,
+				function (s) {
+					return '-' + (s + '-');
+				},
+				$rundis$elm_bootstrap$Bootstrap$General$Internal$screenSizeOption(size))) + $rundis$elm_bootstrap$Bootstrap$Internal$Text$textAlignDirOption(dir)));
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$verticalAlignOption = function (align) {
+	switch (align.$) {
+		case 'Top':
+			return 'start';
+		case 'Middle':
+			return 'center';
+		default:
+			return 'end';
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$vAlignClass = F2(
+	function (prefix, _v0) {
+		var align = _v0.align;
+		var screenSize = _v0.screenSize;
+		return $elm$html$Html$Attributes$class(
+			_Utils_ap(
+				prefix,
+				_Utils_ap(
+					A2(
+						$elm$core$Maybe$withDefault,
+						'',
+						A2(
+							$elm$core$Maybe$map,
+							function (v) {
+								return v + '-';
+							},
+							$rundis$elm_bootstrap$Bootstrap$General$Internal$screenSizeOption(screenSize))),
+					$rundis$elm_bootstrap$Bootstrap$Grid$Internal$verticalAlignOption(align))));
+	});
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$vAlignsToAttributes = F2(
+	function (prefix, aligns) {
+		var align = function (a) {
+			return A2(
+				$elm$core$Maybe$map,
+				$rundis$elm_bootstrap$Bootstrap$Grid$Internal$vAlignClass(prefix),
+				a);
+		};
+		return A2(
+			$elm$core$List$filterMap,
+			$elm$core$Basics$identity,
+			A2($elm$core$List$map, align, aligns));
+	});
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$colAttributes = function (modifiers) {
+	var options = A3($elm$core$List$foldl, $rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyColOption, $rundis$elm_bootstrap$Bootstrap$Grid$Internal$defaultColOptions, modifiers);
+	var shouldAddDefaultXs = !$elm$core$List$length(
+		A2(
+			$elm$core$List$filterMap,
+			$elm$core$Basics$identity,
+			_List_fromArray(
+				[options.widthXs, options.widthSm, options.widthMd, options.widthLg, options.widthXl])));
+	return _Utils_ap(
+		$rundis$elm_bootstrap$Bootstrap$Grid$Internal$colWidthsToAttributes(
+			_List_fromArray(
+				[
+					shouldAddDefaultXs ? $elm$core$Maybe$Just(
+					A2($rundis$elm_bootstrap$Bootstrap$Grid$Internal$Width, $rundis$elm_bootstrap$Bootstrap$General$Internal$XS, $rundis$elm_bootstrap$Bootstrap$Grid$Internal$Col)) : options.widthXs,
+					options.widthSm,
+					options.widthMd,
+					options.widthLg,
+					options.widthXl
+				])),
+		_Utils_ap(
+			$rundis$elm_bootstrap$Bootstrap$Grid$Internal$offsetsToAttributes(
+				_List_fromArray(
+					[options.offsetXs, options.offsetSm, options.offsetMd, options.offsetLg, options.offsetXl])),
+			_Utils_ap(
+				$rundis$elm_bootstrap$Bootstrap$Grid$Internal$pullsToAttributes(
+					_List_fromArray(
+						[options.pullXs, options.pullSm, options.pullMd, options.pullLg, options.pullXl])),
+				_Utils_ap(
+					$rundis$elm_bootstrap$Bootstrap$Grid$Internal$pushesToAttributes(
+						_List_fromArray(
+							[options.pushXs, options.pushSm, options.pushMd, options.pushLg, options.pushXl])),
+					_Utils_ap(
+						$rundis$elm_bootstrap$Bootstrap$Grid$Internal$orderToAttributes(
+							_List_fromArray(
+								[options.orderXs, options.orderSm, options.orderMd, options.orderLg, options.orderXl])),
+						_Utils_ap(
+							A2(
+								$rundis$elm_bootstrap$Bootstrap$Grid$Internal$vAlignsToAttributes,
+								'align-self-',
+								_List_fromArray(
+									[options.alignXs, options.alignSm, options.alignMd, options.alignLg, options.alignXl])),
+							_Utils_ap(
+								function () {
+									var _v0 = options.textAlign;
+									if (_v0.$ === 'Just') {
+										var a = _v0.a;
+										return _List_fromArray(
+											[
+												$rundis$elm_bootstrap$Bootstrap$Internal$Text$textAlignClass(a)
+											]);
+									} else {
+										return _List_Nil;
+									}
+								}(),
+								options.attributes)))))));
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$renderCol = function (_v0) {
+	var elemFn = _v0.a.elemFn;
+	var options = _v0.a.options;
+	var children = _v0.a.children;
+	return A2(
+		elemFn,
+		$rundis$elm_bootstrap$Bootstrap$Grid$Internal$colAttributes(options),
+		children);
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyRowHAlign = F2(
+	function (align, options) {
+		var _v0 = align.screenSize;
+		switch (_v0.$) {
+			case 'XS':
+				return _Utils_update(
+					options,
+					{
+						hAlignXs: $elm$core$Maybe$Just(align)
+					});
+			case 'SM':
+				return _Utils_update(
+					options,
+					{
+						hAlignSm: $elm$core$Maybe$Just(align)
+					});
+			case 'MD':
+				return _Utils_update(
+					options,
+					{
+						hAlignMd: $elm$core$Maybe$Just(align)
+					});
+			case 'LG':
+				return _Utils_update(
+					options,
+					{
+						hAlignLg: $elm$core$Maybe$Just(align)
+					});
+			default:
+				return _Utils_update(
+					options,
+					{
+						hAlignXl: $elm$core$Maybe$Just(align)
+					});
+		}
+	});
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyRowVAlign = F2(
+	function (align_, options) {
+		var _v0 = align_.screenSize;
+		switch (_v0.$) {
+			case 'XS':
+				return _Utils_update(
+					options,
+					{
+						vAlignXs: $elm$core$Maybe$Just(align_)
+					});
+			case 'SM':
+				return _Utils_update(
+					options,
+					{
+						vAlignSm: $elm$core$Maybe$Just(align_)
+					});
+			case 'MD':
+				return _Utils_update(
+					options,
+					{
+						vAlignMd: $elm$core$Maybe$Just(align_)
+					});
+			case 'LG':
+				return _Utils_update(
+					options,
+					{
+						vAlignLg: $elm$core$Maybe$Just(align_)
+					});
+			default:
+				return _Utils_update(
+					options,
+					{
+						vAlignXl: $elm$core$Maybe$Just(align_)
+					});
+		}
+	});
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyRowOption = F2(
+	function (modifier, options) {
+		switch (modifier.$) {
+			case 'RowAttrs':
+				var attrs = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						attributes: _Utils_ap(options.attributes, attrs)
+					});
+			case 'RowVAlign':
+				var align = modifier.a;
+				return A2($rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyRowVAlign, align, options);
+			default:
+				var align = modifier.a;
+				return A2($rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyRowHAlign, align, options);
+		}
+	});
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$defaultRowOptions = {attributes: _List_Nil, hAlignLg: $elm$core$Maybe$Nothing, hAlignMd: $elm$core$Maybe$Nothing, hAlignSm: $elm$core$Maybe$Nothing, hAlignXl: $elm$core$Maybe$Nothing, hAlignXs: $elm$core$Maybe$Nothing, vAlignLg: $elm$core$Maybe$Nothing, vAlignMd: $elm$core$Maybe$Nothing, vAlignSm: $elm$core$Maybe$Nothing, vAlignXl: $elm$core$Maybe$Nothing, vAlignXs: $elm$core$Maybe$Nothing};
+var $rundis$elm_bootstrap$Bootstrap$General$Internal$horizontalAlignOption = function (align) {
+	switch (align.$) {
+		case 'Left':
+			return 'start';
+		case 'Center':
+			return 'center';
+		case 'Right':
+			return 'end';
+		case 'Around':
+			return 'around';
+		default:
+			return 'between';
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$General$Internal$hAlignClass = function (_v0) {
+	var align = _v0.align;
+	var screenSize = _v0.screenSize;
+	return $elm$html$Html$Attributes$class(
+		'justify-content-' + (A2(
+			$elm$core$Maybe$withDefault,
+			'',
+			A2(
+				$elm$core$Maybe$map,
+				function (v) {
+					return v + '-';
+				},
+				$rundis$elm_bootstrap$Bootstrap$General$Internal$screenSizeOption(screenSize))) + $rundis$elm_bootstrap$Bootstrap$General$Internal$horizontalAlignOption(align)));
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$hAlignsToAttributes = function (aligns) {
+	var align = function (a) {
+		return A2($elm$core$Maybe$map, $rundis$elm_bootstrap$Bootstrap$General$Internal$hAlignClass, a);
+	};
+	return A2(
+		$elm$core$List$filterMap,
+		$elm$core$Basics$identity,
+		A2($elm$core$List$map, align, aligns));
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$rowAttributes = function (modifiers) {
+	var options = A3($elm$core$List$foldl, $rundis$elm_bootstrap$Bootstrap$Grid$Internal$applyRowOption, $rundis$elm_bootstrap$Bootstrap$Grid$Internal$defaultRowOptions, modifiers);
+	return _Utils_ap(
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('row')
+			]),
+		_Utils_ap(
+			A2(
+				$rundis$elm_bootstrap$Bootstrap$Grid$Internal$vAlignsToAttributes,
+				'align-items-',
+				_List_fromArray(
+					[options.vAlignXs, options.vAlignSm, options.vAlignMd, options.vAlignLg, options.vAlignXl])),
+			_Utils_ap(
+				$rundis$elm_bootstrap$Bootstrap$Grid$Internal$hAlignsToAttributes(
+					_List_fromArray(
+						[options.hAlignXs, options.hAlignSm, options.hAlignMd, options.hAlignLg, options.hAlignXl])),
+				options.attributes)));
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$row = F2(
+	function (options, cols) {
+		return A2(
+			$elm$html$Html$div,
+			A2(
+				$elm$core$List$cons,
+				$elm$html$Html$Attributes$class('form-group'),
+				$rundis$elm_bootstrap$Bootstrap$Grid$Internal$rowAttributes(options)),
+			A2($elm$core$List$map, $rundis$elm_bootstrap$Bootstrap$Form$renderCol, cols));
+	});
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$Col10 = {$: 'Col10'};
+var $rundis$elm_bootstrap$Bootstrap$General$Internal$SM = {$: 'SM'};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$ColWidth = function (a) {
+	return {$: 'ColWidth', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$width = F2(
+	function (size, count) {
+		return $rundis$elm_bootstrap$Bootstrap$Grid$Internal$ColWidth(
+			A2($rundis$elm_bootstrap$Bootstrap$Grid$Internal$Width, size, count));
+	});
+var $rundis$elm_bootstrap$Bootstrap$Grid$Col$sm10 = A2($rundis$elm_bootstrap$Bootstrap$Grid$Internal$width, $rundis$elm_bootstrap$Bootstrap$General$Internal$SM, $rundis$elm_bootstrap$Bootstrap$Grid$Internal$Col10);
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$Col2 = {$: 'Col2'};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Col$sm2 = A2($rundis$elm_bootstrap$Bootstrap$Grid$Internal$width, $rundis$elm_bootstrap$Bootstrap$General$Internal$SM, $rundis$elm_bootstrap$Bootstrap$Grid$Internal$Col2);
+var $author$project$Main$mkFormRowCheckbox = F3(
 	function (label, state, msg) {
 		return A2(
-			$elm$html$Html$tr,
+			$rundis$elm_bootstrap$Bootstrap$Form$row,
 			_List_Nil,
 			_List_fromArray(
 				[
-					$author$project$Main$mkTh(label),
 					A2(
-					$elm$html$Html$td,
-					_List_Nil,
+					$rundis$elm_bootstrap$Bootstrap$Form$colLabel,
+					_List_fromArray(
+						[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm2]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text(label)
+						])),
+					A2(
+					$rundis$elm_bootstrap$Bootstrap$Form$col,
+					_List_fromArray(
+						[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm10]),
 					_List_fromArray(
 						[
 							A2(
-							$elm$html$Html$input,
+							$rundis$elm_bootstrap$Bootstrap$Form$Checkbox$checkbox,
 							_List_fromArray(
 								[
-									$elm$html$Html$Attributes$type_('checkbox'),
-									$elm$html$Html$Events$onClick(msg),
-									$elm$html$Html$Attributes$checked(state),
-									$elm$html$Html$Attributes$class('form-control')
+									$rundis$elm_bootstrap$Bootstrap$Form$Checkbox$checked(state),
+									$rundis$elm_bootstrap$Bootstrap$Form$Checkbox$onCheck(msg)
 								]),
-							_List_Nil)
+							'')
 						]))
 				]));
 	});
-var $author$project$Main$mkRowHtml = F2(
+var $author$project$Main$mkFormRowHtml = F2(
 	function (label, html) {
 		return A2(
-			$elm$html$Html$tr,
+			$rundis$elm_bootstrap$Bootstrap$Form$row,
 			_List_Nil,
 			_List_fromArray(
 				[
-					$author$project$Main$mkTh(label),
 					A2(
-					$elm$html$Html$td,
-					_List_Nil,
+					$rundis$elm_bootstrap$Bootstrap$Form$colLabel,
+					_List_fromArray(
+						[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm2]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text(label)
+						])),
+					A2(
+					$rundis$elm_bootstrap$Bootstrap$Form$col,
+					_List_fromArray(
+						[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm10]),
 					_List_fromArray(
 						[html]))
 				]));
 	});
+var $rundis$elm_bootstrap$Bootstrap$Form$Select$Item = function (a) {
+	return {$: 'Item', a: a};
+};
+var $elm$html$Html$option = _VirtualDom_node('option');
+var $rundis$elm_bootstrap$Bootstrap$Form$Select$item = F2(
+	function (attributes, children) {
+		return $rundis$elm_bootstrap$Bootstrap$Form$Select$Item(
+			A2($elm$html$Html$option, attributes, children));
+	});
+var $rundis$elm_bootstrap$Bootstrap$Form$Select$OnChange = function (a) {
+	return {$: 'OnChange', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Select$onChange = function (toMsg) {
+	return $rundis$elm_bootstrap$Bootstrap$Form$Select$OnChange(toMsg);
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Select$Select = function (a) {
+	return {$: 'Select', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Select$create = F2(
+	function (options, items) {
+		return $rundis$elm_bootstrap$Bootstrap$Form$Select$Select(
+			{items: items, options: options});
+	});
+var $elm$html$Html$select = _VirtualDom_node('select');
+var $rundis$elm_bootstrap$Bootstrap$Form$Select$applyModifier = F2(
+	function (modifier, options) {
+		switch (modifier.$) {
+			case 'Size':
+				var size_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						size: $elm$core$Maybe$Just(size_)
+					});
+			case 'Id':
+				var id_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						id: $elm$core$Maybe$Just(id_)
+					});
+			case 'Custom':
+				return _Utils_update(
+					options,
+					{custom: true});
+			case 'Disabled':
+				var val = modifier.a;
+				return _Utils_update(
+					options,
+					{disabled: val});
+			case 'OnChange':
+				var onChange_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						onChange: $elm$core$Maybe$Just(onChange_)
+					});
+			case 'Validation':
+				var validation_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						validation: $elm$core$Maybe$Just(validation_)
+					});
+			default:
+				var attrs_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						attributes: _Utils_ap(options.attributes, attrs_)
+					});
+		}
+	});
+var $elm$html$Html$Events$targetValue = A2(
+	$elm$json$Json$Decode$at,
+	_List_fromArray(
+		['target', 'value']),
+	$elm$json$Json$Decode$string);
+var $rundis$elm_bootstrap$Bootstrap$Form$Select$customEventOnChange = function (tagger) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'change',
+		A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue));
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Select$defaultOptions = {attributes: _List_Nil, custom: false, disabled: false, id: $elm$core$Maybe$Nothing, onChange: $elm$core$Maybe$Nothing, size: $elm$core$Maybe$Nothing, validation: $elm$core$Maybe$Nothing};
+var $rundis$elm_bootstrap$Bootstrap$Form$Select$sizeAttribute = F2(
+	function (isCustom, size_) {
+		var prefix = isCustom ? 'custom-select-' : 'form-control-';
+		return A2(
+			$elm$core$Maybe$map,
+			function (s) {
+				return $elm$html$Html$Attributes$class(
+					_Utils_ap(prefix, s));
+			},
+			$rundis$elm_bootstrap$Bootstrap$General$Internal$screenSizeOption(size_));
+	});
+var $rundis$elm_bootstrap$Bootstrap$Form$Select$validationAttribute = function (validation_) {
+	return $elm$html$Html$Attributes$class(
+		$rundis$elm_bootstrap$Bootstrap$Form$FormInternal$validationToString(validation_));
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Select$toAttributes = function (modifiers) {
+	var options = A3($elm$core$List$foldl, $rundis$elm_bootstrap$Bootstrap$Form$Select$applyModifier, $rundis$elm_bootstrap$Bootstrap$Form$Select$defaultOptions, modifiers);
+	return _Utils_ap(
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$classList(
+				_List_fromArray(
+					[
+						_Utils_Tuple2('form-control', !options.custom),
+						_Utils_Tuple2('custom-select', options.custom)
+					])),
+				$elm$html$Html$Attributes$disabled(options.disabled)
+			]),
+		_Utils_ap(
+			A2(
+				$elm$core$List$filterMap,
+				$elm$core$Basics$identity,
+				_List_fromArray(
+					[
+						A2($elm$core$Maybe$map, $elm$html$Html$Attributes$id, options.id),
+						A2(
+						$elm$core$Maybe$andThen,
+						$rundis$elm_bootstrap$Bootstrap$Form$Select$sizeAttribute(options.custom),
+						options.size),
+						A2($elm$core$Maybe$map, $rundis$elm_bootstrap$Bootstrap$Form$Select$customEventOnChange, options.onChange),
+						A2($elm$core$Maybe$map, $rundis$elm_bootstrap$Bootstrap$Form$Select$validationAttribute, options.validation)
+					])),
+			options.attributes));
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Select$view = function (_v0) {
+	var options = _v0.a.options;
+	var items = _v0.a.items;
+	return A2(
+		$elm$html$Html$select,
+		$rundis$elm_bootstrap$Bootstrap$Form$Select$toAttributes(options),
+		A2(
+			$elm$core$List$map,
+			function (_v1) {
+				var e = _v1.a;
+				return e;
+			},
+			items));
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Select$select = F2(
+	function (options, items) {
+		return $rundis$elm_bootstrap$Bootstrap$Form$Select$view(
+			A2($rundis$elm_bootstrap$Bootstrap$Form$Select$create, options, items));
+	});
+var $elm$html$Html$Attributes$selected = $elm$html$Html$Attributes$boolProperty('selected');
+var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');
+var $author$project$Main$mkFormRowSelect = F4(
+	function (label, optList, curOpt, msg) {
+		var mkOption = function (val) {
+			return A2(
+				$rundis$elm_bootstrap$Bootstrap$Form$Select$item,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$value(val),
+						$elm$html$Html$Attributes$selected(
+						_Utils_eq(val, curOpt))
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text(val)
+					]));
+		};
+		return A2(
+			$rundis$elm_bootstrap$Bootstrap$Form$row,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$rundis$elm_bootstrap$Bootstrap$Form$colLabel,
+					_List_fromArray(
+						[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm2]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text(label)
+						])),
+					A2(
+					$rundis$elm_bootstrap$Bootstrap$Form$col,
+					_List_fromArray(
+						[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm10]),
+					_List_fromArray(
+						[
+							A2(
+							$rundis$elm_bootstrap$Bootstrap$Form$Select$select,
+							_List_fromArray(
+								[
+									$rundis$elm_bootstrap$Bootstrap$Form$Select$onChange(msg)
+								]),
+							A2($elm$core$List$map, mkOption, optList))
+						]))
+				]));
+	});
+var $rundis$elm_bootstrap$Bootstrap$Internal$Button$Attrs = function (a) {
+	return {$: 'Attrs', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Button$attrs = function (attrs_) {
+	return $rundis$elm_bootstrap$Bootstrap$Internal$Button$Attrs(attrs_);
+};
+var $elm$virtual_dom$VirtualDom$MayPreventDefault = function (a) {
+	return {$: 'MayPreventDefault', a: a};
+};
+var $elm$html$Html$Events$preventDefaultOn = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$MayPreventDefault(decoder));
+	});
+var $rundis$elm_bootstrap$Bootstrap$Button$onClick = function (message) {
+	return $rundis$elm_bootstrap$Bootstrap$Button$attrs(
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$Events$preventDefaultOn,
+				'click',
+				$elm$json$Json$Decode$succeed(
+					_Utils_Tuple2(message, true)))
+			]));
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$OnInput = function (a) {
+	return {$: 'OnInput', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$onInput = function (toMsg) {
+	return $rundis$elm_bootstrap$Bootstrap$Form$Input$OnInput(toMsg);
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Internal$Col8 = {$: 'Col8'};
+var $rundis$elm_bootstrap$Bootstrap$Grid$Col$sm8 = A2($rundis$elm_bootstrap$Bootstrap$Grid$Internal$width, $rundis$elm_bootstrap$Bootstrap$General$Internal$SM, $rundis$elm_bootstrap$Bootstrap$Grid$Internal$Col8);
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$Text = {$: 'Text'};
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$Input = function (a) {
+	return {$: 'Input', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$Type = function (a) {
+	return {$: 'Type', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$create = F2(
+	function (tipe, options) {
+		return $rundis$elm_bootstrap$Bootstrap$Form$Input$Input(
+			{
+				options: A2(
+					$elm$core$List$cons,
+					$rundis$elm_bootstrap$Bootstrap$Form$Input$Type(tipe),
+					options)
+			});
+	});
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$applyModifier = F2(
+	function (modifier, options) {
+		switch (modifier.$) {
+			case 'Size':
+				var size_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						size: $elm$core$Maybe$Just(size_)
+					});
+			case 'Id':
+				var id_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						id: $elm$core$Maybe$Just(id_)
+					});
+			case 'Type':
+				var tipe = modifier.a;
+				return _Utils_update(
+					options,
+					{tipe: tipe});
+			case 'Disabled':
+				var val = modifier.a;
+				return _Utils_update(
+					options,
+					{disabled: val});
+			case 'Value':
+				var value_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						value: $elm$core$Maybe$Just(value_)
+					});
+			case 'Placeholder':
+				var value_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						placeholder: $elm$core$Maybe$Just(value_)
+					});
+			case 'OnInput':
+				var onInput_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						onInput: $elm$core$Maybe$Just(onInput_)
+					});
+			case 'Validation':
+				var validation_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						validation: $elm$core$Maybe$Just(validation_)
+					});
+			case 'Readonly':
+				var val = modifier.a;
+				return _Utils_update(
+					options,
+					{readonly: val});
+			default:
+				var attrs_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						attributes: _Utils_ap(options.attributes, attrs_)
+					});
+		}
+	});
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$defaultOptions = {attributes: _List_Nil, disabled: false, id: $elm$core$Maybe$Nothing, onInput: $elm$core$Maybe$Nothing, placeholder: $elm$core$Maybe$Nothing, readonly: false, size: $elm$core$Maybe$Nothing, tipe: $rundis$elm_bootstrap$Bootstrap$Form$Input$Text, validation: $elm$core$Maybe$Nothing, value: $elm$core$Maybe$Nothing};
 var $elm$html$Html$Events$alwaysStop = function (x) {
 	return _Utils_Tuple2(x, true);
 };
@@ -9486,11 +11291,6 @@ var $elm$html$Html$Events$stopPropagationOn = F2(
 			event,
 			$elm$virtual_dom$VirtualDom$MayStopPropagation(decoder));
 	});
-var $elm$html$Html$Events$targetValue = A2(
-	$elm$json$Json$Decode$at,
-	_List_fromArray(
-		['target', 'value']),
-	$elm$json$Json$Decode$string);
 var $elm$html$Html$Events$onInput = function (tagger) {
 	return A2(
 		$elm$html$Html$Events$stopPropagationOn,
@@ -9500,90 +11300,136 @@ var $elm$html$Html$Events$onInput = function (tagger) {
 			$elm$html$Html$Events$alwaysStop,
 			A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue)));
 };
-var $elm$html$Html$option = _VirtualDom_node('option');
-var $elm$html$Html$select = _VirtualDom_node('select');
-var $elm$html$Html$Attributes$selected = $elm$html$Html$Attributes$boolProperty('selected');
-var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');
-var $author$project$Main$mkRowSelect = F4(
-	function (label, optList, curOpt, msg) {
-		var mkOption = function (val) {
-			return A2(
-				$elm$html$Html$option,
-				_List_fromArray(
-					[
-						$elm$html$Html$Attributes$value(val),
-						$elm$html$Html$Attributes$selected(
-						_Utils_eq(val, curOpt))
-					]),
-				_List_fromArray(
-					[
-						$elm$html$Html$text(val)
-					]));
-		};
-		return A2(
-			$elm$html$Html$tr,
-			_List_Nil,
-			_List_fromArray(
-				[
-					$author$project$Main$mkTh(label),
-					A2(
-					$elm$html$Html$td,
-					_List_Nil,
-					_List_fromArray(
-						[
-							A2(
-							$elm$html$Html$select,
-							_List_fromArray(
-								[
-									$elm$html$Html$Events$onInput(msg)
-								]),
-							A2($elm$core$List$map, mkOption, optList))
-						]))
-				]));
-	});
-var $elm$html$Html$Attributes$size = function (n) {
+var $elm$html$Html$Attributes$placeholder = $elm$html$Html$Attributes$stringProperty('placeholder');
+var $elm$html$Html$Attributes$readonly = $elm$html$Html$Attributes$boolProperty('readOnly');
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$sizeAttribute = function (size) {
 	return A2(
-		_VirtualDom_attribute,
-		'size',
-		$elm$core$String$fromInt(n));
+		$elm$core$Maybe$map,
+		function (s) {
+			return $elm$html$Html$Attributes$class('form-control-' + s);
+		},
+		$rundis$elm_bootstrap$Bootstrap$General$Internal$screenSizeOption(size));
 };
-var $author$project$Main$mkRowTextEntrySubmit = F4(
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$typeAttribute = function (inputType) {
+	return $elm$html$Html$Attributes$type_(
+		function () {
+			switch (inputType.$) {
+				case 'Text':
+					return 'text';
+				case 'Password':
+					return 'password';
+				case 'DatetimeLocal':
+					return 'datetime-local';
+				case 'Date':
+					return 'date';
+				case 'Month':
+					return 'month';
+				case 'Time':
+					return 'time';
+				case 'Week':
+					return 'week';
+				case 'Number':
+					return 'number';
+				case 'Email':
+					return 'email';
+				case 'Url':
+					return 'url';
+				case 'Search':
+					return 'search';
+				case 'Tel':
+					return 'tel';
+				default:
+					return 'color';
+			}
+		}());
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$validationAttribute = function (validation) {
+	return $elm$html$Html$Attributes$class(
+		$rundis$elm_bootstrap$Bootstrap$Form$FormInternal$validationToString(validation));
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$toAttributes = function (modifiers) {
+	var options = A3($elm$core$List$foldl, $rundis$elm_bootstrap$Bootstrap$Form$Input$applyModifier, $rundis$elm_bootstrap$Bootstrap$Form$Input$defaultOptions, modifiers);
+	return _Utils_ap(
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('form-control'),
+				$elm$html$Html$Attributes$disabled(options.disabled),
+				$elm$html$Html$Attributes$readonly(options.readonly),
+				$rundis$elm_bootstrap$Bootstrap$Form$Input$typeAttribute(options.tipe)
+			]),
+		_Utils_ap(
+			A2(
+				$elm$core$List$filterMap,
+				$elm$core$Basics$identity,
+				_List_fromArray(
+					[
+						A2($elm$core$Maybe$map, $elm$html$Html$Attributes$id, options.id),
+						A2($elm$core$Maybe$andThen, $rundis$elm_bootstrap$Bootstrap$Form$Input$sizeAttribute, options.size),
+						A2($elm$core$Maybe$map, $elm$html$Html$Attributes$value, options.value),
+						A2($elm$core$Maybe$map, $elm$html$Html$Attributes$placeholder, options.placeholder),
+						A2($elm$core$Maybe$map, $elm$html$Html$Events$onInput, options.onInput),
+						A2($elm$core$Maybe$map, $rundis$elm_bootstrap$Bootstrap$Form$Input$validationAttribute, options.validation)
+					])),
+			options.attributes));
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$view = function (_v0) {
+	var options = _v0.a.options;
+	return A2(
+		$elm$html$Html$input,
+		$rundis$elm_bootstrap$Bootstrap$Form$Input$toAttributes(options),
+		_List_Nil);
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$input = F2(
+	function (tipe, options) {
+		return $rundis$elm_bootstrap$Bootstrap$Form$Input$view(
+			A2($rundis$elm_bootstrap$Bootstrap$Form$Input$create, tipe, options));
+	});
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$text = $rundis$elm_bootstrap$Bootstrap$Form$Input$input($rundis$elm_bootstrap$Bootstrap$Form$Input$Text);
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$Value = function (a) {
+	return {$: 'Value', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$value = function (value_) {
+	return $rundis$elm_bootstrap$Bootstrap$Form$Input$Value(value_);
+};
+var $author$project$Main$mkFormRowTextEntrySubmit = F4(
 	function (label, defValue, inputMsg, submitMsg) {
 		return A2(
-			$elm$html$Html$tr,
+			$rundis$elm_bootstrap$Bootstrap$Form$row,
 			_List_Nil,
 			_List_fromArray(
 				[
-					$author$project$Main$mkTh(label),
 					A2(
-					$elm$html$Html$td,
-					_List_Nil,
+					$rundis$elm_bootstrap$Bootstrap$Form$colLabel,
+					_List_fromArray(
+						[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm2]),
 					_List_fromArray(
 						[
-							A2(
-							$elm$html$Html$input,
-							_List_fromArray(
-								[
-									$elm$html$Html$Attributes$type_('text'),
-									$elm$html$Html$Attributes$value(defValue),
-									$elm$html$Html$Attributes$class('form-control'),
-									$elm$html$Html$Events$onInput(inputMsg),
-									$elm$html$Html$Attributes$size(60)
-								]),
-							_List_Nil)
+							$elm$html$Html$text(label)
 						])),
 					A2(
-					$elm$html$Html$td,
-					_List_Nil,
+					$rundis$elm_bootstrap$Bootstrap$Form$col,
+					_List_fromArray(
+						[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm8]),
+					_List_fromArray(
+						[
+							$rundis$elm_bootstrap$Bootstrap$Form$Input$text(
+							_List_fromArray(
+								[
+									$rundis$elm_bootstrap$Bootstrap$Form$Input$value(defValue),
+									$rundis$elm_bootstrap$Bootstrap$Form$Input$onInput(inputMsg)
+								]))
+						])),
+					A2(
+					$rundis$elm_bootstrap$Bootstrap$Form$col,
+					_List_fromArray(
+						[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm2]),
 					_List_fromArray(
 						[
 							A2(
-							$elm$html$Html$button,
+							$rundis$elm_bootstrap$Bootstrap$Button$button,
 							_List_fromArray(
 								[
-									$elm$html$Html$Attributes$class('btn btn-default'),
-									$elm$html$Html$Attributes$type_('button'),
-									$elm$html$Html$Events$onClick(submitMsg)
+									$rundis$elm_bootstrap$Bootstrap$Button$onClick(submitMsg)
 								]),
 							_List_fromArray(
 								[
@@ -9592,7 +11438,10 @@ var $author$project$Main$mkRowTextEntrySubmit = F4(
 						]))
 				]));
 	});
-var $elm$html$Html$table = _VirtualDom_node('table');
+var $rundis$elm_bootstrap$Bootstrap$Internal$Button$Size = function (a) {
+	return {$: 'Size', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Button$small = $rundis$elm_bootstrap$Bootstrap$Internal$Button$Size($rundis$elm_bootstrap$Bootstrap$General$Internal$SM);
 var $elm$html$Html$ul = _VirtualDom_node('ul');
 var $author$project$Main$validAccessSpecOptions = _List_fromArray(
 	['', 'VIEW', 'UPLOAD', 'CONTRIBUTE', 'ADMINISTER']);
@@ -9606,12 +11455,12 @@ var $author$project$Main$paneAccessSpec = function (model) {
 				[
 					$elm$html$Html$text(val),
 					A2(
-					$elm$html$Html$button,
+					$rundis$elm_bootstrap$Bootstrap$Button$button,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$type_('button'),
-							$elm$html$Html$Attributes$class('btn btn-default'),
-							$elm$html$Html$Events$onClick(
+							$rundis$elm_bootstrap$Bootstrap$Button$small,
+							$rundis$elm_bootstrap$Bootstrap$Button$light,
+							$rundis$elm_bootstrap$Bootstrap$Button$onClick(
 							$author$project$Main$DeleteAccessSpecNetwork(val))
 						]),
 					_List_fromArray(
@@ -9621,38 +11470,32 @@ var $author$project$Main$paneAccessSpec = function (model) {
 				]));
 	};
 	var curNetworks = function () {
-		var _v0 = $elm$core$List$length(spec.network) > 0;
+		var _v0 = $elm$core$List$isEmpty(spec.network);
 		if (_v0) {
+			return $elm$html$Html$text('None');
+		} else {
 			return A2(
 				$elm$html$Html$ul,
 				_List_Nil,
 				A2($elm$core$List$map, mkLi, spec.network));
-		} else {
-			return $elm$html$Html$text('None');
 		}
 	}();
 	return A2(
-		$elm$html$Html$div,
+		$rundis$elm_bootstrap$Bootstrap$Grid$container,
 		_List_Nil,
 		_List_fromArray(
 			[
 				A2(
-				$elm$html$Html$form,
+				$rundis$elm_bootstrap$Bootstrap$Form$form,
 				_List_Nil,
 				_List_fromArray(
 					[
-						A2(
-						$elm$html$Html$table,
-						_List_Nil,
-						_List_fromArray(
-							[
-								A2($author$project$Main$mkRowHtml, 'Network', curNetworks),
-								A4($author$project$Main$mkRowTextEntrySubmit, 'Add Network', model.accessSpecNetwork, $author$project$Main$UpdateAccessSpecNetwork, $author$project$Main$UpdateAccessSpecAddNetwork),
-								A4($author$project$Main$mkRowSelect, 'Project', $author$project$Main$validAccessSpecOptions, spec.project, $author$project$Main$UpdateAccessSpecProject),
-								A4($author$project$Main$mkRowSelect, 'All Projects', $author$project$Main$validAccessSpecOptions, spec.allProjects, $author$project$Main$UpdateAccessSpecAllProjects),
-								A3($author$project$Main$mkRowCheckbox, 'Developer', spec.developer, $author$project$Main$ToggleAccessSpecDeveloper),
-								A3($author$project$Main$mkRowCheckbox, 'Project Creation', spec.projectCreation, $author$project$Main$ToggleAccessSpecProjectCreation)
-							]))
+						A2($author$project$Main$mkFormRowHtml, 'Allowed Networks', curNetworks),
+						A4($author$project$Main$mkFormRowTextEntrySubmit, 'Add Network', model.accessSpecNetwork, $author$project$Main$UpdateAccessSpecNetwork, $author$project$Main$UpdateAccessSpecAddNetwork),
+						A4($author$project$Main$mkFormRowSelect, 'Project', $author$project$Main$validAccessSpecOptions, spec.project, $author$project$Main$UpdateAccessSpecProject),
+						A4($author$project$Main$mkFormRowSelect, 'All Projects', $author$project$Main$validAccessSpecOptions, spec.allProjects, $author$project$Main$UpdateAccessSpecAllProjects),
+						A3($author$project$Main$mkFormRowCheckbox, 'Developer', spec.developer, $author$project$Main$UpdateAccessSpecDeveloper),
+						A3($author$project$Main$mkFormRowCheckbox, 'Project Creation', spec.projectCreation, $author$project$Main$UpdateAccessSpecProjectCreation)
 					]))
 			]));
 };
@@ -9671,21 +11514,32 @@ var $author$project$Main$ModifyExecDependsDialog = F2(
 	function (a, b) {
 		return {$: 'ModifyExecDependsDialog', a: a, b: b};
 	});
+var $rundis$elm_bootstrap$Bootstrap$Grid$Column = function (a) {
+	return {$: 'Column', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$col = F2(
+	function (options, children) {
+		return $rundis$elm_bootstrap$Bootstrap$Grid$Column(
+			{children: children, options: options});
+	});
 var $author$project$Main$DeleteExecDepends = function (a) {
 	return {$: 'DeleteExecDepends', a: a};
 };
 var $author$project$Main$SetExecDependsToModify = function (a) {
 	return {$: 'SetExecDependsToModify', a: a};
 };
-var $elm$core$List$isEmpty = function (xs) {
-	if (!xs.b) {
-		return true;
-	} else {
-		return false;
-	}
+var $elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'click',
+		$elm$json$Json$Decode$succeed(msg));
 };
+var $elm$html$Html$table = _VirtualDom_node('table');
 var $elm$html$Html$tbody = _VirtualDom_node('tbody');
+var $elm$html$Html$td = _VirtualDom_node('td');
+var $elm$html$Html$th = _VirtualDom_node('th');
 var $elm$html$Html$thead = _VirtualDom_node('thead');
+var $elm$html$Html$tr = _VirtualDom_node('tr');
 var $author$project$Main$execDependsTable = function (execDepends) {
 	var inputTr = F2(
 		function (index, dep) {
@@ -9706,7 +11560,8 @@ var $author$project$Main$execDependsTable = function (execDepends) {
 						_List_Nil,
 						_List_fromArray(
 							[
-								$elm$html$Html$text(dep.packageManager)
+								$elm$html$Html$text(
+								$author$project$Main$packageManagerToString(dep.packageManager))
 							])),
 						A2(
 						$elm$html$Html$td,
@@ -9841,7 +11696,7 @@ var $author$project$Main$execDependsTable = function (execDepends) {
 		return tbl;
 	}
 };
-var $author$project$Main$initialExecDepends = {name: 'package_name', packageManager: 'apt', stages: _List_Nil, version: ''};
+var $author$project$Main$initialExecDepends = {name: 'package_name', packageManager: $author$project$Main$Apt, stages: _List_Nil, version: ''};
 var $author$project$Main$CloseExecDependsDialog = {$: 'CloseExecDependsDialog'};
 var $author$project$Main$DeleteExecDependsStage = function (a) {
 	return {$: 'DeleteExecDependsStage', a: a};
@@ -9859,6 +11714,78 @@ var $author$project$Main$UpdateExecDependsStage = function (a) {
 };
 var $author$project$Main$UpdateExecDependsVersion = function (a) {
 	return {$: 'UpdateExecDependsVersion', a: a};
+};
+var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
+var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
+var $author$project$Main$mkTh = function (label) {
+	return A2(
+		$elm$html$Html$th,
+		_List_fromArray(
+			[
+				A2($elm$html$Html$Attributes$style, 'align', 'right')
+			]),
+		_List_fromArray(
+			[
+				$elm$html$Html$text(label)
+			]));
+};
+var $author$project$Main$mkRowHtml = F2(
+	function (label, html) {
+		return A2(
+			$elm$html$Html$tr,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$author$project$Main$mkTh(label),
+					A2(
+					$elm$html$Html$td,
+					_List_Nil,
+					_List_fromArray(
+						[html]))
+				]));
+	});
+var $author$project$Main$mkRowSelect = F4(
+	function (label, optList, curOpt, msg) {
+		var mkOption = function (val) {
+			return A2(
+				$rundis$elm_bootstrap$Bootstrap$Form$Select$item,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$value(val),
+						$elm$html$Html$Attributes$selected(
+						_Utils_eq(val, curOpt))
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text(val)
+					]));
+		};
+		return A2(
+			$elm$html$Html$tr,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$author$project$Main$mkTh(label),
+					A2(
+					$elm$html$Html$td,
+					_List_Nil,
+					_List_fromArray(
+						[
+							A2(
+							$rundis$elm_bootstrap$Bootstrap$Form$Select$select,
+							_List_fromArray(
+								[
+									$rundis$elm_bootstrap$Bootstrap$Form$Select$onChange(msg)
+								]),
+							A2($elm$core$List$map, mkOption, optList))
+						]))
+				]));
+	});
+var $elm$html$Html$Attributes$size = function (n) {
+	return A2(
+		_VirtualDom_attribute,
+		'size',
+		$elm$core$String$fromInt(n));
 };
 var $author$project$Main$mkRowTextEntry = F3(
 	function (label, defValue, msg) {
@@ -9887,29 +11814,51 @@ var $author$project$Main$mkRowTextEntry = F3(
 						]))
 				]));
 	});
-var $elm$core$Maybe$andThen = F2(
-	function (callback, maybeValue) {
-		if (maybeValue.$ === 'Just') {
-			var value = maybeValue.a;
-			return callback(value);
-		} else {
-			return $elm$core$Maybe$Nothing;
-		}
+var $author$project$Main$mkRowTextEntrySubmit = F4(
+	function (label, defValue, inputMsg, submitMsg) {
+		return A2(
+			$elm$html$Html$tr,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$author$project$Main$mkTh(label),
+					A2(
+					$elm$html$Html$td,
+					_List_Nil,
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$input,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$type_('text'),
+									$elm$html$Html$Attributes$value(defValue),
+									$elm$html$Html$Attributes$class('form-control'),
+									$elm$html$Html$Events$onInput(inputMsg),
+									$elm$html$Html$Attributes$size(60)
+								]),
+							_List_Nil)
+						])),
+					A2(
+					$elm$html$Html$td,
+					_List_Nil,
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$button,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('btn btn-default'),
+									$elm$html$Html$Attributes$type_('button'),
+									$elm$html$Html$Events$onClick(submitMsg)
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text('Add')
+								]))
+						]))
+				]));
 	});
-var $elm$core$Tuple$second = function (_v0) {
-	var y = _v0.b;
-	return y;
-};
-var $elm$html$Html$Attributes$classList = function (classes) {
-	return $elm$html$Html$Attributes$class(
-		A2(
-			$elm$core$String$join,
-			' ',
-			A2(
-				$elm$core$List$map,
-				$elm$core$Tuple$first,
-				A2($elm$core$List$filter, $elm$core$Tuple$second, classes))));
-};
 var $alex_tan$elm_dialog$Dialog$isJust = function (m) {
 	if (m.$ === 'Just') {
 		return true;
@@ -10064,6 +12013,11 @@ var $alex_tan$elm_dialog$Dialog$view = function (maybeConfig) {
 			]));
 };
 var $author$project$Main$modifyExecDependsDialog = function (model) {
+	var packageManagers = A2(
+		$elm$core$List$map,
+		$author$project$Main$packageManagerToString,
+		_List_fromArray(
+			[$author$project$Main$Apt, $author$project$Main$Cpan, $author$project$Main$Cran, $author$project$Main$Gem, $author$project$Main$Pip]));
 	var mkLi = function (val) {
 		return A2(
 			$elm$html$Html$li,
@@ -10087,8 +12041,8 @@ var $author$project$Main$modifyExecDependsDialog = function (model) {
 				]));
 	};
 	var curStages = function (stages) {
-		var _v1 = $elm$core$List$length(stages) > 0;
-		if (_v1) {
+		var _v0 = $elm$core$List$length(stages) > 0;
+		if (_v0) {
 			return A2(
 				$elm$html$Html$ul,
 				_List_Nil,
@@ -10123,119 +12077,166 @@ var $author$project$Main$modifyExecDependsDialog = function (model) {
 									_List_fromArray(
 										[
 											A3($author$project$Main$mkRowTextEntry, 'Name', execDepends.name, $author$project$Main$UpdateExecDependsName),
-											A3($author$project$Main$mkRowTextEntry, 'Package Manager', execDepends.packageManager, $author$project$Main$UpdateExecDependsPackageManager),
+											A4(
+											$author$project$Main$mkRowSelect,
+											'Package Manager',
+											packageManagers,
+											$author$project$Main$packageManagerToString(execDepends.packageManager),
+											$author$project$Main$UpdateExecDependsPackageManager),
 											A3($author$project$Main$mkRowTextEntry, 'Version', execDepends.version, $author$project$Main$UpdateExecDependsVersion),
 											A2(
 											$author$project$Main$mkRowHtml,
 											'Stages',
 											curStages(execDepends.stages)),
-											A4($author$project$Main$mkRowTextEntrySubmit, 'Stage', model.execDependsStage, $author$project$Main$UpdateExecDependsStage, $author$project$Main$UpdateExecDependsAddStage)
+											A4($author$project$Main$mkRowTextEntrySubmit, 'Add Stage', model.execDependsStage, $author$project$Main$UpdateExecDependsStage, $author$project$Main$UpdateExecDependsAddStage)
 										]))
 								]))
 						]))
 				]));
 	};
 	return $alex_tan$elm_dialog$Dialog$view(
-		function () {
-			var _v0 = model.execDependsToModify;
-			if (_v0.$ === 'Just') {
-				var input = _v0.a;
-				return $elm$core$Maybe$Just(
-					{
-						body: $elm$core$Maybe$Just(
-							tbl(input)),
-						closeMessage: $elm$core$Maybe$Nothing,
-						containerClass: $elm$core$Maybe$Nothing,
-						footer: $elm$core$Maybe$Just(
-							A2(
-								$elm$html$Html$div,
-								_List_Nil,
-								_List_fromArray(
-									[
-										A2(
-										$elm$html$Html$button,
-										_List_fromArray(
-											[
-												$elm$html$Html$Attributes$class('btn btn-primary'),
-												$elm$html$Html$Attributes$type_('button'),
-												$elm$html$Html$Events$onClick($author$project$Main$SaveExecDepends)
-											]),
-										_List_fromArray(
-											[
-												$elm$html$Html$text('Save')
-											])),
-										A2(
-										$elm$html$Html$button,
-										_List_fromArray(
-											[
-												$elm$html$Html$Attributes$class('btn btn-default'),
-												$elm$html$Html$Attributes$type_('button'),
-												$elm$html$Html$Events$onClick($author$project$Main$CloseExecDependsDialog)
-											]),
-										_List_fromArray(
-											[
-												$elm$html$Html$text('Cancel')
-											]))
-									]))),
-						header: $elm$core$Maybe$Just(
-							$elm$html$Html$text('Add Input'))
-					});
-			} else {
-				return $elm$core$Maybe$Nothing;
-			}
-		}());
+		A2(
+			$elm$core$Maybe$map,
+			function (input) {
+				return {
+					body: $elm$core$Maybe$Just(
+						tbl(input)),
+					closeMessage: $elm$core$Maybe$Nothing,
+					containerClass: $elm$core$Maybe$Nothing,
+					footer: $elm$core$Maybe$Just(
+						A2(
+							$elm$html$Html$div,
+							_List_Nil,
+							_List_fromArray(
+								[
+									A2(
+									$elm$html$Html$button,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('btn btn-primary'),
+											$elm$html$Html$Attributes$type_('button'),
+											$elm$html$Html$Events$onClick($author$project$Main$SaveExecDepends)
+										]),
+									_List_fromArray(
+										[
+											$elm$html$Html$text('Save')
+										])),
+									A2(
+									$elm$html$Html$button,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('btn btn-default'),
+											$elm$html$Html$Attributes$type_('button'),
+											$elm$html$Html$Events$onClick($author$project$Main$CloseExecDependsDialog)
+										]),
+									_List_fromArray(
+										[
+											$elm$html$Html$text('Cancel')
+										]))
+								]))),
+					header: $elm$core$Maybe$Just(
+						$elm$html$Html$text('Add Input'))
+				};
+			},
+			model.execDependsToModify));
 };
+var $elm$virtual_dom$VirtualDom$keyedNode = function (tag) {
+	return _VirtualDom_keyedNode(
+		_VirtualDom_noScript(tag));
+};
+var $elm$html$Html$Keyed$node = $elm$virtual_dom$VirtualDom$keyedNode;
+var $rundis$elm_bootstrap$Bootstrap$Grid$renderCol = function (column) {
+	switch (column.$) {
+		case 'Column':
+			var options = column.a.options;
+			var children = column.a.children;
+			return A2(
+				$elm$html$Html$div,
+				$rundis$elm_bootstrap$Bootstrap$Grid$Internal$colAttributes(options),
+				children);
+		case 'ColBreak':
+			var e = column.a;
+			return e;
+		default:
+			var options = column.a.options;
+			var children = column.a.children;
+			return A3(
+				$elm$html$Html$Keyed$node,
+				'div',
+				$rundis$elm_bootstrap$Bootstrap$Grid$Internal$colAttributes(options),
+				children);
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Grid$row = F2(
+	function (options, cols) {
+		return A2(
+			$elm$html$Html$div,
+			$rundis$elm_bootstrap$Bootstrap$Grid$Internal$rowAttributes(options),
+			A2($elm$core$List$map, $rundis$elm_bootstrap$Bootstrap$Grid$renderCol, cols));
+	});
 var $author$project$Main$paneExecDepends = function (model) {
 	return A2(
-		$elm$html$Html$div,
-		_List_fromArray(
-			[
-				$elm$html$Html$Attributes$class('form-group'),
-				A2($elm$html$Html$Attributes$style, 'text-align', 'center')
-			]),
-		_List_fromArray(
-			[
-				A2(
-				$elm$html$Html$button,
-				_List_fromArray(
-					[
-						$elm$html$Html$Attributes$type_('button'),
-						$elm$html$Html$Attributes$class('btn btn-default'),
-						$elm$html$Html$Events$onClick(
-						A2($author$project$Main$ModifyExecDependsDialog, $author$project$Main$initialExecDepends, $elm$core$Maybe$Nothing))
-					]),
-				_List_fromArray(
-					[
-						$elm$html$Html$text('Add Dependency')
-					])),
-				$author$project$Main$modifyExecDependsDialog(model),
-				$author$project$Main$execDependsTable(model.app.runSpec.execDepends)
-			]));
-};
-var $elm$html$Html$h2 = _VirtualDom_node('h2');
-var $author$project$Main$paneHelp = function () {
-	var helpUrl = 'https://documentation.dnanexus.com/developer/apps/' + 'advanced-app-tutorial';
-	return A2(
-		$elm$html$Html$div,
+		$rundis$elm_bootstrap$Bootstrap$Grid$container,
 		_List_Nil,
 		_List_fromArray(
 			[
 				A2(
-				$elm$html$Html$h2,
+				$rundis$elm_bootstrap$Bootstrap$Grid$row,
 				_List_Nil,
 				_List_fromArray(
 					[
-						$elm$html$Html$text('Docs')
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Grid$col,
+						_List_fromArray(
+							[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm10]),
+						_List_fromArray(
+							[
+								A2(
+								$rundis$elm_bootstrap$Bootstrap$Button$button,
+								_List_fromArray(
+									[
+										$rundis$elm_bootstrap$Bootstrap$Button$onClick(
+										A2($author$project$Main$ModifyExecDependsDialog, $author$project$Main$initialExecDepends, $elm$core$Maybe$Nothing))
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Add Dependency')
+									]))
+							]))
 					])),
-				$elm$html$Html$text('This interface allows you to edit the dxapp.json file')
+				A2(
+				$rundis$elm_bootstrap$Bootstrap$Grid$row,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Grid$col,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$author$project$Main$execDependsTable(model.app.runSpec.execDepends)
+							]))
+					])),
+				A2(
+				$rundis$elm_bootstrap$Bootstrap$Grid$row,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Grid$col,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$author$project$Main$modifyExecDependsDialog(model)
+							]))
+					]))
 			]));
-}();
+};
 var $author$project$Main$DeleteHttpsAppPort = function (a) {
 	return {$: 'DeleteHttpsAppPort', a: a};
 };
-var $author$project$Main$UpdateHttpsAppAddPort = {$: 'UpdateHttpsAppAddPort'};
-var $author$project$Main$UpdateHttpsAppPort = function (a) {
-	return {$: 'UpdateHttpsAppPort', a: a};
+var $author$project$Main$UpdateHttpsAppAddPort = function (a) {
+	return {$: 'UpdateHttpsAppAddPort', a: a};
 };
 var $author$project$Main$UpdateHttpsAppSharedAccess = function (a) {
 	return {$: 'UpdateHttpsAppSharedAccess', a: a};
@@ -10250,12 +12251,12 @@ var $author$project$Main$paneHttpsApp = function (model) {
 					[
 						$elm$html$Html$text(val),
 						A2(
-						$elm$html$Html$button,
+						$rundis$elm_bootstrap$Bootstrap$Button$button,
 						_List_fromArray(
 							[
-								$elm$html$Html$Attributes$type_('button'),
-								$elm$html$Html$Attributes$class('btn btn-default'),
-								$elm$html$Html$Events$onClick(
+								$rundis$elm_bootstrap$Bootstrap$Button$small,
+								$rundis$elm_bootstrap$Bootstrap$Button$light,
+								$rundis$elm_bootstrap$Bootstrap$Button$onClick(
 								$author$project$Main$DeleteHttpsAppPort(index))
 							]),
 						_List_fromArray(
@@ -10281,38 +12282,29 @@ var $author$project$Main$paneHttpsApp = function (model) {
 		}
 	}();
 	return A2(
-		$elm$html$Html$div,
+		$rundis$elm_bootstrap$Bootstrap$Grid$container,
 		_List_Nil,
 		_List_fromArray(
 			[
 				A2(
-				$elm$html$Html$form,
+				$rundis$elm_bootstrap$Bootstrap$Form$form,
 				_List_Nil,
 				_List_fromArray(
 					[
-						A2(
-						$elm$html$Html$table,
-						_List_Nil,
+						A4(
+						$author$project$Main$mkFormRowSelect,
+						'Add Port',
+						A2($elm$core$List$map, $elm$core$String$fromInt, $author$project$Main$validHttpsPorts),
+						'',
+						$author$project$Main$UpdateHttpsAppAddPort),
+						A2($author$project$Main$mkFormRowHtml, 'Ports', curPorts),
+						A4(
+						$author$project$Main$mkFormRowSelect,
+						'Shared Access',
 						_List_fromArray(
-							[
-								A4(
-								$author$project$Main$mkRowTextEntrySubmit,
-								'Add Port',
-								A2(
-									$elm$core$Maybe$withDefault,
-									'',
-									A2($elm$core$Maybe$map, $elm$core$String$fromInt, model.httpsAppPort)),
-								$author$project$Main$UpdateHttpsAppPort,
-								$author$project$Main$UpdateHttpsAppAddPort),
-								A2($author$project$Main$mkRowHtml, 'Ports', curPorts),
-								A4(
-								$author$project$Main$mkRowSelect,
-								'Shard Access',
-								_List_fromArray(
-									['', 'VIEW', 'CONTRIBUTE', 'ADMINISTER', 'NONE']),
-								httpsApp.sharedAccess,
-								$author$project$Main$UpdateHttpsAppSharedAccess)
-							]))
+							['VIEW', 'CONTRIBUTE', 'ADMINISTER', 'NONE']),
+						httpsApp.sharedAccess,
+						$author$project$Main$UpdateHttpsAppSharedAccess)
 					]))
 			]));
 };
@@ -10338,30 +12330,570 @@ var $author$project$Main$DeleteInputSpec = function (a) {
 var $author$project$Main$SetInputSpecToModify = function (a) {
 	return {$: 'SetInputSpecToModify', a: a};
 };
-var $author$project$Main$inputSpecTable = function (inputSpec) {
-	var inputTr = F2(
+var $rundis$elm_bootstrap$Bootstrap$Internal$Button$Danger = {$: 'Danger'};
+var $rundis$elm_bootstrap$Bootstrap$Button$danger = $rundis$elm_bootstrap$Bootstrap$Internal$Button$Coloring(
+	$rundis$elm_bootstrap$Bootstrap$Internal$Button$Roled($rundis$elm_bootstrap$Bootstrap$Internal$Button$Danger));
+var $rundis$elm_bootstrap$Bootstrap$Table$Hover = {$: 'Hover'};
+var $rundis$elm_bootstrap$Bootstrap$Table$hover = $rundis$elm_bootstrap$Bootstrap$Table$Hover;
+var $rundis$elm_bootstrap$Bootstrap$Internal$Button$Primary = {$: 'Primary'};
+var $rundis$elm_bootstrap$Bootstrap$Button$primary = $rundis$elm_bootstrap$Bootstrap$Internal$Button$Coloring(
+	$rundis$elm_bootstrap$Bootstrap$Internal$Button$Roled($rundis$elm_bootstrap$Bootstrap$Internal$Button$Primary));
+var $rundis$elm_bootstrap$Bootstrap$Table$THead = function (a) {
+	return {$: 'THead', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$thead = F2(
+	function (options, rows) {
+		return $rundis$elm_bootstrap$Bootstrap$Table$THead(
+			{options: options, rows: rows});
+	});
+var $rundis$elm_bootstrap$Bootstrap$Table$Row = function (a) {
+	return {$: 'Row', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$tr = F2(
+	function (options, cells) {
+		return $rundis$elm_bootstrap$Bootstrap$Table$Row(
+			{cells: cells, options: options});
+	});
+var $rundis$elm_bootstrap$Bootstrap$Table$simpleThead = function (cells) {
+	return A2(
+		$rundis$elm_bootstrap$Bootstrap$Table$thead,
+		_List_Nil,
+		_List_fromArray(
+			[
+				A2($rundis$elm_bootstrap$Bootstrap$Table$tr, _List_Nil, cells)
+			]));
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$Striped = {$: 'Striped'};
+var $rundis$elm_bootstrap$Bootstrap$Table$striped = $rundis$elm_bootstrap$Bootstrap$Table$Striped;
+var $rundis$elm_bootstrap$Bootstrap$Table$Inversed = {$: 'Inversed'};
+var $rundis$elm_bootstrap$Bootstrap$Table$isResponsive = function (option) {
+	if (option.$ === 'Responsive') {
+		return true;
+	} else {
+		return false;
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$KeyedTBody = function (a) {
+	return {$: 'KeyedTBody', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$TBody = function (a) {
+	return {$: 'TBody', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$InversedRow = function (a) {
+	return {$: 'InversedRow', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$KeyedRow = function (a) {
+	return {$: 'KeyedRow', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$InversedCell = function (a) {
+	return {$: 'InversedCell', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$Td = function (a) {
+	return {$: 'Td', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$Th = function (a) {
+	return {$: 'Th', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$mapInversedCell = function (cell) {
+	var inverseOptions = function (options) {
+		return A2(
+			$elm$core$List$map,
+			function (opt) {
+				if (opt.$ === 'RoledCell') {
+					var role = opt.a;
+					return $rundis$elm_bootstrap$Bootstrap$Table$InversedCell(role);
+				} else {
+					return opt;
+				}
+			},
+			options);
+	};
+	if (cell.$ === 'Th') {
+		var cellCfg = cell.a;
+		return $rundis$elm_bootstrap$Bootstrap$Table$Th(
+			_Utils_update(
+				cellCfg,
+				{
+					options: inverseOptions(cellCfg.options)
+				}));
+	} else {
+		var cellCfg = cell.a;
+		return $rundis$elm_bootstrap$Bootstrap$Table$Td(
+			_Utils_update(
+				cellCfg,
+				{
+					options: inverseOptions(cellCfg.options)
+				}));
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$mapInversedRow = function (row) {
+	var inversedOptions = function (options) {
+		return A2(
+			$elm$core$List$map,
+			function (opt) {
+				if (opt.$ === 'RoledRow') {
+					var role = opt.a;
+					return $rundis$elm_bootstrap$Bootstrap$Table$InversedRow(role);
+				} else {
+					return opt;
+				}
+			},
+			options);
+	};
+	if (row.$ === 'Row') {
+		var options = row.a.options;
+		var cells = row.a.cells;
+		return $rundis$elm_bootstrap$Bootstrap$Table$Row(
+			{
+				cells: A2($elm$core$List$map, $rundis$elm_bootstrap$Bootstrap$Table$mapInversedCell, cells),
+				options: inversedOptions(options)
+			});
+	} else {
+		var options = row.a.options;
+		var cells = row.a.cells;
+		return $rundis$elm_bootstrap$Bootstrap$Table$KeyedRow(
+			{
+				cells: A2(
+					$elm$core$List$map,
+					function (_v1) {
+						var key = _v1.a;
+						var cell = _v1.b;
+						return _Utils_Tuple2(
+							key,
+							$rundis$elm_bootstrap$Bootstrap$Table$mapInversedCell(cell));
+					},
+					cells),
+				options: inversedOptions(options)
+			});
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$maybeMapInversedTBody = F2(
+	function (isTableInversed, tbody_) {
+		var _v0 = _Utils_Tuple2(isTableInversed, tbody_);
+		if (!_v0.a) {
+			return tbody_;
+		} else {
+			if (_v0.b.$ === 'TBody') {
+				var body = _v0.b.a;
+				return $rundis$elm_bootstrap$Bootstrap$Table$TBody(
+					_Utils_update(
+						body,
+						{
+							rows: A2($elm$core$List$map, $rundis$elm_bootstrap$Bootstrap$Table$mapInversedRow, body.rows)
+						}));
+			} else {
+				var keyedBody = _v0.b.a;
+				return $rundis$elm_bootstrap$Bootstrap$Table$KeyedTBody(
+					_Utils_update(
+						keyedBody,
+						{
+							rows: A2(
+								$elm$core$List$map,
+								function (_v1) {
+									var key = _v1.a;
+									var row = _v1.b;
+									return _Utils_Tuple2(
+										key,
+										$rundis$elm_bootstrap$Bootstrap$Table$mapInversedRow(row));
+								},
+								keyedBody.rows)
+						}));
+			}
+		}
+	});
+var $rundis$elm_bootstrap$Bootstrap$Table$InversedHead = {$: 'InversedHead'};
+var $rundis$elm_bootstrap$Bootstrap$Table$maybeMapInversedTHead = F2(
+	function (isTableInversed, _v0) {
+		var thead_ = _v0.a;
+		var isHeadInversed = A2(
+			$elm$core$List$any,
+			function (opt) {
+				return _Utils_eq(opt, $rundis$elm_bootstrap$Bootstrap$Table$InversedHead);
+			},
+			thead_.options);
+		return $rundis$elm_bootstrap$Bootstrap$Table$THead(
+			(isTableInversed || isHeadInversed) ? _Utils_update(
+				thead_,
+				{
+					rows: A2($elm$core$List$map, $rundis$elm_bootstrap$Bootstrap$Table$mapInversedRow, thead_.rows)
+				}) : thead_);
+	});
+var $rundis$elm_bootstrap$Bootstrap$Table$maybeWrapResponsive = F2(
+	function (options, table_) {
+		var responsiveClass = $elm$html$Html$Attributes$class(
+			'table-responsive' + A2(
+				$elm$core$Maybe$withDefault,
+				'',
+				A2(
+					$elm$core$Maybe$map,
+					function (v) {
+						return '-' + v;
+					},
+					A2(
+						$elm$core$Maybe$andThen,
+						$rundis$elm_bootstrap$Bootstrap$General$Internal$screenSizeOption,
+						A2(
+							$elm$core$Maybe$andThen,
+							function (opt) {
+								if (opt.$ === 'Responsive') {
+									var val = opt.a;
+									return val;
+								} else {
+									return $elm$core$Maybe$Nothing;
+								}
+							},
+							$elm$core$List$head(
+								A2($elm$core$List$filter, $rundis$elm_bootstrap$Bootstrap$Table$isResponsive, options)))))));
+		return A2($elm$core$List$any, $rundis$elm_bootstrap$Bootstrap$Table$isResponsive, options) ? A2(
+			$elm$html$Html$div,
+			_List_fromArray(
+				[responsiveClass]),
+			_List_fromArray(
+				[table_])) : table_;
+	});
+var $rundis$elm_bootstrap$Bootstrap$Table$CellAttr = function (a) {
+	return {$: 'CellAttr', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$cellAttr = function (attr_) {
+	return $rundis$elm_bootstrap$Bootstrap$Table$CellAttr(attr_);
+};
+var $elm$html$Html$Attributes$scope = $elm$html$Html$Attributes$stringProperty('scope');
+var $rundis$elm_bootstrap$Bootstrap$Table$addScopeIfTh = function (cell) {
+	if (cell.$ === 'Th') {
+		var cellConfig = cell.a;
+		return $rundis$elm_bootstrap$Bootstrap$Table$Th(
+			_Utils_update(
+				cellConfig,
+				{
+					options: A2(
+						$elm$core$List$cons,
+						$rundis$elm_bootstrap$Bootstrap$Table$cellAttr(
+							$elm$html$Html$Attributes$scope('row')),
+						cellConfig.options)
+				}));
+	} else {
+		return cell;
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$maybeAddScopeToFirstCell = function (row) {
+	if (row.$ === 'Row') {
+		var options = row.a.options;
+		var cells = row.a.cells;
+		if (!cells.b) {
+			return row;
+		} else {
+			var first = cells.a;
+			var rest = cells.b;
+			return $rundis$elm_bootstrap$Bootstrap$Table$Row(
+				{
+					cells: A2(
+						$elm$core$List$cons,
+						$rundis$elm_bootstrap$Bootstrap$Table$addScopeIfTh(first),
+						rest),
+					options: options
+				});
+		}
+	} else {
+		var options = row.a.options;
+		var cells = row.a.cells;
+		if (!cells.b) {
+			return row;
+		} else {
+			var _v3 = cells.a;
+			var firstKey = _v3.a;
+			var first = _v3.b;
+			var rest = cells.b;
+			return $rundis$elm_bootstrap$Bootstrap$Table$KeyedRow(
+				{
+					cells: A2(
+						$elm$core$List$cons,
+						_Utils_Tuple2(
+							firstKey,
+							$rundis$elm_bootstrap$Bootstrap$Table$addScopeIfTh(first)),
+						rest),
+					options: options
+				});
+		}
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Internal$Role$toClass = F2(
+	function (prefix, role) {
+		return $elm$html$Html$Attributes$class(
+			prefix + ('-' + function () {
+				switch (role.$) {
+					case 'Primary':
+						return 'primary';
+					case 'Secondary':
+						return 'secondary';
+					case 'Success':
+						return 'success';
+					case 'Info':
+						return 'info';
+					case 'Warning':
+						return 'warning';
+					case 'Danger':
+						return 'danger';
+					case 'Light':
+						return 'light';
+					default:
+						return 'dark';
+				}
+			}()));
+	});
+var $rundis$elm_bootstrap$Bootstrap$Table$cellAttribute = function (option) {
+	switch (option.$) {
+		case 'RoledCell':
+			if (option.a.$ === 'Roled') {
+				var role = option.a.a;
+				return A2($rundis$elm_bootstrap$Bootstrap$Internal$Role$toClass, 'table', role);
+			} else {
+				var _v1 = option.a;
+				return $elm$html$Html$Attributes$class('table-active');
+			}
+		case 'InversedCell':
+			if (option.a.$ === 'Roled') {
+				var role = option.a.a;
+				return A2($rundis$elm_bootstrap$Bootstrap$Internal$Role$toClass, 'bg-', role);
+			} else {
+				var _v2 = option.a;
+				return $elm$html$Html$Attributes$class('bg-active');
+			}
+		default:
+			var attr_ = option.a;
+			return attr_;
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$cellAttributes = function (options) {
+	return A2($elm$core$List$map, $rundis$elm_bootstrap$Bootstrap$Table$cellAttribute, options);
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$renderCell = function (cell) {
+	if (cell.$ === 'Td') {
+		var options = cell.a.options;
+		var children = cell.a.children;
+		return A2(
+			$elm$html$Html$td,
+			$rundis$elm_bootstrap$Bootstrap$Table$cellAttributes(options),
+			children);
+	} else {
+		var options = cell.a.options;
+		var children = cell.a.children;
+		return A2(
+			$elm$html$Html$th,
+			$rundis$elm_bootstrap$Bootstrap$Table$cellAttributes(options),
+			children);
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$rowClass = function (option) {
+	switch (option.$) {
+		case 'RoledRow':
+			if (option.a.$ === 'Roled') {
+				var role_ = option.a.a;
+				return A2($rundis$elm_bootstrap$Bootstrap$Internal$Role$toClass, 'table', role_);
+			} else {
+				var _v1 = option.a;
+				return $elm$html$Html$Attributes$class('table-active');
+			}
+		case 'InversedRow':
+			if (option.a.$ === 'Roled') {
+				var role_ = option.a.a;
+				return A2($rundis$elm_bootstrap$Bootstrap$Internal$Role$toClass, 'bg', role_);
+			} else {
+				var _v2 = option.a;
+				return $elm$html$Html$Attributes$class('bg-active');
+			}
+		default:
+			var attr_ = option.a;
+			return attr_;
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$rowAttributes = function (options) {
+	return A2($elm$core$List$map, $rundis$elm_bootstrap$Bootstrap$Table$rowClass, options);
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$renderRow = function (row) {
+	if (row.$ === 'Row') {
+		var options = row.a.options;
+		var cells = row.a.cells;
+		return A2(
+			$elm$html$Html$tr,
+			$rundis$elm_bootstrap$Bootstrap$Table$rowAttributes(options),
+			A2($elm$core$List$map, $rundis$elm_bootstrap$Bootstrap$Table$renderCell, cells));
+	} else {
+		var options = row.a.options;
+		var cells = row.a.cells;
+		return A3(
+			$elm$html$Html$Keyed$node,
+			'tr',
+			$rundis$elm_bootstrap$Bootstrap$Table$rowAttributes(options),
+			A2(
+				$elm$core$List$map,
+				function (_v1) {
+					var key = _v1.a;
+					var cell = _v1.b;
+					return _Utils_Tuple2(
+						key,
+						$rundis$elm_bootstrap$Bootstrap$Table$renderCell(cell));
+				},
+				cells));
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$renderTBody = function (body) {
+	if (body.$ === 'TBody') {
+		var attributes = body.a.attributes;
+		var rows = body.a.rows;
+		return A2(
+			$elm$html$Html$tbody,
+			attributes,
+			A2(
+				$elm$core$List$map,
+				function (row) {
+					return $rundis$elm_bootstrap$Bootstrap$Table$renderRow(
+						$rundis$elm_bootstrap$Bootstrap$Table$maybeAddScopeToFirstCell(row));
+				},
+				rows));
+	} else {
+		var attributes = body.a.attributes;
+		var rows = body.a.rows;
+		return A3(
+			$elm$html$Html$Keyed$node,
+			'tbody',
+			attributes,
+			A2(
+				$elm$core$List$map,
+				function (_v1) {
+					var key = _v1.a;
+					var row = _v1.b;
+					return _Utils_Tuple2(
+						key,
+						$rundis$elm_bootstrap$Bootstrap$Table$renderRow(
+							$rundis$elm_bootstrap$Bootstrap$Table$maybeAddScopeToFirstCell(row)));
+				},
+				rows));
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$theadAttribute = function (option) {
+	switch (option.$) {
+		case 'InversedHead':
+			return $elm$html$Html$Attributes$class('thead-dark');
+		case 'DefaultHead':
+			return $elm$html$Html$Attributes$class('thead-default');
+		default:
+			var attr_ = option.a;
+			return attr_;
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$theadAttributes = function (options) {
+	return A2($elm$core$List$map, $rundis$elm_bootstrap$Bootstrap$Table$theadAttribute, options);
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$renderTHead = function (_v0) {
+	var options = _v0.a.options;
+	var rows = _v0.a.rows;
+	return A2(
+		$elm$html$Html$thead,
+		$rundis$elm_bootstrap$Bootstrap$Table$theadAttributes(options),
+		A2($elm$core$List$map, $rundis$elm_bootstrap$Bootstrap$Table$renderRow, rows));
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$tableClass = function (option) {
+	switch (option.$) {
+		case 'Inversed':
+			return $elm$core$Maybe$Just(
+				$elm$html$Html$Attributes$class('table-dark'));
+		case 'Striped':
+			return $elm$core$Maybe$Just(
+				$elm$html$Html$Attributes$class('table-striped'));
+		case 'Bordered':
+			return $elm$core$Maybe$Just(
+				$elm$html$Html$Attributes$class('table-bordered'));
+		case 'Hover':
+			return $elm$core$Maybe$Just(
+				$elm$html$Html$Attributes$class('table-hover'));
+		case 'Small':
+			return $elm$core$Maybe$Just(
+				$elm$html$Html$Attributes$class('table-sm'));
+		case 'Responsive':
+			return $elm$core$Maybe$Nothing;
+		case 'Reflow':
+			return $elm$core$Maybe$Just(
+				$elm$html$Html$Attributes$class('table-reflow'));
+		default:
+			var attr_ = option.a;
+			return $elm$core$Maybe$Just(attr_);
+	}
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$tableAttributes = function (options) {
+	return A2(
+		$elm$core$List$cons,
+		$elm$html$Html$Attributes$class('table'),
+		A2(
+			$elm$core$List$filterMap,
+			$elm$core$Basics$identity,
+			A2($elm$core$List$map, $rundis$elm_bootstrap$Bootstrap$Table$tableClass, options)));
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$table = function (rec) {
+	var isInversed = A2(
+		$elm$core$List$any,
+		function (opt) {
+			return _Utils_eq(opt, $rundis$elm_bootstrap$Bootstrap$Table$Inversed);
+		},
+		rec.options);
+	var classOptions = A2(
+		$elm$core$List$filter,
+		function (opt) {
+			return !$rundis$elm_bootstrap$Bootstrap$Table$isResponsive(opt);
+		},
+		rec.options);
+	return A2(
+		$rundis$elm_bootstrap$Bootstrap$Table$maybeWrapResponsive,
+		rec.options,
+		A2(
+			$elm$html$Html$table,
+			$rundis$elm_bootstrap$Bootstrap$Table$tableAttributes(classOptions),
+			_List_fromArray(
+				[
+					$rundis$elm_bootstrap$Bootstrap$Table$renderTHead(
+					A2($rundis$elm_bootstrap$Bootstrap$Table$maybeMapInversedTHead, isInversed, rec.thead)),
+					$rundis$elm_bootstrap$Bootstrap$Table$renderTBody(
+					A2($rundis$elm_bootstrap$Bootstrap$Table$maybeMapInversedTBody, isInversed, rec.tbody))
+				])));
+};
+var $rundis$elm_bootstrap$Bootstrap$Table$tbody = F2(
+	function (attributes, rows) {
+		return $rundis$elm_bootstrap$Bootstrap$Table$TBody(
+			{attributes: attributes, rows: rows});
+	});
+var $rundis$elm_bootstrap$Bootstrap$Table$td = F2(
+	function (options, children) {
+		return $rundis$elm_bootstrap$Bootstrap$Table$Td(
+			{children: children, options: options});
+	});
+var $rundis$elm_bootstrap$Bootstrap$Table$th = F2(
+	function (options, children) {
+		return $rundis$elm_bootstrap$Bootstrap$Table$Th(
+			{children: children, options: options});
+	});
+var $author$project$Main$inputSpecTable = function (inputSpecs) {
+	var mkRow = F2(
 		function (index, spec) {
 			return A2(
-				$elm$html$Html$tr,
+				$rundis$elm_bootstrap$Bootstrap$Table$tr,
 				_List_Nil,
 				_List_fromArray(
 					[
 						A2(
-						$elm$html$Html$td,
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
 						_List_Nil,
 						_List_fromArray(
 							[
 								$elm$html$Html$text(spec.name)
 							])),
 						A2(
-						$elm$html$Html$td,
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
 						_List_Nil,
 						_List_fromArray(
 							[
 								$elm$html$Html$text(spec.label)
 							])),
 						A2(
-						$elm$html$Html$td,
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
 						_List_Nil,
 						_List_fromArray(
 							[
@@ -10369,7 +12901,7 @@ var $author$project$Main$inputSpecTable = function (inputSpec) {
 								$author$project$Main$inputSpecClassToString(spec._class))
 							])),
 						A2(
-						$elm$html$Html$td,
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
 						_List_Nil,
 						_List_fromArray(
 							[
@@ -10377,16 +12909,16 @@ var $author$project$Main$inputSpecTable = function (inputSpec) {
 								spec.optional ? 'True' : 'False')
 							])),
 						A2(
-						$elm$html$Html$td,
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
 						_List_Nil,
 						_List_fromArray(
 							[
 								A2(
-								$elm$html$Html$button,
+								$rundis$elm_bootstrap$Bootstrap$Button$button,
 								_List_fromArray(
 									[
-										$elm$html$Html$Attributes$class('btn btn-default'),
-										$elm$html$Html$Events$onClick(
+										$rundis$elm_bootstrap$Bootstrap$Button$primary,
+										$rundis$elm_bootstrap$Bootstrap$Button$onClick(
 										$author$project$Main$SetInputSpecToModify(index))
 									]),
 								_List_fromArray(
@@ -10395,16 +12927,16 @@ var $author$project$Main$inputSpecTable = function (inputSpec) {
 									]))
 							])),
 						A2(
-						$elm$html$Html$td,
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
 						_List_Nil,
 						_List_fromArray(
 							[
 								A2(
-								$elm$html$Html$button,
+								$rundis$elm_bootstrap$Bootstrap$Button$button,
 								_List_fromArray(
 									[
-										$elm$html$Html$Attributes$class('btn btn-default'),
-										$elm$html$Html$Events$onClick(
+										$rundis$elm_bootstrap$Bootstrap$Button$danger,
+										$rundis$elm_bootstrap$Bootstrap$Button$onClick(
 										$author$project$Main$DeleteInputSpec(index))
 									]),
 								_List_fromArray(
@@ -10414,74 +12946,62 @@ var $author$project$Main$inputSpecTable = function (inputSpec) {
 							]))
 					]));
 		});
-	var tbl = A2(
-		$elm$html$Html$table,
-		_List_fromArray(
-			[
-				$elm$html$Html$Attributes$class('table')
-			]),
-		_List_fromArray(
-			[
-				A2(
-				$elm$html$Html$thead,
+	var tbl = $rundis$elm_bootstrap$Bootstrap$Table$table(
+		{
+			options: _List_fromArray(
+				[$rundis$elm_bootstrap$Bootstrap$Table$striped, $rundis$elm_bootstrap$Bootstrap$Table$hover]),
+			tbody: A2(
+				$rundis$elm_bootstrap$Bootstrap$Table$tbody,
 				_List_Nil,
+				A2($elm$core$List$indexedMap, mkRow, inputSpecs)),
+			thead: $rundis$elm_bootstrap$Bootstrap$Table$simpleThead(
 				_List_fromArray(
 					[
 						A2(
-						$elm$html$Html$tr,
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
 						_List_Nil,
 						_List_fromArray(
 							[
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('Name')
-									])),
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('Label')
-									])),
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('Class')
-									])),
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('Optional')
-									])),
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('')
-									])),
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('')
-									]))
+								$elm$html$Html$text('Name')
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Label')
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Class')
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Optional')
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('')
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('')
 							]))
-					])),
-				A2(
-				$elm$html$Html$tbody,
-				_List_Nil,
-				A2($elm$core$List$indexedMap, inputTr, inputSpec))
-			]));
-	var _v0 = $elm$core$List$isEmpty(inputSpec);
+					]))
+		});
+	var _v0 = $elm$core$List$isEmpty(inputSpecs);
 	if (_v0) {
 		return A2(
 			$elm$html$Html$div,
@@ -10503,7 +13023,6 @@ var $author$project$Main$DeleteInputSpecPattern = function (a) {
 };
 var $author$project$Main$SaveInputSpec = {$: 'SaveInputSpec'};
 var $author$project$Main$SaveInputSpecDefault = {$: 'SaveInputSpecDefault'};
-var $author$project$Main$ToggleInputSpecOptional = {$: 'ToggleInputSpecOptional'};
 var $author$project$Main$UpdateInputSpecAddChoice = {$: 'UpdateInputSpecAddChoice'};
 var $author$project$Main$UpdateInputSpecAddCustomPattern = {$: 'UpdateInputSpecAddCustomPattern'};
 var $author$project$Main$UpdateInputSpecAddPattern = function (a) {
@@ -10530,62 +13049,212 @@ var $author$project$Main$UpdateInputSpecLabel = function (a) {
 var $author$project$Main$UpdateInputSpecName = function (a) {
 	return {$: 'UpdateInputSpecName', a: a};
 };
+var $author$project$Main$UpdateInputSpecOptional = function (a) {
+	return {$: 'UpdateInputSpecOptional', a: a};
+};
 var $author$project$Main$commonInputSpecPatterns = _List_fromArray(
-	['*', '*.fastq', '*.fq', '*.fasta', '*.fna', '*.fa', '*.faa', '*.sam', '*.bam', '*.bai']);
-var $author$project$Main$mkRowText = F2(
+	['*', '*.bai', '*.bam', '*.fa', '*.faa', '*.fasta', '*.fastq', '*.fna', '*.fq', '*.sam']);
+var $author$project$Main$mkFormRowText = F2(
 	function (label, defValue) {
 		return A2(
-			$elm$html$Html$tr,
+			$rundis$elm_bootstrap$Bootstrap$Form$row,
 			_List_Nil,
 			_List_fromArray(
 				[
-					$author$project$Main$mkTh(label),
 					A2(
-					$elm$html$Html$td,
-					_List_Nil,
+					$rundis$elm_bootstrap$Bootstrap$Form$colLabel,
+					_List_fromArray(
+						[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm2]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text(label)
+						])),
+					A2(
+					$rundis$elm_bootstrap$Bootstrap$Form$col,
+					_List_fromArray(
+						[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm10]),
 					_List_fromArray(
 						[
 							$elm$html$Html$text(defValue)
 						]))
 				]));
 	});
-var $elm$html$Html$Attributes$cols = function (n) {
-	return A2(
-		_VirtualDom_attribute,
-		'cols',
-		$elm$core$String$fromInt(n));
+var $rundis$elm_bootstrap$Bootstrap$Form$Textarea$OnInput = function (a) {
+	return {$: 'OnInput', a: a};
 };
+var $rundis$elm_bootstrap$Bootstrap$Form$Textarea$onInput = function (toMsg) {
+	return $rundis$elm_bootstrap$Bootstrap$Form$Textarea$OnInput(toMsg);
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Textarea$Rows = function (a) {
+	return {$: 'Rows', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Textarea$rows = function (rows_) {
+	return $rundis$elm_bootstrap$Bootstrap$Form$Textarea$Rows(rows_);
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Textarea$Textarea = function (a) {
+	return {$: 'Textarea', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Textarea$create = function (options) {
+	return $rundis$elm_bootstrap$Bootstrap$Form$Textarea$Textarea(
+		{options: options});
+};
+var $elm$html$Html$textarea = _VirtualDom_node('textarea');
+var $rundis$elm_bootstrap$Bootstrap$Form$Textarea$applyModifier = F2(
+	function (modifier, options) {
+		switch (modifier.$) {
+			case 'Id':
+				var id_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						id: $elm$core$Maybe$Just(id_)
+					});
+			case 'Rows':
+				var rows_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						rows: $elm$core$Maybe$Just(rows_)
+					});
+			case 'Disabled':
+				return _Utils_update(
+					options,
+					{disabled: true});
+			case 'Value':
+				var value_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						value: $elm$core$Maybe$Just(value_)
+					});
+			case 'OnInput':
+				var onInput_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						onInput: $elm$core$Maybe$Just(onInput_)
+					});
+			case 'Validation':
+				var validation = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						validation: $elm$core$Maybe$Just(validation)
+					});
+			default:
+				var attrs_ = modifier.a;
+				return _Utils_update(
+					options,
+					{
+						attributes: _Utils_ap(options.attributes, attrs_)
+					});
+		}
+	});
+var $rundis$elm_bootstrap$Bootstrap$Form$Textarea$defaultOptions = {attributes: _List_Nil, disabled: false, id: $elm$core$Maybe$Nothing, onInput: $elm$core$Maybe$Nothing, rows: $elm$core$Maybe$Nothing, validation: $elm$core$Maybe$Nothing, value: $elm$core$Maybe$Nothing};
 var $elm$html$Html$Attributes$rows = function (n) {
 	return A2(
 		_VirtualDom_attribute,
 		'rows',
 		$elm$core$String$fromInt(n));
 };
-var $elm$html$Html$textarea = _VirtualDom_node('textarea');
-var $author$project$Main$mkRowTextArea = F3(
+var $rundis$elm_bootstrap$Bootstrap$Form$Textarea$validationAttribute = function (validation) {
+	return $elm$html$Html$Attributes$class(
+		$rundis$elm_bootstrap$Bootstrap$Form$FormInternal$validationToString(validation));
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Textarea$toAttributes = function (modifiers) {
+	var options = A3($elm$core$List$foldl, $rundis$elm_bootstrap$Bootstrap$Form$Textarea$applyModifier, $rundis$elm_bootstrap$Bootstrap$Form$Textarea$defaultOptions, modifiers);
+	return _Utils_ap(
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('form-control'),
+				$elm$html$Html$Attributes$disabled(options.disabled)
+			]),
+		_Utils_ap(
+			A2(
+				$elm$core$List$filterMap,
+				$elm$core$Basics$identity,
+				_List_fromArray(
+					[
+						A2($elm$core$Maybe$map, $elm$html$Html$Attributes$id, options.id),
+						A2($elm$core$Maybe$map, $elm$html$Html$Attributes$rows, options.rows),
+						A2($elm$core$Maybe$map, $elm$html$Html$Attributes$value, options.value),
+						A2($elm$core$Maybe$map, $elm$html$Html$Events$onInput, options.onInput),
+						A2($elm$core$Maybe$map, $rundis$elm_bootstrap$Bootstrap$Form$Textarea$validationAttribute, options.validation)
+					])),
+			options.attributes));
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Textarea$view = function (_v0) {
+	var options = _v0.a.options;
+	return A2(
+		$elm$html$Html$textarea,
+		$rundis$elm_bootstrap$Bootstrap$Form$Textarea$toAttributes(options),
+		_List_Nil);
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Textarea$textarea = A2($elm$core$Basics$composeL, $rundis$elm_bootstrap$Bootstrap$Form$Textarea$view, $rundis$elm_bootstrap$Bootstrap$Form$Textarea$create);
+var $rundis$elm_bootstrap$Bootstrap$Form$Textarea$Value = function (a) {
+	return {$: 'Value', a: a};
+};
+var $rundis$elm_bootstrap$Bootstrap$Form$Textarea$value = function (value_) {
+	return $rundis$elm_bootstrap$Bootstrap$Form$Textarea$Value(value_);
+};
+var $author$project$Main$mkFormRowTextArea = F3(
 	function (label, defValue, msg) {
 		return A2(
-			$elm$html$Html$tr,
+			$rundis$elm_bootstrap$Bootstrap$Form$row,
 			_List_Nil,
 			_List_fromArray(
 				[
-					$author$project$Main$mkTh(label),
 					A2(
-					$elm$html$Html$td,
-					_List_Nil,
+					$rundis$elm_bootstrap$Bootstrap$Form$colLabel,
+					_List_fromArray(
+						[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm2]),
 					_List_fromArray(
 						[
-							A2(
-							$elm$html$Html$textarea,
+							$elm$html$Html$text(label)
+						])),
+					A2(
+					$rundis$elm_bootstrap$Bootstrap$Form$col,
+					_List_fromArray(
+						[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm10]),
+					_List_fromArray(
+						[
+							$rundis$elm_bootstrap$Bootstrap$Form$Textarea$textarea(
 							_List_fromArray(
 								[
-									$elm$html$Html$Attributes$value(defValue),
-									$elm$html$Html$Attributes$class('form-control'),
-									$elm$html$Html$Events$onInput(msg),
-									$elm$html$Html$Attributes$rows(10),
-									$elm$html$Html$Attributes$cols(40)
-								]),
-							_List_Nil)
+									$rundis$elm_bootstrap$Bootstrap$Form$Textarea$value(defValue),
+									$rundis$elm_bootstrap$Bootstrap$Form$Textarea$onInput(msg),
+									$rundis$elm_bootstrap$Bootstrap$Form$Textarea$rows(10)
+								]))
+						]))
+				]));
+	});
+var $author$project$Main$mkFormRowTextEntry = F3(
+	function (label, defValue, msg) {
+		return A2(
+			$rundis$elm_bootstrap$Bootstrap$Form$row,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$rundis$elm_bootstrap$Bootstrap$Form$colLabel,
+					_List_fromArray(
+						[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm2]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text(label)
+						])),
+					A2(
+					$rundis$elm_bootstrap$Bootstrap$Form$col,
+					_List_fromArray(
+						[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm10]),
+					_List_fromArray(
+						[
+							$rundis$elm_bootstrap$Bootstrap$Form$Input$text(
+							_List_fromArray(
+								[
+									$rundis$elm_bootstrap$Bootstrap$Form$Input$value(defValue),
+									$rundis$elm_bootstrap$Bootstrap$Form$Input$onInput(msg)
+								]))
 						]))
 				]));
 	});
@@ -10599,12 +13268,12 @@ var $author$project$Main$modifyInputSpecDialog = function (model) {
 					[
 						$elm$html$Html$text(val),
 						A2(
-						$elm$html$Html$button,
+						$rundis$elm_bootstrap$Bootstrap$Button$button,
 						_List_fromArray(
 							[
-								$elm$html$Html$Attributes$type_('button'),
-								$elm$html$Html$Attributes$class('btn btn-default'),
-								$elm$html$Html$Events$onClick(
+								$rundis$elm_bootstrap$Bootstrap$Button$small,
+								$rundis$elm_bootstrap$Bootstrap$Button$light,
+								$rundis$elm_bootstrap$Bootstrap$Button$onClick(
 								f(val))
 							]),
 						_List_fromArray(
@@ -10614,8 +13283,8 @@ var $author$project$Main$modifyInputSpecDialog = function (model) {
 					]));
 		});
 	var errDiv = function () {
-		var _v3 = model.inputSpecToModifyError;
-		if (_v3.$ === 'Nothing') {
+		var _v2 = model.inputSpecToModifyError;
+		if (_v2.$ === 'Nothing') {
 			return A2(
 				$elm$html$Html$div,
 				_List_Nil,
@@ -10624,7 +13293,7 @@ var $author$project$Main$modifyInputSpecDialog = function (model) {
 						$elm$html$Html$text('')
 					]));
 		} else {
-			var e = _v3.a;
+			var e = _v2.a;
 			return A2(
 				$elm$html$Html$div,
 				_List_fromArray(
@@ -10638,8 +13307,10 @@ var $author$project$Main$modifyInputSpecDialog = function (model) {
 		}
 	}();
 	var curPatterns = function (pats) {
-		var _v2 = $elm$core$List$length(pats) > 0;
-		if (_v2) {
+		var _v1 = $elm$core$List$isEmpty(pats);
+		if (_v1) {
+			return $elm$html$Html$text('None');
+		} else {
 			return A2(
 				$elm$html$Html$ul,
 				_List_Nil,
@@ -10647,13 +13318,11 @@ var $author$project$Main$modifyInputSpecDialog = function (model) {
 					$elm$core$List$map,
 					mkLi($author$project$Main$DeleteInputSpecPattern),
 					pats));
-		} else {
-			return $elm$html$Html$text('None');
 		}
 	};
 	var curChoices = function (pats) {
-		var _v1 = $elm$core$List$length(pats) > 0;
-		if (_v1) {
+		var _v0 = $elm$core$List$length(pats) > 0;
+		if (_v0) {
 			return A2(
 				$elm$html$Html$ul,
 				_List_Nil,
@@ -10670,144 +13339,164 @@ var $author$project$Main$modifyInputSpecDialog = function (model) {
 	var tbl = function (spec) {
 		return A2(
 			$elm$html$Html$div,
-			_List_Nil,
 			_List_fromArray(
 				[
-					errDiv,
+					A2($elm$html$Html$Attributes$style, 'overflow-y', 'auto'),
+					A2($elm$html$Html$Attributes$style, 'max-height', '60vh')
+				]),
+			_List_fromArray(
+				[
 					A2(
-					$elm$html$Html$div,
-					_List_fromArray(
-						[
-							A2($elm$html$Html$Attributes$style, 'overflow-y', 'auto'),
-							A2($elm$html$Html$Attributes$style, 'max-height', '60vh')
-						]),
+					$rundis$elm_bootstrap$Bootstrap$Grid$container,
+					_List_Nil,
 					_List_fromArray(
 						[
 							A2(
-							$elm$html$Html$form,
+							$rundis$elm_bootstrap$Bootstrap$Form$form,
 							_List_Nil,
 							_List_fromArray(
 								[
+									A3($author$project$Main$mkFormRowTextEntry, 'Name', spec.name, $author$project$Main$UpdateInputSpecName),
+									A3($author$project$Main$mkFormRowTextEntry, 'Label', spec.label, $author$project$Main$UpdateInputSpecLabel),
+									A4(
+									$author$project$Main$mkFormRowSelect,
+									'Class',
+									A2($elm$core$List$map, $author$project$Main$inputSpecClassToString, classes),
+									$author$project$Main$inputSpecClassToString(spec._class),
+									$author$project$Main$UpdateInputSpecClass),
+									A4($author$project$Main$mkFormRowTextEntrySubmit, 'Set Default', model.inputSpecToModifyDefault, $author$project$Main$UpdateInputSpecDefault, $author$project$Main$SaveInputSpecDefault),
 									A2(
-									$elm$html$Html$table,
-									_List_Nil,
-									_List_fromArray(
-										[
-											A3($author$project$Main$mkRowTextEntry, 'Name', spec.name, $author$project$Main$UpdateInputSpecName),
-											A3($author$project$Main$mkRowTextEntry, 'Label', spec.label, $author$project$Main$UpdateInputSpecLabel),
-											A4(
-											$author$project$Main$mkRowSelect,
-											'Class',
-											A2($elm$core$List$map, $author$project$Main$inputSpecClassToString, classes),
-											$author$project$Main$inputSpecClassToString(spec._class),
-											$author$project$Main$UpdateInputSpecClass),
-											A4($author$project$Main$mkRowTextEntrySubmit, 'Default', model.inputSpecToModifyDefault, $author$project$Main$UpdateInputSpecDefault, $author$project$Main$SaveInputSpecDefault),
-											A2(
-											$author$project$Main$mkRowText,
-											'Default Value',
-											$author$project$Main$defaultValueToString(spec._default)),
-											A3($author$project$Main$mkRowTextEntry, 'Label', spec.label, $author$project$Main$UpdateInputSpecLabel),
-											A4(
-											$author$project$Main$mkRowSelect,
-											'Select Pattern: ',
-											_Utils_ap(
-												_List_fromArray(
-													['--Select--']),
-												$author$project$Main$commonInputSpecPatterns),
-											'',
-											$author$project$Main$UpdateInputSpecAddPattern),
-											A4($author$project$Main$mkRowTextEntrySubmit, 'Add Pattern', model.inputSpecPattern, $author$project$Main$UpdateInputSpecCustomPattern, $author$project$Main$UpdateInputSpecAddCustomPattern),
-											A2(
-											$author$project$Main$mkRowHtml,
-											'Patterns',
-											curPatterns(spec.patterns)),
-											A4($author$project$Main$mkRowTextEntrySubmit, 'Add Choice', model.inputSpecChoice, $author$project$Main$UpdateInputSpecChoice, $author$project$Main$UpdateInputSpecAddChoice),
-											A2(
-											$author$project$Main$mkRowHtml,
-											'Choices',
-											curChoices(spec.choices)),
-											A3($author$project$Main$mkRowTextArea, 'Help', spec.help, $author$project$Main$UpdateInputSpecHelp),
-											A3($author$project$Main$mkRowCheckbox, 'Optional', spec.optional, $author$project$Main$ToggleInputSpecOptional)
-										]))
+									$author$project$Main$mkFormRowText,
+									'Default Value',
+									$author$project$Main$defaultValueToString(spec._default)),
+									A3($author$project$Main$mkFormRowTextEntry, 'Label', spec.label, $author$project$Main$UpdateInputSpecLabel),
+									A4(
+									$author$project$Main$mkFormRowSelect,
+									'Select Pattern: ',
+									_Utils_ap(
+										_List_fromArray(
+											['--Select--']),
+										$author$project$Main$commonInputSpecPatterns),
+									'',
+									$author$project$Main$UpdateInputSpecAddPattern),
+									A4($author$project$Main$mkFormRowTextEntrySubmit, 'Add Pattern', model.inputSpecPattern, $author$project$Main$UpdateInputSpecCustomPattern, $author$project$Main$UpdateInputSpecAddCustomPattern),
+									A2(
+									$author$project$Main$mkFormRowHtml,
+									'Patterns',
+									curPatterns(spec.patterns)),
+									A4($author$project$Main$mkFormRowTextEntrySubmit, 'Add Choice', model.inputSpecChoice, $author$project$Main$UpdateInputSpecChoice, $author$project$Main$UpdateInputSpecAddChoice),
+									A2(
+									$author$project$Main$mkFormRowHtml,
+									'Choices',
+									curChoices(spec.choices)),
+									A3($author$project$Main$mkFormRowTextArea, 'Help', spec.help, $author$project$Main$UpdateInputSpecHelp),
+									A3($author$project$Main$mkFormRowCheckbox, 'Optional', spec.optional, $author$project$Main$UpdateInputSpecOptional)
 								]))
 						]))
 				]));
 	};
 	return $alex_tan$elm_dialog$Dialog$view(
-		function () {
-			var _v0 = model.inputSpecToModify;
-			if (_v0.$ === 'Just') {
-				var spec = _v0.a;
-				return $elm$core$Maybe$Just(
-					{
-						body: $elm$core$Maybe$Just(
-							tbl(spec)),
-						closeMessage: $elm$core$Maybe$Nothing,
-						containerClass: $elm$core$Maybe$Nothing,
-						footer: $elm$core$Maybe$Just(
-							A2(
-								$elm$html$Html$div,
-								_List_Nil,
-								_List_fromArray(
-									[
-										A2(
-										$elm$html$Html$button,
-										_List_fromArray(
-											[
-												$elm$html$Html$Attributes$class('btn btn-primary'),
-												$elm$html$Html$Attributes$type_('button'),
-												$elm$html$Html$Events$onClick($author$project$Main$SaveInputSpec)
-											]),
-										_List_fromArray(
-											[
-												$elm$html$Html$text('Save')
-											])),
-										A2(
-										$elm$html$Html$button,
-										_List_fromArray(
-											[
-												$elm$html$Html$Attributes$class('btn btn-default'),
-												$elm$html$Html$Attributes$type_('button'),
-												$elm$html$Html$Events$onClick($author$project$Main$CloseInputSpecDialog)
-											]),
-										_List_fromArray(
-											[
-												$elm$html$Html$text('Cancel')
-											]))
-									]))),
-						header: $elm$core$Maybe$Just(
-							$elm$html$Html$text('Add Input'))
-					});
-			} else {
-				return $elm$core$Maybe$Nothing;
-			}
-		}());
+		A2(
+			$elm$core$Maybe$map,
+			function (spec) {
+				return {
+					body: $elm$core$Maybe$Just(
+						tbl(spec)),
+					closeMessage: $elm$core$Maybe$Nothing,
+					containerClass: $elm$core$Maybe$Nothing,
+					footer: $elm$core$Maybe$Just(
+						A2(
+							$elm$html$Html$div,
+							_List_Nil,
+							_List_fromArray(
+								[
+									A2(
+									$elm$html$Html$button,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('btn btn-primary'),
+											$elm$html$Html$Attributes$type_('button'),
+											$elm$html$Html$Events$onClick($author$project$Main$SaveInputSpec)
+										]),
+									_List_fromArray(
+										[
+											$elm$html$Html$text('Save')
+										])),
+									A2(
+									$elm$html$Html$button,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('btn btn-default'),
+											$elm$html$Html$Attributes$type_('button'),
+											$elm$html$Html$Events$onClick($author$project$Main$CloseInputSpecDialog)
+										]),
+									_List_fromArray(
+										[
+											$elm$html$Html$text('Cancel')
+										]))
+								]))),
+					header: $elm$core$Maybe$Just(
+						$elm$html$Html$text('Add Input'))
+				};
+			},
+			model.inputSpecToModify));
 };
 var $author$project$Main$paneInputSpec = function (model) {
 	return A2(
-		$elm$html$Html$div,
-		_List_fromArray(
-			[
-				$elm$html$Html$Attributes$class('form-group'),
-				A2($elm$html$Html$Attributes$style, 'text-align', 'center')
-			]),
+		$rundis$elm_bootstrap$Bootstrap$Grid$container,
+		_List_Nil,
 		_List_fromArray(
 			[
 				A2(
-				$elm$html$Html$button,
+				$rundis$elm_bootstrap$Bootstrap$Grid$row,
+				_List_Nil,
 				_List_fromArray(
 					[
-						$elm$html$Html$Attributes$type_('button'),
-						$elm$html$Html$Attributes$class('btn btn-default'),
-						$elm$html$Html$Events$onClick(
-						A2($author$project$Main$ModifyInputSpecDialog, $author$project$Main$initialInputSpec, $elm$core$Maybe$Nothing))
-					]),
-				_List_fromArray(
-					[
-						$elm$html$Html$text('Add Input')
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Grid$col,
+						_List_fromArray(
+							[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm10]),
+						_List_fromArray(
+							[
+								A2(
+								$rundis$elm_bootstrap$Bootstrap$Button$button,
+								_List_fromArray(
+									[
+										$rundis$elm_bootstrap$Bootstrap$Button$onClick(
+										A2($author$project$Main$ModifyInputSpecDialog, $author$project$Main$initialInputSpec, $elm$core$Maybe$Nothing))
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Add Input')
+									]))
+							]))
 					])),
-				$author$project$Main$modifyInputSpecDialog(model),
-				$author$project$Main$inputSpecTable(model.app.inputSpec)
+				A2(
+				$rundis$elm_bootstrap$Bootstrap$Grid$row,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Grid$col,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$author$project$Main$inputSpecTable(model.app.inputSpec)
+							]))
+					])),
+				A2(
+				$rundis$elm_bootstrap$Bootstrap$Grid$row,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Grid$col,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$author$project$Main$modifyInputSpecDialog(model)
+							]))
+					]))
 			]));
 };
 var $author$project$Main$ShowJsonDialog = {$: 'ShowJsonDialog'};
@@ -10816,10 +13505,16 @@ var $author$project$Main$DecodeIncomingJson = {$: 'DecodeIncomingJson'};
 var $author$project$Main$UpdateIncomingJson = function (a) {
 	return {$: 'UpdateIncomingJson', a: a};
 };
+var $elm$html$Html$Attributes$cols = function (n) {
+	return A2(
+		_VirtualDom_attribute,
+		'cols',
+		$elm$core$String$fromInt(n));
+};
 var $author$project$Main$modifyJsonDialog = function (model) {
 	var err = function () {
-		var _v1 = model.jsonError;
-		if (_v1.$ === 'Nothing') {
+		var _v0 = model.jsonError;
+		if (_v0.$ === 'Nothing') {
 			return A2(
 				$elm$html$Html$div,
 				_List_Nil,
@@ -10828,7 +13523,7 @@ var $author$project$Main$modifyJsonDialog = function (model) {
 						$elm$html$Html$text('')
 					]));
 		} else {
-			var e = _v1.a;
+			var e = _v0.a;
 			return A2(
 				$elm$html$Html$div,
 				_List_fromArray(
@@ -10866,53 +13561,49 @@ var $author$project$Main$modifyJsonDialog = function (model) {
 					]))
 			]));
 	return $alex_tan$elm_dialog$Dialog$view(
-		function () {
-			var _v0 = model.incomingJson;
-			if (_v0.$ === 'Just') {
-				var json = _v0.a;
-				return $elm$core$Maybe$Just(
-					{
-						body: $elm$core$Maybe$Just(body),
-						closeMessage: $elm$core$Maybe$Nothing,
-						containerClass: $elm$core$Maybe$Nothing,
-						footer: $elm$core$Maybe$Just(
-							A2(
-								$elm$html$Html$div,
-								_List_Nil,
-								_List_fromArray(
-									[
-										A2(
-										$elm$html$Html$button,
-										_List_fromArray(
-											[
-												$elm$html$Html$Attributes$class('btn btn-primary'),
-												$elm$html$Html$Attributes$type_('button'),
-												$elm$html$Html$Events$onClick($author$project$Main$DecodeIncomingJson)
-											]),
-										_List_fromArray(
-											[
-												$elm$html$Html$text('Save')
-											])),
-										A2(
-										$elm$html$Html$button,
-										_List_fromArray(
-											[
-												$elm$html$Html$Attributes$class('btn btn-default'),
-												$elm$html$Html$Attributes$type_('button'),
-												$elm$html$Html$Events$onClick($author$project$Main$CloseJsonDialog)
-											]),
-										_List_fromArray(
-											[
-												$elm$html$Html$text('Cancel')
-											]))
-									]))),
-						header: $elm$core$Maybe$Just(
-							$elm$html$Html$text('Edit JSON'))
-					});
-			} else {
-				return $elm$core$Maybe$Nothing;
-			}
-		}());
+		A2(
+			$elm$core$Maybe$map,
+			function (json) {
+				return {
+					body: $elm$core$Maybe$Just(body),
+					closeMessage: $elm$core$Maybe$Nothing,
+					containerClass: $elm$core$Maybe$Nothing,
+					footer: $elm$core$Maybe$Just(
+						A2(
+							$elm$html$Html$div,
+							_List_Nil,
+							_List_fromArray(
+								[
+									A2(
+									$elm$html$Html$button,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('btn btn-primary'),
+											$elm$html$Html$Attributes$type_('button'),
+											$elm$html$Html$Events$onClick($author$project$Main$DecodeIncomingJson)
+										]),
+									_List_fromArray(
+										[
+											$elm$html$Html$text('Save')
+										])),
+									A2(
+									$elm$html$Html$button,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('btn btn-default'),
+											$elm$html$Html$Attributes$type_('button'),
+											$elm$html$Html$Events$onClick($author$project$Main$CloseJsonDialog)
+										]),
+									_List_fromArray(
+										[
+											$elm$html$Html$text('Cancel')
+										]))
+								]))),
+					header: $elm$core$Maybe$Just(
+						$elm$html$Html$text('Edit JSON'))
+				};
+			},
+			model.incomingJson));
 };
 var $elm$html$Html$pre = _VirtualDom_node('pre');
 var $author$project$Main$paneJson = function (model) {
@@ -10995,12 +13686,12 @@ var $author$project$Main$paneMain = function (model) {
 				[
 					$elm$html$Html$text(val),
 					A2(
-					$elm$html$Html$button,
+					$rundis$elm_bootstrap$Bootstrap$Button$button,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$type_('button'),
-							$elm$html$Html$Attributes$class('btn btn-default'),
-							$elm$html$Html$Events$onClick(
+							$rundis$elm_bootstrap$Bootstrap$Button$small,
+							$rundis$elm_bootstrap$Bootstrap$Button$light,
+							$rundis$elm_bootstrap$Bootstrap$Button$onClick(
 							$author$project$Main$DeleteAppCategory(val))
 						]),
 					_List_fromArray(
@@ -11011,51 +13702,45 @@ var $author$project$Main$paneMain = function (model) {
 	};
 	var app = model.app;
 	var curCats = function () {
-		var _v0 = $elm$core$List$length(app.categories) > 0;
+		var _v0 = $elm$core$List$isEmpty(app.categories);
 		if (_v0) {
+			return $elm$html$Html$text('None');
+		} else {
 			return A2(
 				$elm$html$Html$ul,
 				_List_Nil,
 				A2($elm$core$List$map, mkLi, app.categories));
-		} else {
-			return $elm$html$Html$text('None');
 		}
 	}();
 	return A2(
-		$elm$html$Html$div,
+		$rundis$elm_bootstrap$Bootstrap$Grid$container,
 		_List_Nil,
 		_List_fromArray(
 			[
 				A2(
-				$elm$html$Html$form,
+				$rundis$elm_bootstrap$Bootstrap$Form$form,
 				_List_Nil,
 				_List_fromArray(
 					[
-						A2(
-						$elm$html$Html$table,
-						_List_Nil,
-						_List_fromArray(
-							[
-								A3($author$project$Main$mkRowTextEntry, 'Name: ', app.name, $author$project$Main$UpdateAppName),
-								A3($author$project$Main$mkRowTextEntry, 'Title: ', app.title, $author$project$Main$UpdateAppTitle),
-								A3($author$project$Main$mkRowTextEntry, 'DX API Version: ', app.dxapi, $author$project$Main$UpdateAppDxapi),
-								A3($author$project$Main$mkRowTextEntry, 'App Version: ', app.version, $author$project$Main$UpdateAppVersion),
-								A3($author$project$Main$mkRowTextEntry, 'Summary: ', app.summary, $author$project$Main$UpdateAppSummary),
-								A4($author$project$Main$mkRowTextEntrySubmit, 'Add Category: ', model.customCategory, $author$project$Main$UpdateCustomCategory, $author$project$Main$UpdateAppAddCustomCategory),
-								A4(
-								$author$project$Main$mkRowSelect,
-								'Select Category: ',
-								_Utils_ap(
-									_List_fromArray(
-										['--Select--']),
-									$author$project$Main$validCategories),
-								'',
-								$author$project$Main$UpdateAppCategories),
-								A2($author$project$Main$mkRowHtml, 'Categories: ', curCats),
-								A3($author$project$Main$mkRowTextArea, 'Description (opt):', app.description, $author$project$Main$UpdateAppDescription),
-								A3($author$project$Main$mkRowTextArea, 'Developer Notes (opt):', app.developerNotes, $author$project$Main$UpdateAppDeveloperNotes)
-							]))
-					]))
+						A3($author$project$Main$mkFormRowTextEntry, 'Name', app.name, $author$project$Main$UpdateAppName),
+						A3($author$project$Main$mkFormRowTextEntry, 'Title', app.title, $author$project$Main$UpdateAppTitle),
+						A3($author$project$Main$mkFormRowTextEntry, 'DX API Version', app.dxapi, $author$project$Main$UpdateAppDxapi),
+						A3($author$project$Main$mkFormRowTextEntry, 'App Version', app.version, $author$project$Main$UpdateAppVersion),
+						A3($author$project$Main$mkFormRowTextEntry, 'Summary', app.summary, $author$project$Main$UpdateAppSummary),
+						A4($author$project$Main$mkFormRowTextEntrySubmit, 'Add Category', model.customCategory, $author$project$Main$UpdateCustomCategory, $author$project$Main$UpdateAppAddCustomCategory)
+					])),
+				A4(
+				$author$project$Main$mkFormRowSelect,
+				'Select Category',
+				_Utils_ap(
+					_List_fromArray(
+						['--Select--']),
+					$author$project$Main$validCategories),
+				'',
+				$author$project$Main$UpdateAppCategories),
+				A2($author$project$Main$mkFormRowHtml, 'Categories', curCats),
+				A3($author$project$Main$mkFormRowTextArea, 'Description (opt)', app.description, $author$project$Main$UpdateAppDescription),
+				A3($author$project$Main$mkFormRowTextArea, 'Developer Notes (opt)', app.developerNotes, $author$project$Main$UpdateAppDeveloperNotes)
 			]));
 };
 var $author$project$Main$ModifyOutputSpecDialog = F2(
@@ -11087,12 +13772,12 @@ var $author$project$Main$modifyOutputSpecDialog = function (model) {
 				[
 					$elm$html$Html$text(val),
 					A2(
-					$elm$html$Html$button,
+					$rundis$elm_bootstrap$Bootstrap$Button$button,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$type_('button'),
-							$elm$html$Html$Attributes$class('btn btn-default'),
-							$elm$html$Html$Events$onClick(
+							$rundis$elm_bootstrap$Bootstrap$Button$small,
+							$rundis$elm_bootstrap$Bootstrap$Button$light,
+							$rundis$elm_bootstrap$Bootstrap$Button$onClick(
 							$author$project$Main$DeleteOutputSpecPattern(val))
 						]),
 					_List_fromArray(
@@ -11102,8 +13787,8 @@ var $author$project$Main$modifyOutputSpecDialog = function (model) {
 				]));
 	};
 	var errDiv = function () {
-		var _v2 = model.outputSpecToModifyError;
-		if (_v2.$ === 'Nothing') {
+		var _v1 = model.outputSpecToModifyError;
+		if (_v1.$ === 'Nothing') {
 			return A2(
 				$elm$html$Html$div,
 				_List_Nil,
@@ -11112,7 +13797,7 @@ var $author$project$Main$modifyOutputSpecDialog = function (model) {
 						$elm$html$Html$text('')
 					]));
 		} else {
-			var e = _v2.a;
+			var e = _v1.a;
 			return A2(
 				$elm$html$Html$div,
 				_List_fromArray(
@@ -11126,109 +13811,98 @@ var $author$project$Main$modifyOutputSpecDialog = function (model) {
 		}
 	}();
 	var curPatterns = function (pats) {
-		var _v1 = $elm$core$List$length(pats) > 0;
-		if (_v1) {
+		var _v0 = $elm$core$List$isEmpty(pats);
+		if (_v0) {
+			return $elm$html$Html$text('None');
+		} else {
 			return A2(
 				$elm$html$Html$ul,
 				_List_Nil,
 				A2($elm$core$List$map, mkLi, pats));
-		} else {
-			return $elm$html$Html$text('None');
 		}
 	};
 	var tbl = function (spec) {
 		return A2(
 			$elm$html$Html$div,
-			_List_Nil,
 			_List_fromArray(
 				[
-					errDiv,
+					A2($elm$html$Html$Attributes$style, 'overflow-y', 'auto'),
+					A2($elm$html$Html$Attributes$style, 'max-height', '60vh')
+				]),
+			_List_fromArray(
+				[
 					A2(
-					$elm$html$Html$div,
-					_List_fromArray(
-						[
-							A2($elm$html$Html$Attributes$style, 'overflow-y', 'auto'),
-							A2($elm$html$Html$Attributes$style, 'max-height', '60vh')
-						]),
+					$rundis$elm_bootstrap$Bootstrap$Grid$container,
+					_List_Nil,
 					_List_fromArray(
 						[
 							A2(
-							$elm$html$Html$form,
+							$rundis$elm_bootstrap$Bootstrap$Form$form,
 							_List_Nil,
 							_List_fromArray(
 								[
-									A2(
-									$elm$html$Html$table,
-									_List_Nil,
+									A3($author$project$Main$mkFormRowTextEntry, 'Name', spec.name, $author$project$Main$UpdateOutputSpecName),
+									A4(
+									$author$project$Main$mkFormRowSelect,
+									'Class',
 									_List_fromArray(
-										[
-											A3($author$project$Main$mkRowTextEntry, 'Name', spec.name, $author$project$Main$UpdateOutputSpecName),
-											A4(
-											$author$project$Main$mkRowSelect,
-											'Class',
-											_List_fromArray(
-												['file', 'string']),
-											spec._class,
-											$author$project$Main$UpdateOutputSpecClass),
-											A4($author$project$Main$mkRowTextEntrySubmit, 'Pattern', model.outputSpecPattern, $author$project$Main$UpdateOutputSpecCustomPattern, $author$project$Main$UpdateOutputSpecAddCustomPattern),
-											A2(
-											$author$project$Main$mkRowHtml,
-											'Patterns',
-											curPatterns(spec.patterns))
-										]))
+										['file', 'string']),
+									spec._class,
+									$author$project$Main$UpdateOutputSpecClass),
+									A4($author$project$Main$mkFormRowTextEntrySubmit, 'Pattern', model.outputSpecPattern, $author$project$Main$UpdateOutputSpecCustomPattern, $author$project$Main$UpdateOutputSpecAddCustomPattern),
+									A2(
+									$author$project$Main$mkFormRowHtml,
+									'Patterns',
+									curPatterns(spec.patterns))
 								]))
 						]))
 				]));
 	};
 	return $alex_tan$elm_dialog$Dialog$view(
-		function () {
-			var _v0 = model.outputSpecToModify;
-			if (_v0.$ === 'Just') {
-				var spec = _v0.a;
-				return $elm$core$Maybe$Just(
-					{
-						body: $elm$core$Maybe$Just(
-							tbl(spec)),
-						closeMessage: $elm$core$Maybe$Nothing,
-						containerClass: $elm$core$Maybe$Nothing,
-						footer: $elm$core$Maybe$Just(
-							A2(
-								$elm$html$Html$div,
-								_List_Nil,
-								_List_fromArray(
-									[
-										A2(
-										$elm$html$Html$button,
-										_List_fromArray(
-											[
-												$elm$html$Html$Attributes$class('btn btn-primary'),
-												$elm$html$Html$Attributes$type_('button'),
-												$elm$html$Html$Events$onClick($author$project$Main$SaveOutputSpec)
-											]),
-										_List_fromArray(
-											[
-												$elm$html$Html$text('Save')
-											])),
-										A2(
-										$elm$html$Html$button,
-										_List_fromArray(
-											[
-												$elm$html$Html$Attributes$class('btn btn-default'),
-												$elm$html$Html$Attributes$type_('button'),
-												$elm$html$Html$Events$onClick($author$project$Main$CloseOutputSpecDialog)
-											]),
-										_List_fromArray(
-											[
-												$elm$html$Html$text('Cancel')
-											]))
-									]))),
-						header: $elm$core$Maybe$Just(
-							$elm$html$Html$text('Add Input'))
-					});
-			} else {
-				return $elm$core$Maybe$Nothing;
-			}
-		}());
+		A2(
+			$elm$core$Maybe$map,
+			function (spec) {
+				return {
+					body: $elm$core$Maybe$Just(
+						tbl(spec)),
+					closeMessage: $elm$core$Maybe$Nothing,
+					containerClass: $elm$core$Maybe$Nothing,
+					footer: $elm$core$Maybe$Just(
+						A2(
+							$elm$html$Html$div,
+							_List_Nil,
+							_List_fromArray(
+								[
+									A2(
+									$elm$html$Html$button,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('btn btn-primary'),
+											$elm$html$Html$Attributes$type_('button'),
+											$elm$html$Html$Events$onClick($author$project$Main$SaveOutputSpec)
+										]),
+									_List_fromArray(
+										[
+											$elm$html$Html$text('Save')
+										])),
+									A2(
+									$elm$html$Html$button,
+									_List_fromArray(
+										[
+											$elm$html$Html$Attributes$class('btn btn-default'),
+											$elm$html$Html$Attributes$type_('button'),
+											$elm$html$Html$Events$onClick($author$project$Main$CloseOutputSpecDialog)
+										]),
+									_List_fromArray(
+										[
+											$elm$html$Html$text('Cancel')
+										]))
+								]))),
+					header: $elm$core$Maybe$Just(
+						$elm$html$Html$text('Add Input'))
+				};
+			},
+			model.outputSpecToModify));
 };
 var $author$project$Main$DeleteOutputSpec = function (a) {
 	return {$: 'DeleteOutputSpec', a: a};
@@ -11237,38 +13911,38 @@ var $author$project$Main$SetOutputSpecToModify = function (a) {
 	return {$: 'SetOutputSpecToModify', a: a};
 };
 var $author$project$Main$outputSpecTable = function (outputSpec) {
-	var inputTr = F2(
+	var mkRow = F2(
 		function (index, spec) {
 			return A2(
-				$elm$html$Html$tr,
+				$rundis$elm_bootstrap$Bootstrap$Table$tr,
 				_List_Nil,
 				_List_fromArray(
 					[
 						A2(
-						$elm$html$Html$td,
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
 						_List_Nil,
 						_List_fromArray(
 							[
 								$elm$html$Html$text(spec.name)
 							])),
 						A2(
-						$elm$html$Html$td,
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
 						_List_Nil,
 						_List_fromArray(
 							[
 								$elm$html$Html$text(spec._class)
 							])),
 						A2(
-						$elm$html$Html$td,
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
 						_List_Nil,
 						_List_fromArray(
 							[
 								A2(
-								$elm$html$Html$button,
+								$rundis$elm_bootstrap$Bootstrap$Button$button,
 								_List_fromArray(
 									[
-										$elm$html$Html$Attributes$class('btn btn-default'),
-										$elm$html$Html$Events$onClick(
+										$rundis$elm_bootstrap$Bootstrap$Button$primary,
+										$rundis$elm_bootstrap$Bootstrap$Button$onClick(
 										$author$project$Main$SetOutputSpecToModify(index))
 									]),
 								_List_fromArray(
@@ -11277,16 +13951,16 @@ var $author$project$Main$outputSpecTable = function (outputSpec) {
 									]))
 							])),
 						A2(
-						$elm$html$Html$td,
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
 						_List_Nil,
 						_List_fromArray(
 							[
 								A2(
-								$elm$html$Html$button,
+								$rundis$elm_bootstrap$Bootstrap$Button$button,
 								_List_fromArray(
 									[
-										$elm$html$Html$Attributes$class('btn btn-default'),
-										$elm$html$Html$Events$onClick(
+										$rundis$elm_bootstrap$Bootstrap$Button$danger,
+										$rundis$elm_bootstrap$Bootstrap$Button$onClick(
 										$author$project$Main$DeleteOutputSpec(index))
 									]),
 								_List_fromArray(
@@ -11296,59 +13970,47 @@ var $author$project$Main$outputSpecTable = function (outputSpec) {
 							]))
 					]));
 		});
-	var tbl = A2(
-		$elm$html$Html$table,
-		_List_fromArray(
-			[
-				$elm$html$Html$Attributes$class('table')
-			]),
-		_List_fromArray(
-			[
-				A2(
-				$elm$html$Html$thead,
+	var tbl = $rundis$elm_bootstrap$Bootstrap$Table$table(
+		{
+			options: _List_fromArray(
+				[$rundis$elm_bootstrap$Bootstrap$Table$striped, $rundis$elm_bootstrap$Bootstrap$Table$hover]),
+			tbody: A2(
+				$rundis$elm_bootstrap$Bootstrap$Table$tbody,
 				_List_Nil,
+				A2($elm$core$List$indexedMap, mkRow, outputSpec)),
+			thead: $rundis$elm_bootstrap$Bootstrap$Table$simpleThead(
 				_List_fromArray(
 					[
 						A2(
-						$elm$html$Html$tr,
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
 						_List_Nil,
 						_List_fromArray(
 							[
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('Name')
-									])),
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('Class')
-									])),
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('')
-									])),
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('')
-									]))
+								$elm$html$Html$text('Name')
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Class')
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('')
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('')
 							]))
-					])),
-				A2(
-				$elm$html$Html$tbody,
-				_List_Nil,
-				A2($elm$core$List$indexedMap, inputTr, outputSpec))
-			]));
+					]))
+		});
 	var _v0 = $elm$core$List$isEmpty(outputSpec);
 	if (_v0) {
 		return A2(
@@ -11364,47 +14026,128 @@ var $author$project$Main$outputSpecTable = function (outputSpec) {
 };
 var $author$project$Main$paneOutputSpec = function (model) {
 	return A2(
-		$elm$html$Html$div,
-		_List_fromArray(
-			[
-				$elm$html$Html$Attributes$class('form-group'),
-				A2($elm$html$Html$Attributes$style, 'text-align', 'center')
-			]),
+		$rundis$elm_bootstrap$Bootstrap$Grid$container,
+		_List_Nil,
 		_List_fromArray(
 			[
 				A2(
-				$elm$html$Html$button,
+				$rundis$elm_bootstrap$Bootstrap$Grid$row,
+				_List_Nil,
 				_List_fromArray(
 					[
-						$elm$html$Html$Attributes$type_('button'),
-						$elm$html$Html$Attributes$class('btn btn-default'),
-						$elm$html$Html$Events$onClick(
-						A2($author$project$Main$ModifyOutputSpecDialog, $author$project$Main$initialOutputSpec, $elm$core$Maybe$Nothing))
-					]),
-				_List_fromArray(
-					[
-						$elm$html$Html$text('Add Output')
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Grid$col,
+						_List_fromArray(
+							[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm10]),
+						_List_fromArray(
+							[
+								A2(
+								$rundis$elm_bootstrap$Bootstrap$Button$button,
+								_List_fromArray(
+									[
+										$rundis$elm_bootstrap$Bootstrap$Button$onClick(
+										A2($author$project$Main$ModifyOutputSpecDialog, $author$project$Main$initialOutputSpec, $elm$core$Maybe$Nothing))
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Add Output')
+									]))
+							]))
 					])),
-				$author$project$Main$modifyOutputSpecDialog(model),
-				$author$project$Main$outputSpecTable(model.app.outputSpec)
+				A2(
+				$rundis$elm_bootstrap$Bootstrap$Grid$row,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Grid$col,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$author$project$Main$outputSpecTable(model.app.outputSpec)
+							]))
+					])),
+				A2(
+				$rundis$elm_bootstrap$Bootstrap$Grid$row,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Grid$col,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$author$project$Main$modifyOutputSpecDialog(model)
+							]))
+					]))
 			]));
 };
 var $author$project$Main$ModifyRegionalOptionsDialog = F3(
 	function (a, b, c) {
 		return {$: 'ModifyRegionalOptionsDialog', a: a, b: b, c: c};
 	});
-var $author$project$Main$initialRegionalOptions = {resources: '', systemRequirements: $elm$core$Dict$empty};
+var $author$project$Main$initialRegionalOptions = {
+	resources: $author$project$Main$ResourceList(_List_Nil),
+	systemRequirements: $elm$core$Dict$empty
+};
 var $author$project$Main$CloseRegionalOptionsDialog = {$: 'CloseRegionalOptionsDialog'};
+var $author$project$Main$DeleteRegionalOptionsResource = function (a) {
+	return {$: 'DeleteRegionalOptionsResource', a: a};
+};
 var $author$project$Main$SaveRegionalOptions = {$: 'SaveRegionalOptions'};
+var $author$project$Main$UpdateRegionalOptionsAddResource = {$: 'UpdateRegionalOptionsAddResource'};
 var $author$project$Main$UpdateRegionalOptionsRegionName = function (a) {
 	return {$: 'UpdateRegionalOptionsRegionName', a: a};
 };
-var $author$project$Main$UpdateRegionalOptionsResources = function (a) {
-	return {$: 'UpdateRegionalOptionsResources', a: a};
+var $author$project$Main$UpdateRegionalOptionsResource = function (a) {
+	return {$: 'UpdateRegionalOptionsResource', a: a};
 };
 var $author$project$Main$validRegions = _List_fromArray(
-	['aws:us-east-1', 'aws:eu-central-1', 'aws:ap-southeast-2', 'aws:eu-west-2', 'aws:eu-west-2-g', 'azure:westus', 'azure:westeurope']);
+	['*', 'aws:us-east-1', 'aws:eu-central-1', 'aws:ap-southeast-2', 'aws:eu-west-2', 'aws:eu-west-2-g', 'azure:westus', 'azure:westeurope']);
 var $author$project$Main$modifyRegionalOptionsDialog = function (model) {
+	var mkLi = function (val) {
+		return A2(
+			$elm$html$Html$li,
+			_List_Nil,
+			_List_fromArray(
+				[
+					$elm$html$Html$text(val),
+					A2(
+					$elm$html$Html$button,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$type_('button'),
+							$elm$html$Html$Attributes$class('btn btn-default'),
+							$elm$html$Html$Events$onClick(
+							$author$project$Main$DeleteRegionalOptionsResource(val))
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text('Delete')
+						]))
+				]));
+	};
+	var curResources = function (resources) {
+		var res = function () {
+			if (resources.$ === 'ResourceString') {
+				var s = resources.a;
+				return _List_fromArray(
+					[s]);
+			} else {
+				var vals = resources.a;
+				return vals;
+			}
+		}();
+		var _v1 = $elm$core$List$isEmpty(res);
+		if (_v1) {
+			return $elm$html$Html$text('None');
+		} else {
+			return A2(
+				$elm$html$Html$ul,
+				_List_Nil,
+				A2($elm$core$List$map, mkLi, res));
+		}
+	};
 	var tbl = F2(
 		function (regionName, options) {
 			return A2(
@@ -11432,7 +14175,11 @@ var $author$project$Main$modifyRegionalOptionsDialog = function (model) {
 										_List_fromArray(
 											[
 												A4($author$project$Main$mkRowSelect, 'Region Name', $author$project$Main$validRegions, regionName, $author$project$Main$UpdateRegionalOptionsRegionName),
-												A3($author$project$Main$mkRowTextEntry, 'Resources', options.resources, $author$project$Main$UpdateRegionalOptionsResources)
+												A4($author$project$Main$mkRowTextEntrySubmit, 'Add Resource', model.regionalOptionsResource, $author$project$Main$UpdateRegionalOptionsResource, $author$project$Main$UpdateRegionalOptionsAddResource),
+												A2(
+												$author$project$Main$mkRowHtml,
+												'Resources',
+												curResources(options.resources))
 											]))
 									]))
 							]))
@@ -11481,7 +14228,7 @@ var $author$project$Main$modifyRegionalOptionsDialog = function (model) {
 										]))
 								]))),
 					header: $elm$core$Maybe$Just(
-						$elm$html$Html$text('Add Input'))
+						$elm$html$Html$text('Add Regional Options'))
 				};
 			},
 			model.regionalOptionsToModify));
@@ -11492,6 +14239,13 @@ var $author$project$Main$DeleteRegionalOptions = function (a) {
 var $author$project$Main$ModifySysReqDialog = F3(
 	function (a, b, c) {
 		return {$: 'ModifySysReqDialog', a: a, b: b, c: c};
+	});
+var $author$project$Main$SaveSysReqToRegionalOptions = function (a) {
+	return {$: 'SaveSysReqToRegionalOptions', a: a};
+};
+var $author$project$Main$SetRegionalOptionsSysReqToModify = F3(
+	function (a, b, c) {
+		return {$: 'SetRegionalOptionsSysReqToModify', a: a, b: b, c: c};
 	});
 var $author$project$Main$SetRegionalOptionsToModify = function (a) {
 	return {$: 'SetRegionalOptionsToModify', a: a};
@@ -11504,7 +14258,488 @@ var $elm$core$Dict$isEmpty = function (dict) {
 		return false;
 	}
 };
-var $author$project$Main$regionalOptionsTable = function (regionalOptions) {
+var $author$project$Main$CloseSysReqDialog = {$: 'CloseSysReqDialog'};
+var $author$project$Main$UpdateSysReqClusterSpecBootstrapScript = function (a) {
+	return {$: 'UpdateSysReqClusterSpecBootstrapScript', a: a};
+};
+var $author$project$Main$UpdateSysReqClusterSpecInitialInstanceCount = function (a) {
+	return {$: 'UpdateSysReqClusterSpecInitialInstanceCount', a: a};
+};
+var $author$project$Main$UpdateSysReqClusterSpecPorts = function (a) {
+	return {$: 'UpdateSysReqClusterSpecPorts', a: a};
+};
+var $author$project$Main$UpdateSysReqClusterSpecType = function (a) {
+	return {$: 'UpdateSysReqClusterSpecType', a: a};
+};
+var $author$project$Main$UpdateSysReqClusterSpecVersion = function (a) {
+	return {$: 'UpdateSysReqClusterSpecVersion', a: a};
+};
+var $author$project$Main$UpdateSysReqEntryPointName = function (a) {
+	return {$: 'UpdateSysReqEntryPointName', a: a};
+};
+var $author$project$Main$UpdateSysReqHost = function (a) {
+	return {$: 'UpdateSysReqHost', a: a};
+};
+var $author$project$Main$UpdateSysReqInstanceType = function (a) {
+	return {$: 'UpdateSysReqInstanceType', a: a};
+};
+var $author$project$Main$UpdateSysReqMinCores = function (a) {
+	return {$: 'UpdateSysReqMinCores', a: a};
+};
+var $author$project$Main$UpdateSysReqMinGpus = function (a) {
+	return {$: 'UpdateSysReqMinGpus', a: a};
+};
+var $author$project$Main$UpdateSysReqMinMemory = function (a) {
+	return {$: 'UpdateSysReqMinMemory', a: a};
+};
+var $elm$core$Basics$ge = _Utils_ge;
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$Number = {$: 'Number'};
+var $rundis$elm_bootstrap$Bootstrap$Form$Input$number = $rundis$elm_bootstrap$Bootstrap$Form$Input$input($rundis$elm_bootstrap$Bootstrap$Form$Input$Number);
+var $author$project$Main$mkFormRowNumberEntry = F3(
+	function (label, defValue, msg) {
+		return A2(
+			$rundis$elm_bootstrap$Bootstrap$Form$row,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$rundis$elm_bootstrap$Bootstrap$Form$colLabel,
+					_List_fromArray(
+						[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm2]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text(label)
+						])),
+					A2(
+					$rundis$elm_bootstrap$Bootstrap$Form$col,
+					_List_fromArray(
+						[$rundis$elm_bootstrap$Bootstrap$Grid$Col$sm10]),
+					_List_fromArray(
+						[
+							$rundis$elm_bootstrap$Bootstrap$Form$Input$number(
+							_List_fromArray(
+								[
+									$rundis$elm_bootstrap$Bootstrap$Form$Input$value(defValue),
+									$rundis$elm_bootstrap$Bootstrap$Form$Input$onInput(msg)
+								]))
+						]))
+				]));
+	});
+var $author$project$Main$sysReqHostToString = function (host) {
+	if (host.$ === 'Azure') {
+		return 'Azure';
+	} else {
+		return 'AWS';
+	}
+};
+var $author$project$Main$validClusterSpecType = _List_fromArray(
+	['', 'generic', 'dxspark', 'apachespark']);
+var $author$project$Main$validClusterSpecVersions = _List_fromArray(
+	['', '2.4.4', '3.2.0']);
+var $author$project$Main$validInstanceTypes = _List_fromArray(
+	[
+		{cores: 2, gpus: 0, host: $author$project$Main$Aws, memory: 3.8, name: 'mem1_ssd1_x2', storage: 40},
+		{cores: 4, gpus: 0, host: $author$project$Main$Aws, memory: 7.5, name: 'mem1_ssd1_x4', storage: 80},
+		{cores: 8, gpus: 0, host: $author$project$Main$Aws, memory: 15.0, name: 'mem1_ssd1_x8', storage: 160},
+		{cores: 16, gpus: 0, host: $author$project$Main$Aws, memory: 30.0, name: 'mem1_ssd1_x16', storage: 320},
+		{cores: 32, gpus: 0, host: $author$project$Main$Aws, memory: 60.0, name: 'mem1_ssd1_x32', storage: 640},
+		{cores: 36, gpus: 0, host: $author$project$Main$Aws, memory: 72.0, name: 'mem1_ssd1_x36', storage: 900},
+		{cores: 2, gpus: 0, host: $author$project$Main$Aws, memory: 4.0, name: 'mem1_ssd1_v2_x2', storage: 50},
+		{cores: 4, gpus: 0, host: $author$project$Main$Aws, memory: 8.0, name: 'mem1_ssd1_v2_x4', storage: 100},
+		{cores: 8, gpus: 0, host: $author$project$Main$Aws, memory: 16.0, name: 'mem1_ssd1_v2_x8', storage: 200},
+		{cores: 16, gpus: 0, host: $author$project$Main$Aws, memory: 32.0, name: 'mem1_ssd1_v2_x16', storage: 400},
+		{cores: 36, gpus: 0, host: $author$project$Main$Aws, memory: 72.0, name: 'mem1_ssd1_v2_x36', storage: 900},
+		{cores: 72, gpus: 0, host: $author$project$Main$Aws, memory: 144.0, name: 'mem1_ssd1_v2_x72', storage: 1800},
+		{cores: 2, gpus: 0, host: $author$project$Main$Aws, memory: 3.8, name: 'mem1_ssd2_x2', storage: 160},
+		{cores: 4, gpus: 0, host: $author$project$Main$Aws, memory: 7.5, name: 'mem1_ssd2_x4', storage: 320},
+		{cores: 8, gpus: 0, host: $author$project$Main$Aws, memory: 15.0, name: 'mem1_ssd2_x8', storage: 640},
+		{cores: 16, gpus: 0, host: $author$project$Main$Aws, memory: 30.0, name: 'mem1_ssd2_x16', storage: 1280},
+		{cores: 36, gpus: 0, host: $author$project$Main$Aws, memory: 60.0, name: 'mem1_ssd2_x36', storage: 2880},
+		{cores: 2, gpus: 0, host: $author$project$Main$Aws, memory: 4.0, name: 'mem1_ssd2_v2_x2', storage: 160},
+		{cores: 4, gpus: 0, host: $author$project$Main$Aws, memory: 8.0, name: 'mem1_ssd2_v2_x4', storage: 320},
+		{cores: 8, gpus: 0, host: $author$project$Main$Aws, memory: 16.0, name: 'mem1_ssd2_v2_x8', storage: 640},
+		{cores: 16, gpus: 0, host: $author$project$Main$Aws, memory: 32.0, name: 'mem1_ssd2_v2_x16', storage: 1280},
+		{cores: 36, gpus: 0, host: $author$project$Main$Aws, memory: 72.0, name: 'mem1_ssd2_v2_x36', storage: 2880},
+		{cores: 72, gpus: 0, host: $author$project$Main$Aws, memory: 144.0, name: 'mem1_ssd2_v2_x72', storage: 5760},
+		{cores: 8, gpus: 0, host: $author$project$Main$Aws, memory: 7.0, name: 'mem1_hdd2_x8', storage: 1680},
+		{cores: 32, gpus: 0, host: $author$project$Main$Aws, memory: 60.5, name: 'mem1_hdd2_x32', storage: 3360},
+		{cores: 16, gpus: 0, host: $author$project$Main$Aws, memory: 128.0, name: 'mem3_ssd1_v2_x16', storage: 600},
+		{cores: 32, gpus: 0, host: $author$project$Main$Aws, memory: 256.0, name: 'mem3_ssd1_v2_x32', storage: 1200},
+		{cores: 48, gpus: 0, host: $author$project$Main$Aws, memory: 384.0, name: 'mem3_ssd1_v2_x48', storage: 1800},
+		{cores: 64, gpus: 0, host: $author$project$Main$Aws, memory: 512.0, name: 'mem3_ssd1_v2_x64', storage: 3200},
+		{cores: 96, gpus: 0, host: $author$project$Main$Aws, memory: 768.0, name: 'mem3_ssd1_v2_x96', storage: 3600},
+		{cores: 4, gpus: 0, host: $author$project$Main$Aws, memory: 30.5, name: 'mem3_ssd2_x4', storage: 800},
+		{cores: 8, gpus: 0, host: $author$project$Main$Aws, memory: 61.0, name: 'mem3_ssd2_x8', storage: 1600},
+		{cores: 16, gpus: 0, host: $author$project$Main$Aws, memory: 122.0, name: 'mem3_ssd2_x16', storage: 3200},
+		{cores: 32, gpus: 0, host: $author$project$Main$Aws, memory: 244.0, name: 'mem3_ssd2_x32', storage: 6400},
+		{cores: 2, gpus: 0, host: $author$project$Main$Aws, memory: 15.25, name: 'mem3_ssd2_v2_x2', storage: 475},
+		{cores: 4, gpus: 0, host: $author$project$Main$Aws, memory: 30.5, name: 'mem3_ssd2_v2_x4', storage: 950},
+		{cores: 8, gpus: 0, host: $author$project$Main$Aws, memory: 61.0, name: 'mem3_ssd2_v2_x8', storage: 1900},
+		{cores: 16, gpus: 0, host: $author$project$Main$Aws, memory: 122.0, name: 'mem3_ssd2_v2_x16', storage: 3800},
+		{cores: 32, gpus: 0, host: $author$project$Main$Aws, memory: 244.0, name: 'mem3_ssd2_v2_x32', storage: 7600},
+		{cores: 64, gpus: 0, host: $author$project$Main$Aws, memory: 488.0, name: 'mem3_ssd2_v2_x64', storage: 15200},
+		{cores: 2, gpus: 0, host: $author$project$Main$Aws, memory: 16.0, name: 'mem3_ssd3_x2', storage: 1250},
+		{cores: 4, gpus: 0, host: $author$project$Main$Aws, memory: 32.0, name: 'mem3_ssd3_x4', storage: 2500},
+		{cores: 8, gpus: 0, host: $author$project$Main$Aws, memory: 64.0, name: 'mem3_ssd3_x8', storage: 5000},
+		{cores: 12, gpus: 0, host: $author$project$Main$Aws, memory: 96.0, name: 'mem3_ssd3_x12', storage: 7500},
+		{cores: 24, gpus: 0, host: $author$project$Main$Aws, memory: 192.0, name: 'mem3_ssd3_x24', storage: 15000},
+		{cores: 48, gpus: 0, host: $author$project$Main$Aws, memory: 384.0, name: 'mem3_ssd3_x48', storage: 30000},
+		{cores: 96, gpus: 0, host: $author$project$Main$Aws, memory: 768.0, name: 'mem3_ssd3_x96', storage: 60000},
+		{cores: 2, gpus: 0, host: $author$project$Main$Aws, memory: 17.1, name: 'mem3_hdd2_x2', storage: 420},
+		{cores: 4, gpus: 0, host: $author$project$Main$Aws, memory: 34.2, name: 'mem3_hdd2_x4', storage: 850},
+		{cores: 8, gpus: 0, host: $author$project$Main$Aws, memory: 68.4, name: 'mem3_hdd2_x8', storage: 1680},
+		{cores: 2, gpus: 0, host: $author$project$Main$Aws, memory: 16.0, name: 'mem3_hdd2_v2_x2', storage: 500},
+		{cores: 4, gpus: 0, host: $author$project$Main$Aws, memory: 32.0, name: 'mem3_hdd2_v2_x4', storage: 1000},
+		{cores: 8, gpus: 0, host: $author$project$Main$Aws, memory: 64.0, name: 'mem3_hdd2_v2_x8', storage: 2000},
+		{cores: 0, gpus: 0, host: $author$project$Main$Aws, memory: 0.0, name: '', storage: 0},
+		{cores: 4, gpus: 0, host: $author$project$Main$Azure, memory: 7.8, name: 'azure:mem1_ssd1_x4', storage: 64},
+		{cores: 8, gpus: 0, host: $author$project$Main$Azure, memory: 15.7, name: 'azure:mem1_ssd1_x8', storage: 128},
+		{cores: 16, gpus: 0, host: $author$project$Main$Azure, memory: 31.4, name: 'azure:mem1_ssd1_x16', storage: 254},
+		{cores: 1, gpus: 0, host: $author$project$Main$Azure, memory: 3.5, name: 'azure:mem2_ssd1_x1', storage: 128},
+		{cores: 2, gpus: 0, host: $author$project$Main$Azure, memory: 7.0, name: 'azure:mem2_ssd1_x2', storage: 128},
+		{cores: 4, gpus: 0, host: $author$project$Main$Azure, memory: 14.0, name: 'azure:mem2_ssd1_x4', storage: 128},
+		{cores: 8, gpus: 0, host: $author$project$Main$Azure, memory: 28.0, name: 'azure:mem2_ssd1_x8', storage: 256},
+		{cores: 16, gpus: 0, host: $author$project$Main$Azure, memory: 56.0, name: 'azure:mem2_ssd1_x16', storage: 512},
+		{cores: 2, gpus: 0, host: $author$project$Main$Azure, memory: 14.0, name: 'azure:mem3_ssd1_x2', storage: 128},
+		{cores: 4, gpus: 0, host: $author$project$Main$Azure, memory: 28.0, name: 'azure:mem3_ssd1_x4', storage: 128},
+		{cores: 8, gpus: 0, host: $author$project$Main$Azure, memory: 56.0, name: 'azure:mem3_ssd1_x8', storage: 256},
+		{cores: 16, gpus: 0, host: $author$project$Main$Azure, memory: 112.0, name: 'azure:mem3_ssd1_x16', storage: 512},
+		{cores: 20, gpus: 0, host: $author$project$Main$Azure, memory: 140.0, name: 'azure:mem3_ssd1_x20', storage: 640},
+		{cores: 2, gpus: 0, host: $author$project$Main$Azure, memory: 28.0, name: 'azure:mem4_ssd1_x2', storage: 128},
+		{cores: 4, gpus: 0, host: $author$project$Main$Azure, memory: 56.0, name: 'azure:mem4_ssd1_x4', storage: 128},
+		{cores: 8, gpus: 0, host: $author$project$Main$Azure, memory: 112.0, name: 'azure:mem4_ssd1_x8', storage: 256},
+		{cores: 16, gpus: 0, host: $author$project$Main$Azure, memory: 224.0, name: 'azure:mem4_ssd1_x16', storage: 512},
+		{cores: 32, gpus: 0, host: $author$project$Main$Azure, memory: 448.0, name: 'azure:mem4_ssd1_x32', storage: 1024},
+		{cores: 64, gpus: 0, host: $author$project$Main$Azure, memory: 1792.0, name: 'azure:mem5_ssd2_x64*', storage: 8192},
+		{cores: 128, gpus: 0, host: $author$project$Main$Azure, memory: 3892.0, name: 'azure:mem5_ssd2_x128*', storage: 16384},
+		{cores: 8, gpus: 2, host: $author$project$Main$Aws, memory: 15.0, name: 'mem1_ssd1_gpu2_x8', storage: 60},
+		{cores: 32, gpus: 4, host: $author$project$Main$Aws, memory: 60.0, name: 'mem1_ssd1_gpu2_x32', storage: 240},
+		{cores: 16, gpus: 1, host: $author$project$Main$Aws, memory: 64.0, name: 'mem2_ssd1_gpu_x16', storage: 225},
+		{cores: 32, gpus: 1, host: $author$project$Main$Aws, memory: 128.0, name: 'mem2_ssd1_gpu_x32', storage: 900},
+		{cores: 48, gpus: 4, host: $author$project$Main$Aws, memory: 192.0, name: 'mem2_ssd1_gpu_x48', storage: 900},
+		{cores: 64, gpus: 1, host: $author$project$Main$Aws, memory: 256.0, name: 'mem2_ssd1_gpu_x64', storage: 900},
+		{cores: 8, gpus: 1, host: $author$project$Main$Aws, memory: 61.0, name: 'mem3_ssd1_gpu_x8', storage: 160},
+		{cores: 32, gpus: 4, host: $author$project$Main$Aws, memory: 244.0, name: 'mem3_ssd1_gpu_x32', storage: 640},
+		{cores: 64, gpus: 8, host: $author$project$Main$Aws, memory: 488.0, name: 'mem3_ssd1_gpu_x64', storage: 1280},
+		{cores: 64, gpus: 4, host: $author$project$Main$Azure, memory: 488, name: 'azure:mem3_ssd2_gpu4_x64', storage: 2048},
+		{cores: 2, gpus: 0, host: $author$project$Main$Aws, memory: 7.5, name: 'mem2_ssd1_x2', storage: 40},
+		{cores: 4, gpus: 0, host: $author$project$Main$Aws, memory: 15.0, name: 'mem2_ssd1_x4', storage: 80},
+		{cores: 8, gpus: 0, host: $author$project$Main$Aws, memory: 30.0, name: 'mem2_ssd1_x8', storage: 160},
+		{cores: 2, gpus: 0, host: $author$project$Main$Aws, memory: 8.0, name: 'mem2_ssd1_v2_x2', storage: 75},
+		{cores: 4, gpus: 0, host: $author$project$Main$Aws, memory: 16.0, name: 'mem2_ssd1_v2_x4', storage: 150},
+		{cores: 8, gpus: 0, host: $author$project$Main$Aws, memory: 32.0, name: 'mem2_ssd1_v2_x8', storage: 300},
+		{cores: 16, gpus: 0, host: $author$project$Main$Aws, memory: 64.0, name: 'mem2_ssd1_v2_x16', storage: 600},
+		{cores: 32, gpus: 0, host: $author$project$Main$Aws, memory: 128.0, name: 'mem2_ssd1_v2_x32', storage: 1200},
+		{cores: 48, gpus: 0, host: $author$project$Main$Aws, memory: 144.0, name: 'mem2_ssd1_v2_x48', storage: 1800},
+		{cores: 64, gpus: 0, host: $author$project$Main$Aws, memory: 256.0, name: 'mem2_ssd1_v2_x64', storage: 2400},
+		{cores: 96, gpus: 0, host: $author$project$Main$Aws, memory: 384.0, name: 'mem2_ssd1_v2_x96', storage: 3600},
+		{cores: 1, gpus: 0, host: $author$project$Main$Aws, memory: 3.8, name: 'mem2_hdd2_x1', storage: 410},
+		{cores: 2, gpus: 0, host: $author$project$Main$Aws, memory: 7.5, name: 'mem2_hdd2_x2', storage: 840},
+		{cores: 4, gpus: 0, host: $author$project$Main$Aws, memory: 15.0, name: 'mem2_hdd2_x4', storage: 1680},
+		{cores: 2, gpus: 0, host: $author$project$Main$Aws, memory: 8.0, name: 'mem2_hdd2_v2_x2', storage: 1000},
+		{cores: 4, gpus: 0, host: $author$project$Main$Aws, memory: 16.0, name: 'mem2_hdd2_v2_x4', storage: 2000},
+		{cores: 2, gpus: 0, host: $author$project$Main$Aws, memory: 15.0, name: 'mem3_ssd1_x2', storage: 40},
+		{cores: 4, gpus: 0, host: $author$project$Main$Aws, memory: 30.5, name: 'mem3_ssd1_x4', storage: 80},
+		{cores: 8, gpus: 0, host: $author$project$Main$Aws, memory: 61.0, name: 'mem3_ssd1_x8', storage: 160},
+		{cores: 16, gpus: 0, host: $author$project$Main$Aws, memory: 122.0, name: 'mem3_ssd1_x16', storage: 320},
+		{cores: 32, gpus: 0, host: $author$project$Main$Aws, memory: 244.0, name: 'mem3_ssd1_x32', storage: 640},
+		{cores: 2, gpus: 0, host: $author$project$Main$Aws, memory: 16.0, name: 'mem3_ssd1_v2_x2', storage: 75},
+		{cores: 4, gpus: 0, host: $author$project$Main$Aws, memory: 32.0, name: 'mem3_ssd1_v2_x4', storage: 150},
+		{cores: 8, gpus: 0, host: $author$project$Main$Aws, memory: 64.0, name: 'mem3_ssd1_v2_x8', storage: 300},
+		{cores: 128, gpus: 0, host: $author$project$Main$Aws, memory: 1952.0, name: 'mem4_ssd1_x128', storage: 3840}
+	]);
+var $author$project$Main$modifySysReqDialog = F2(
+	function (model, saveFunction) {
+		var hostNames = A2(
+			$elm$core$List$map,
+			$author$project$Main$sysReqHostToString,
+			_List_fromArray(
+				[$author$project$Main$Aws, $author$project$Main$Azure]));
+		var curHost = A2($elm$core$Maybe$withDefault, $author$project$Main$Aws, model.editingSysReqHost);
+		var instanceTypeChoices = $elm$core$List$sort(
+			A2(
+				$elm$core$List$map,
+				function (instance) {
+					return instance.name;
+				},
+				A2(
+					$elm$core$List$filter,
+					function (instance) {
+						return _Utils_cmp(instance.memory, model.editingSysReqMinMemory) > -1;
+					},
+					A2(
+						$elm$core$List$filter,
+						function (instance) {
+							return _Utils_cmp(instance.gpus, model.editingSysReqMinGpus) > 0;
+						},
+						A2(
+							$elm$core$List$filter,
+							function (instance) {
+								return _Utils_cmp(instance.cores, model.editingSysReqMinCores) > -1;
+							},
+							A2(
+								$elm$core$List$filter,
+								function (instance) {
+									return _Utils_eq(instance.host, curHost);
+								},
+								$author$project$Main$validInstanceTypes))))));
+		var tbl = F2(
+			function (entryPointName, req) {
+				var clusterVersionChoices = function () {
+					var _v1 = req.clusterSpec.type_;
+					if (_v1 === 'generic') {
+						return _List_Nil;
+					} else {
+						return $author$project$Main$validClusterSpecVersions;
+					}
+				}();
+				return A2(
+					$elm$html$Html$div,
+					_List_Nil,
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$div,
+							_List_fromArray(
+								[
+									A2($elm$html$Html$Attributes$style, 'overflow-y', 'auto'),
+									A2($elm$html$Html$Attributes$style, 'max-height', '60vh')
+								]),
+							_List_fromArray(
+								[
+									A2(
+									$rundis$elm_bootstrap$Bootstrap$Grid$container,
+									_List_Nil,
+									_List_fromArray(
+										[
+											A2(
+											$rundis$elm_bootstrap$Bootstrap$Form$form,
+											_List_Nil,
+											_List_fromArray(
+												[
+													A3($author$project$Main$mkFormRowTextEntry, 'Entry Point', entryPointName, $author$project$Main$UpdateSysReqEntryPointName),
+													A4(
+													$author$project$Main$mkFormRowSelect,
+													'Host',
+													hostNames,
+													$author$project$Main$sysReqHostToString(curHost),
+													$author$project$Main$UpdateSysReqHost),
+													A3(
+													$author$project$Main$mkFormRowNumberEntry,
+													'Min. Cores',
+													$elm$core$String$fromInt(model.editingSysReqMinCores),
+													$author$project$Main$UpdateSysReqMinCores),
+													A3(
+													$author$project$Main$mkFormRowNumberEntry,
+													'Min. Memory (GB)',
+													$elm$core$String$fromInt(model.editingSysReqMinMemory),
+													$author$project$Main$UpdateSysReqMinMemory),
+													A3(
+													$author$project$Main$mkFormRowNumberEntry,
+													'GPU',
+													$elm$core$String$fromInt(model.editingSysReqMinGpus),
+													$author$project$Main$UpdateSysReqMinGpus),
+													A4($author$project$Main$mkFormRowSelect, 'Instance Type', instanceTypeChoices, req.instanceType, $author$project$Main$UpdateSysReqInstanceType),
+													A4($author$project$Main$mkFormRowSelect, 'Cluster Type', $author$project$Main$validClusterSpecType, req.clusterSpec.type_, $author$project$Main$UpdateSysReqClusterSpecType),
+													A4($author$project$Main$mkFormRowSelect, 'Cluster Version', clusterVersionChoices, req.clusterSpec.version, $author$project$Main$UpdateSysReqClusterSpecVersion),
+													A4(
+													$author$project$Main$mkFormRowSelect,
+													'Initial Instance Count',
+													A2(
+														$elm$core$List$map,
+														$elm$core$String$fromInt,
+														A2($elm$core$List$range, 1, 10)),
+													$elm$core$String$fromInt(req.clusterSpec.initialInstanceCount),
+													$author$project$Main$UpdateSysReqClusterSpecInitialInstanceCount),
+													A3($author$project$Main$mkFormRowTextEntry, 'Ports', req.clusterSpec.ports, $author$project$Main$UpdateSysReqClusterSpecPorts),
+													A3($author$project$Main$mkFormRowTextEntry, 'Bootstrap Script', req.clusterSpec.bootstrapScript, $author$project$Main$UpdateSysReqClusterSpecBootstrapScript)
+												]))
+										]))
+								]))
+						]));
+			});
+		return $alex_tan$elm_dialog$Dialog$view(
+			A2(
+				$elm$core$Maybe$map,
+				function (_v0) {
+					var entryPointName = _v0.a;
+					var req = _v0.c;
+					return {
+						body: $elm$core$Maybe$Just(
+							A2(tbl, entryPointName, req)),
+						closeMessage: $elm$core$Maybe$Nothing,
+						containerClass: $elm$core$Maybe$Nothing,
+						footer: $elm$core$Maybe$Just(
+							A2(
+								$elm$html$Html$div,
+								_List_Nil,
+								_List_fromArray(
+									[
+										A2(
+										$elm$html$Html$button,
+										_List_fromArray(
+											[
+												$elm$html$Html$Attributes$class('btn btn-primary'),
+												$elm$html$Html$Attributes$type_('button'),
+												$elm$html$Html$Events$onClick(saveFunction)
+											]),
+										_List_fromArray(
+											[
+												$elm$html$Html$text('Save')
+											])),
+										A2(
+										$elm$html$Html$button,
+										_List_fromArray(
+											[
+												$elm$html$Html$Attributes$class('btn btn-default'),
+												$elm$html$Html$Attributes$type_('button'),
+												$elm$html$Html$Events$onClick($author$project$Main$CloseSysReqDialog)
+											]),
+										_List_fromArray(
+											[
+												$elm$html$Html$text('Cancel')
+											]))
+									]))),
+						header: $elm$core$Maybe$Just(
+							$elm$html$Html$text('Add Req'))
+					};
+				},
+				model.sysReqToModify));
+	});
+var $author$project$Main$regionalOptionsTable = function (model) {
+	var sysReqRow = F2(
+		function (regionName, _v4) {
+			var entryPointName = _v4.a;
+			var req = _v4.b;
+			return A2(
+				$elm$html$Html$tr,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$elm$html$Html$td,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text(entryPointName)
+							])),
+						A2(
+						$elm$html$Html$td,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text(req.instanceType)
+							])),
+						A2(
+						$elm$html$Html$td,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A2(
+								$elm$html$Html$button,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$class('btn btn-default'),
+										$elm$html$Html$Events$onClick(
+										A3($author$project$Main$SetRegionalOptionsSysReqToModify, regionName, entryPointName, req))
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Edit')
+									]))
+							])),
+						A2(
+						$elm$html$Html$td,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A2(
+								$elm$html$Html$button,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$class('btn btn-default')
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Delete')
+									]))
+							]))
+					]));
+		});
+	var sysReqTable = F2(
+		function (regionName, systemRequirements) {
+			var _v3 = $elm$core$Dict$isEmpty(systemRequirements);
+			if (_v3) {
+				return $elm$html$Html$text('No requirements');
+			} else {
+				return A2(
+					$elm$html$Html$table,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$class('table')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$thead,
+							_List_Nil,
+							_List_fromArray(
+								[
+									A2(
+									$elm$html$Html$tr,
+									_List_Nil,
+									_List_fromArray(
+										[
+											A2(
+											$elm$html$Html$th,
+											_List_Nil,
+											_List_fromArray(
+												[
+													$elm$html$Html$text('Entry Name')
+												])),
+											A2(
+											$elm$html$Html$th,
+											_List_Nil,
+											_List_fromArray(
+												[
+													$elm$html$Html$text('Resources')
+												])),
+											A2(
+											$elm$html$Html$th,
+											_List_Nil,
+											_List_fromArray(
+												[
+													$elm$html$Html$text('')
+												])),
+											A2(
+											$elm$html$Html$th,
+											_List_Nil,
+											_List_fromArray(
+												[
+													$elm$html$Html$text('')
+												]))
+										]))
+								])),
+							A2(
+							$elm$html$Html$tbody,
+							_List_Nil,
+							A2(
+								$elm$core$List$map,
+								sysReqRow(regionName),
+								$elm$core$Dict$toList(systemRequirements)))
+						]));
+			}
+		});
+	var regionalOptions = model.app.regionalOptions;
+	var displayResources = function (res) {
+		if (res.$ === 'ResourceString') {
+			var s = res.a;
+			return s;
+		} else {
+			var vals = res.a;
+			return A2($elm$core$String$join, ', ', vals);
+		}
+	};
 	var tbl = F2(
 		function (regionName, opts) {
 			return A2(
@@ -11563,7 +14798,8 @@ var $author$project$Main$regionalOptionsTable = function (regionalOptions) {
 										_List_Nil,
 										_List_fromArray(
 											[
-												$elm$html$Html$text(opts.resources)
+												$elm$html$Html$text(
+												displayResources(opts.resources))
 											])),
 										A2(
 										$elm$html$Html$td,
@@ -11612,7 +14848,7 @@ var $author$project$Main$regionalOptionsTable = function (regionalOptions) {
 													[
 														$elm$html$Html$Attributes$class('btn btn-default'),
 														$elm$html$Html$Events$onClick(
-														A3($author$project$Main$ModifySysReqDialog, '*', $author$project$Main$initialSystemRequirements, $elm$core$Maybe$Nothing))
+														A3($author$project$Main$ModifySysReqDialog, '*', $elm$core$Maybe$Nothing, $author$project$Main$initialSystemRequirements))
 													]),
 												_List_fromArray(
 													[
@@ -11631,7 +14867,12 @@ var $author$project$Main$regionalOptionsTable = function (regionalOptions) {
 			_List_Nil,
 			_List_fromArray(
 				[
-					A2(tbl, regionName, opts)
+					A2(tbl, regionName, opts),
+					A2(sysReqTable, regionName, opts.systemRequirements),
+					A2(
+					$author$project$Main$modifySysReqDialog,
+					model,
+					$author$project$Main$SaveSysReqToRegionalOptions(regionName))
 				]));
 	};
 	var body = A2(
@@ -11645,7 +14886,7 @@ var $author$project$Main$regionalOptionsTable = function (regionalOptions) {
 			_List_Nil,
 			_List_fromArray(
 				[
-					$elm$html$Html$text('No options')
+					$elm$html$Html$text('No regional options')
 				]));
 	} else {
 		return A2($elm$html$Html$div, _List_Nil, body);
@@ -11669,16 +14910,17 @@ var $author$project$Main$paneRegionalOptions = function (model) {
 						$elm$html$Html$Attributes$type_('button'),
 						$elm$html$Html$Attributes$class('btn btn-default'),
 						$elm$html$Html$Events$onClick(
-						A3($author$project$Main$ModifyRegionalOptionsDialog, 'aws:us-east-1', $author$project$Main$initialRegionalOptions, $elm$core$Maybe$Nothing))
+						A3($author$project$Main$ModifyRegionalOptionsDialog, '*', $author$project$Main$initialRegionalOptions, $elm$core$Maybe$Nothing))
 					]),
 				_List_fromArray(
 					[
 						$elm$html$Html$text('Add Options')
 					])),
 				$author$project$Main$modifyRegionalOptionsDialog(model),
-				$author$project$Main$regionalOptionsTable(model.app.regionalOptions)
+				$author$project$Main$regionalOptionsTable(model)
 			]));
 };
+var $author$project$Main$SaveSysReqToRunSpec = {$: 'SaveSysReqToRunSpec'};
 var $author$project$Main$UpdateRunSpecDistribution = function (a) {
 	return {$: 'UpdateRunSpecDistribution', a: a};
 };
@@ -11697,7 +14939,160 @@ var $author$project$Main$UpdateRunSpecRestartableEntryPoints = function (a) {
 var $author$project$Main$UpdateRunSpecVersion = function (a) {
 	return {$: 'UpdateRunSpecVersion', a: a};
 };
-var $author$project$Main$paneRunSpec = function (runSpec) {
+var $elm$html$Html$h2 = _VirtualDom_node('h2');
+var $author$project$Main$DeleteSysReq = function (a) {
+	return {$: 'DeleteSysReq', a: a};
+};
+var $author$project$Main$SetRunSpecSysReqToModify = function (a) {
+	return {$: 'SetRunSpecSysReqToModify', a: a};
+};
+var $author$project$Main$systemsRequirementsTable = function (reqs) {
+	var mkRow = F2(
+		function (index, _v1) {
+			var entryPointName = _v1.a;
+			var req = _v1.b;
+			return A2(
+				$rundis$elm_bootstrap$Bootstrap$Table$tr,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text(entryPointName)
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text(req.instanceType)
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A2(
+								$rundis$elm_bootstrap$Bootstrap$Button$button,
+								_List_fromArray(
+									[
+										$rundis$elm_bootstrap$Bootstrap$Button$primary,
+										$rundis$elm_bootstrap$Bootstrap$Button$onClick(
+										$author$project$Main$SetRunSpecSysReqToModify(entryPointName))
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Edit')
+									]))
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A2(
+								$rundis$elm_bootstrap$Bootstrap$Button$button,
+								_List_fromArray(
+									[
+										$rundis$elm_bootstrap$Bootstrap$Button$danger,
+										$rundis$elm_bootstrap$Bootstrap$Button$onClick(
+										$author$project$Main$DeleteSysReq(index))
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Delete')
+									]))
+							]))
+					]));
+		});
+	var tbl = $rundis$elm_bootstrap$Bootstrap$Table$table(
+		{
+			options: _List_fromArray(
+				[$rundis$elm_bootstrap$Bootstrap$Table$striped, $rundis$elm_bootstrap$Bootstrap$Table$hover]),
+			tbody: A2(
+				$rundis$elm_bootstrap$Bootstrap$Table$tbody,
+				_List_Nil,
+				A2(
+					$elm$core$List$indexedMap,
+					mkRow,
+					$elm$core$Dict$toList(reqs))),
+			thead: $rundis$elm_bootstrap$Bootstrap$Table$simpleThead(
+				_List_fromArray(
+					[
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Entry Point')
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Instance Type')
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('')
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('')
+							]))
+					]))
+		});
+	var _v0 = $elm$core$Dict$isEmpty(reqs);
+	if (_v0) {
+		return A2(
+			$rundis$elm_bootstrap$Bootstrap$Grid$row,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$rundis$elm_bootstrap$Bootstrap$Grid$col,
+					_List_Nil,
+					_List_fromArray(
+						[
+							$elm$html$Html$text('No requirements')
+						]))
+				]));
+	} else {
+		return A2(
+			$rundis$elm_bootstrap$Bootstrap$Grid$row,
+			_List_Nil,
+			_List_fromArray(
+				[
+					A2(
+					$rundis$elm_bootstrap$Bootstrap$Grid$col,
+					_List_Nil,
+					_List_fromArray(
+						[tbl]))
+				]));
+	}
+};
+var $author$project$Main$paneRunSpec = function (model) {
+	var runSpec = model.app.runSpec;
+	var intepreterChoices = function () {
+		var _v1 = _Utils_Tuple2(runSpec.release, runSpec.version);
+		if ((_v1.a === '16.04') && (_v1.b === '0')) {
+			return _List_fromArray(
+				[$author$project$Main$Bash, $author$project$Main$Python27]);
+		} else {
+			return _List_fromArray(
+				[$author$project$Main$Bash, $author$project$Main$Python3]);
+		}
+	}();
 	var appExecutionEnvVersions = function () {
 		var _v0 = runSpec.release;
 		if (_v0 === '20.04') {
@@ -11709,391 +15104,107 @@ var $author$project$Main$paneRunSpec = function (runSpec) {
 		}
 	}();
 	return A2(
-		$elm$html$Html$div,
+		$rundis$elm_bootstrap$Bootstrap$Grid$container,
 		_List_Nil,
 		_List_fromArray(
 			[
 				A2(
-				$elm$html$Html$form,
+				$rundis$elm_bootstrap$Bootstrap$Form$form,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A4(
+						$author$project$Main$mkFormRowSelect,
+						'Interpreter',
+						A2($elm$core$List$map, $author$project$Main$runSpecInterpreterToString, intepreterChoices),
+						$author$project$Main$runSpecInterpreterToString(runSpec.interpreter),
+						$author$project$Main$UpdateRunSpecInterpreter),
+						A3($author$project$Main$mkFormRowTextEntry, 'File', runSpec.file, $author$project$Main$UpdateRunSpecFile),
+						A4(
+						$author$project$Main$mkFormRowSelect,
+						'Distribution',
+						_List_fromArray(
+							['Ubuntu']),
+						runSpec.distribution,
+						$author$project$Main$UpdateRunSpecDistribution),
+						A4(
+						$author$project$Main$mkFormRowSelect,
+						'Release',
+						_List_fromArray(
+							['20.04', '16.04']),
+						runSpec.release,
+						$author$project$Main$UpdateRunSpecRelease),
+						A4($author$project$Main$mkFormRowSelect, 'Application Execution Version', appExecutionEnvVersions, runSpec.version, $author$project$Main$UpdateRunSpecVersion),
+						A4(
+						$author$project$Main$mkFormRowSelect,
+						'Restartable Entry Points',
+						_List_fromArray(
+							['master', 'all']),
+						runSpec.restartableEntryPoints,
+						$author$project$Main$UpdateRunSpecRestartableEntryPoints)
+					])),
+				A2(
+				$rundis$elm_bootstrap$Bootstrap$Grid$row,
 				_List_Nil,
 				_List_fromArray(
 					[
 						A2(
-						$elm$html$Html$table,
+						$rundis$elm_bootstrap$Bootstrap$Grid$col,
 						_List_Nil,
 						_List_fromArray(
 							[
-								A4(
-								$author$project$Main$mkRowSelect,
-								'Interpreter',
+								A2(
+								$elm$html$Html$h2,
+								_List_Nil,
 								_List_fromArray(
-									['bash', 'python3', 'python2.7']),
-								runSpec.interpreter,
-								$author$project$Main$UpdateRunSpecInterpreter),
-								A3($author$project$Main$mkRowTextEntry, 'File', runSpec.file, $author$project$Main$UpdateRunSpecFile),
-								A4(
-								$author$project$Main$mkRowSelect,
-								'Distribution',
+									[
+										$elm$html$Html$text('System Requirements')
+									]))
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Grid$col,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A2(
+								$rundis$elm_bootstrap$Bootstrap$Button$button,
 								_List_fromArray(
-									['Ubuntu']),
-								runSpec.distribution,
-								$author$project$Main$UpdateRunSpecDistribution),
-								A4(
-								$author$project$Main$mkRowSelect,
-								'Release',
+									[
+										$rundis$elm_bootstrap$Bootstrap$Button$onClick(
+										A3($author$project$Main$ModifySysReqDialog, '*', $elm$core$Maybe$Nothing, $author$project$Main$initialSystemRequirements))
+									]),
 								_List_fromArray(
-									['20.04', '16.04']),
-								runSpec.release,
-								$author$project$Main$UpdateRunSpecRelease),
-								A4($author$project$Main$mkRowSelect, 'Application Execution Version', appExecutionEnvVersions, runSpec.version, $author$project$Main$UpdateRunSpecVersion),
-								A4(
-								$author$project$Main$mkRowSelect,
-								'Restartable Entry Points',
-								_List_fromArray(
-									['master', 'all']),
-								runSpec.restartableEntryPoints,
-								$author$project$Main$UpdateRunSpecRestartableEntryPoints)
+									[
+										$elm$html$Html$text('Add SysReq')
+									]))
+							]))
+					])),
+				A2(
+				$rundis$elm_bootstrap$Bootstrap$Grid$row,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Grid$col,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A2($author$project$Main$modifySysReqDialog, model, $author$project$Main$SaveSysReqToRunSpec)
+							]))
+					])),
+				A2(
+				$rundis$elm_bootstrap$Bootstrap$Grid$row,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Grid$col,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$author$project$Main$systemsRequirementsTable(model.app.runSpec.systemRequirements)
 							]))
 					]))
-			]));
-};
-var $author$project$Main$CloseSysReqDialog = {$: 'CloseSysReqDialog'};
-var $author$project$Main$SaveSysReq = {$: 'SaveSysReq'};
-var $author$project$Main$UpdateSysReqClusterSpecBootstrapScript = function (a) {
-	return {$: 'UpdateSysReqClusterSpecBootstrapScript', a: a};
-};
-var $author$project$Main$UpdateSysReqClusterSpecInitialInstanceCount = function (a) {
-	return {$: 'UpdateSysReqClusterSpecInitialInstanceCount', a: a};
-};
-var $author$project$Main$UpdateSysReqClusterSpecPorts = function (a) {
-	return {$: 'UpdateSysReqClusterSpecPorts', a: a};
-};
-var $author$project$Main$UpdateSysReqClusterSpecType = function (a) {
-	return {$: 'UpdateSysReqClusterSpecType', a: a};
-};
-var $author$project$Main$UpdateSysReqClusterSpecVersion = function (a) {
-	return {$: 'UpdateSysReqClusterSpecVersion', a: a};
-};
-var $author$project$Main$UpdateSysReqEntryPointName = function (a) {
-	return {$: 'UpdateSysReqEntryPointName', a: a};
-};
-var $author$project$Main$UpdateSysReqHost = function (a) {
-	return {$: 'UpdateSysReqHost', a: a};
-};
-var $author$project$Main$UpdateSysReqInstanceType = function (a) {
-	return {$: 'UpdateSysReqInstanceType', a: a};
-};
-var $author$project$Main$sysReqHostToString = function (host) {
-	switch (host.$) {
-		case 'Azure':
-			return 'Azure';
-		case 'Gpu':
-			return 'GPU';
-		default:
-			return 'AWS';
-	}
-};
-var $author$project$Main$validClusterSpecType = _List_fromArray(
-	['', 'generic', 'dxspark', 'apachespark']);
-var $author$project$Main$validClusterSpecVersions = _List_fromArray(
-	['', '2.4.4', '3.2.0']);
-var $author$project$Main$validInstanceTypesAws = _List_fromArray(
-	['mem1_ssd1_x2', 'mem1_ssd1_x4', 'mem1_ssd1_x8', 'mem1_ssd1_x16', 'mem1_ssd1_x32', 'mem1_ssd1_x36', 'mem1_ssd1_v2_x2', 'mem1_ssd1_v2_x4', 'mem1_ssd1_v2_x8', 'mem1_ssd1_v2_x16', 'mem1_ssd1_v2_x36', 'mem1_ssd1_v2_x72', 'mem1_ssd2_x2', 'mem1_ssd2_x4', 'mem1_ssd2_x8', 'mem1_ssd2_x16', 'mem1_ssd2_x36', 'mem1_ssd2_v2_x2', 'mem1_ssd2_v2_x4', 'mem1_ssd2_v2_x8', 'mem1_ssd2_v2_x16', 'mem1_ssd2_v2_x36', 'mem1_ssd2_v2_x72', 'mem1_hdd2_x8', 'mem1_hdd2_x32', 'mem2_ssd1_x2', 'mem2_ssd1_x4', 'mem2_ssd1_x8', 'mem2_ssd1_v2_x2', 'mem2_ssd1_v2_x4', 'mem2_ssd1_v2_x8', 'mem2_ssd1_v2_x16', 'mem2_ssd1_v2_x32', 'mem2_ssd1_v2_x48', 'mem2_ssd1_v2_x64', 'mem2_ssd1_v2_x96', 'mem2_hdd2_x1', 'mem2_hdd2_x2', 'mem2_hdd2_x4', 'mem2_hdd2_v2_x2', 'mem2_hdd2_v2_x4', 'mem3_ssd1_x2', 'mem3_ssd1_x4', 'mem3_ssd1_x8', 'mem3_ssd1_x16', 'mem3_ssd1_x32', 'mem3_ssd1_v2_x2', 'mem3_ssd1_v2_x4', 'mem3_ssd1_v2_x8', 'mem3_ssd1_v2_x16', 'mem3_ssd1_v2_x32', 'mem3_ssd1_v2_x48', 'mem3_ssd1_v2_x64', 'mem3_ssd1_v2_x96', 'mem3_ssd2_x4', 'mem3_ssd2_x8', 'mem3_ssd2_x16', 'mem3_ssd2_x32', 'mem3_ssd2_v2_x2', 'mem3_ssd2_v2_x4', 'mem3_ssd2_v2_x8', 'mem3_ssd2_v2_x16', 'mem3_ssd2_v2_x32', 'mem3_ssd2_v2_x64', 'mem3_ssd3_x2', 'mem3_ssd3_x4', 'mem3_ssd3_x8', 'mem3_ssd3_x12', 'mem3_ssd3_x24', 'mem3_ssd3_x48', 'mem3_ssd3_x96', 'mem3_hdd2_x2', 'mem3_hdd2_x4', 'mem3_hdd2_x8', 'mem3_hdd2_v2_x2', 'mem3_hdd2_v2_x4', 'mem3_hdd2_v2_x8', 'mem4_ssd1_x128']);
-var $author$project$Main$validInstanceTypesAzure = _List_fromArray(
-	['azure:mem1_ssd1_x2', 'azure:mem1_ssd1_x4', 'azure:mem1_ssd1_x8', 'azure:mem1_ssd1_x16', 'azure:mem2_ssd1_x1', 'azure:mem2_ssd1_x2', 'azure:mem2_ssd1_x4', 'azure:mem2_ssd1_x8', 'azure:mem2_ssd1_x16', 'azure:mem3_ssd1_x2', 'azure:mem3_ssd1_x4', 'azure:mem3_ssd1_x8', 'azure:mem3_ssd1_x16', 'azure:mem3_ssd1_x20', 'azure:mem4_ssd1_x2', 'azure:mem4_ssd1_x4', 'azure:mem4_ssd1_x8', 'azure:mem4_ssd1_x16', 'azure:mem4_ssd1_x32', 'azure:mem5_ssd2_x64', 'azure:mem5_ssd2_x128']);
-var $author$project$Main$validInstanceTypesGpu = _List_fromArray(
-	['mem1_ssd1_gpu2_x8', 'mem1_ssd1_gpu2_x32', 'mem2_ssd1_gpu_x16', 'mem2_ssd1_gpu_x32', 'mem2_ssd1_gpu_x48', 'mem2_ssd1_gpu_x64', 'mem3_ssd1_gpu_x8', 'mem3_ssd1_gpu_x32', 'mem3_ssd1_gpu_x64', 'azure:mem3_ssd2_gpu4_x64']);
-var $author$project$Main$modifySysReqDialog = function (model) {
-	var hostNames = A2(
-		$elm$core$List$map,
-		$author$project$Main$sysReqHostToString,
-		_List_fromArray(
-			[$author$project$Main$Aws, $author$project$Main$Azure, $author$project$Main$Gpu]));
-	var curHost = A2($elm$core$Maybe$withDefault, $author$project$Main$Aws, model.editingSysReqHost);
-	var instanceTypeChoices = function () {
-		switch (curHost.$) {
-			case 'Azure':
-				return $author$project$Main$validInstanceTypesAzure;
-			case 'Gpu':
-				return $author$project$Main$validInstanceTypesGpu;
-			default:
-				return $author$project$Main$validInstanceTypesAws;
-		}
-	}();
-	var tbl = F2(
-		function (entryPointName, req) {
-			var clusterVersionChoices = function () {
-				var _v2 = req.clusterSpec.type_;
-				if (_v2 === 'generic') {
-					return _List_Nil;
-				} else {
-					return $author$project$Main$validClusterSpecVersions;
-				}
-			}();
-			return A2(
-				$elm$html$Html$div,
-				_List_Nil,
-				_List_fromArray(
-					[
-						A2(
-						$elm$html$Html$div,
-						_List_fromArray(
-							[
-								A2($elm$html$Html$Attributes$style, 'overflow-y', 'auto'),
-								A2($elm$html$Html$Attributes$style, 'max-height', '60vh')
-							]),
-						_List_fromArray(
-							[
-								A2(
-								$elm$html$Html$form,
-								_List_Nil,
-								_List_fromArray(
-									[
-										A2(
-										$elm$html$Html$table,
-										_List_Nil,
-										_List_fromArray(
-											[
-												A3($author$project$Main$mkRowTextEntry, 'Entry Point Name', entryPointName, $author$project$Main$UpdateSysReqEntryPointName),
-												A4(
-												$author$project$Main$mkRowSelect,
-												'Host',
-												hostNames,
-												$author$project$Main$sysReqHostToString(curHost),
-												$author$project$Main$UpdateSysReqHost),
-												A4($author$project$Main$mkRowSelect, 'Instance Type', instanceTypeChoices, req.instanceType, $author$project$Main$UpdateSysReqInstanceType),
-												A4($author$project$Main$mkRowSelect, 'Cluster Type', $author$project$Main$validClusterSpecType, req.clusterSpec.type_, $author$project$Main$UpdateSysReqClusterSpecType),
-												A4($author$project$Main$mkRowSelect, 'Cluster Version', clusterVersionChoices, req.clusterSpec.version, $author$project$Main$UpdateSysReqClusterSpecVersion),
-												A4(
-												$author$project$Main$mkRowSelect,
-												'Initial Instance Count',
-												A2(
-													$elm$core$List$map,
-													$elm$core$String$fromInt,
-													A2($elm$core$List$range, 1, 10)),
-												$elm$core$String$fromInt(req.clusterSpec.initialInstanceCount),
-												$author$project$Main$UpdateSysReqClusterSpecInitialInstanceCount),
-												A3($author$project$Main$mkRowTextEntry, 'Ports', req.clusterSpec.ports, $author$project$Main$UpdateSysReqClusterSpecPorts),
-												A3($author$project$Main$mkRowTextEntry, 'Bootstrap Script', req.clusterSpec.bootstrapScript, $author$project$Main$UpdateSysReqClusterSpecBootstrapScript)
-											]))
-									]))
-							]))
-					]));
-		});
-	return $alex_tan$elm_dialog$Dialog$view(
-		function () {
-			var _v0 = model.sysReqToModify;
-			if (_v0.$ === 'Just') {
-				var _v1 = _v0.a;
-				var entryPointName = _v1.a;
-				var req = _v1.b;
-				return $elm$core$Maybe$Just(
-					{
-						body: $elm$core$Maybe$Just(
-							A2(tbl, entryPointName, req)),
-						closeMessage: $elm$core$Maybe$Nothing,
-						containerClass: $elm$core$Maybe$Nothing,
-						footer: $elm$core$Maybe$Just(
-							A2(
-								$elm$html$Html$div,
-								_List_Nil,
-								_List_fromArray(
-									[
-										A2(
-										$elm$html$Html$button,
-										_List_fromArray(
-											[
-												$elm$html$Html$Attributes$class('btn btn-primary'),
-												$elm$html$Html$Attributes$type_('button'),
-												$elm$html$Html$Events$onClick($author$project$Main$SaveSysReq)
-											]),
-										_List_fromArray(
-											[
-												$elm$html$Html$text('Save')
-											])),
-										A2(
-										$elm$html$Html$button,
-										_List_fromArray(
-											[
-												$elm$html$Html$Attributes$class('btn btn-default'),
-												$elm$html$Html$Attributes$type_('button'),
-												$elm$html$Html$Events$onClick($author$project$Main$CloseSysReqDialog)
-											]),
-										_List_fromArray(
-											[
-												$elm$html$Html$text('Cancel')
-											]))
-									]))),
-						header: $elm$core$Maybe$Just(
-							$elm$html$Html$text('Add Req'))
-					});
-			} else {
-				return $elm$core$Maybe$Nothing;
-			}
-		}());
-};
-var $author$project$Main$DeleteSysReq = function (a) {
-	return {$: 'DeleteSysReq', a: a};
-};
-var $author$project$Main$SetSysReqToModify = function (a) {
-	return {$: 'SetSysReqToModify', a: a};
-};
-var $author$project$Main$systemsRequirementsTable = function (reqs) {
-	var inputTr = F2(
-		function (index, _v1) {
-			var entryPointName = _v1.a;
-			var req = _v1.b;
-			return A2(
-				$elm$html$Html$tr,
-				_List_Nil,
-				_List_fromArray(
-					[
-						A2(
-						$elm$html$Html$td,
-						_List_Nil,
-						_List_fromArray(
-							[
-								$elm$html$Html$text(entryPointName)
-							])),
-						A2(
-						$elm$html$Html$td,
-						_List_Nil,
-						_List_fromArray(
-							[
-								$elm$html$Html$text(req.instanceType)
-							])),
-						A2(
-						$elm$html$Html$td,
-						_List_Nil,
-						_List_fromArray(
-							[
-								A2(
-								$elm$html$Html$button,
-								_List_fromArray(
-									[
-										$elm$html$Html$Attributes$class('btn btn-default'),
-										$elm$html$Html$Events$onClick(
-										$author$project$Main$SetSysReqToModify(index))
-									]),
-								_List_fromArray(
-									[
-										$elm$html$Html$text('Edit')
-									]))
-							])),
-						A2(
-						$elm$html$Html$td,
-						_List_Nil,
-						_List_fromArray(
-							[
-								A2(
-								$elm$html$Html$button,
-								_List_fromArray(
-									[
-										$elm$html$Html$Attributes$class('btn btn-default'),
-										$elm$html$Html$Events$onClick(
-										$author$project$Main$DeleteSysReq(index))
-									]),
-								_List_fromArray(
-									[
-										$elm$html$Html$text('Delete')
-									]))
-							]))
-					]));
-		});
-	var tbl = A2(
-		$elm$html$Html$table,
-		_List_fromArray(
-			[
-				$elm$html$Html$Attributes$class('table')
-			]),
-		_List_fromArray(
-			[
-				A2(
-				$elm$html$Html$thead,
-				_List_Nil,
-				_List_fromArray(
-					[
-						A2(
-						$elm$html$Html$tr,
-						_List_Nil,
-						_List_fromArray(
-							[
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('Entry Point')
-									])),
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('Instance Type')
-									])),
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('')
-									])),
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('')
-									]))
-							]))
-					])),
-				A2(
-				$elm$html$Html$tbody,
-				_List_Nil,
-				A2(
-					$elm$core$List$indexedMap,
-					inputTr,
-					$elm$core$Dict$toList(reqs)))
-			]));
-	var _v0 = $elm$core$Dict$isEmpty(reqs);
-	if (_v0) {
-		return A2(
-			$elm$html$Html$div,
-			_List_Nil,
-			_List_fromArray(
-				[
-					$elm$html$Html$text('No requirements')
-				]));
-	} else {
-		return tbl;
-	}
-};
-var $author$project$Main$paneSysReq = function (model) {
-	return A2(
-		$elm$html$Html$div,
-		_List_fromArray(
-			[
-				$elm$html$Html$Attributes$class('form-group'),
-				A2($elm$html$Html$Attributes$style, 'text-align', 'center')
-			]),
-		_List_fromArray(
-			[
-				A2(
-				$elm$html$Html$button,
-				_List_fromArray(
-					[
-						$elm$html$Html$Attributes$type_('button'),
-						$elm$html$Html$Attributes$class('btn btn-default'),
-						$elm$html$Html$Events$onClick(
-						A3($author$project$Main$ModifySysReqDialog, '*', $author$project$Main$initialSystemRequirements, $elm$core$Maybe$Nothing))
-					]),
-				_List_fromArray(
-					[
-						$elm$html$Html$text('Add SysReq')
-					])),
-				$author$project$Main$modifySysReqDialog(model),
-				$author$project$Main$systemsRequirementsTable(model.app.runSpec.systemRequirements)
 			]));
 };
 var $author$project$Main$ModifyTimeoutPolicyDialog = F3(
@@ -12117,40 +15228,34 @@ var $author$project$Main$modifyTimeoutPolicyDialog = function (model) {
 		function (entryPointName, policy) {
 			return A2(
 				$elm$html$Html$div,
-				_List_Nil,
+				_List_fromArray(
+					[
+						A2($elm$html$Html$Attributes$style, 'overflow-y', 'auto'),
+						A2($elm$html$Html$Attributes$style, 'max-height', '60vh')
+					]),
 				_List_fromArray(
 					[
 						A2(
-						$elm$html$Html$div,
-						_List_fromArray(
-							[
-								A2($elm$html$Html$Attributes$style, 'overflow-y', 'auto'),
-								A2($elm$html$Html$Attributes$style, 'max-height', '60vh')
-							]),
+						$rundis$elm_bootstrap$Bootstrap$Grid$container,
+						_List_Nil,
 						_List_fromArray(
 							[
 								A2(
-								$elm$html$Html$form,
+								$rundis$elm_bootstrap$Bootstrap$Form$form,
 								_List_Nil,
 								_List_fromArray(
 									[
-										A2(
-										$elm$html$Html$table,
-										_List_Nil,
-										_List_fromArray(
-											[
-												A3($author$project$Main$mkRowTextEntry, 'Entry Point Name', entryPointName, $author$project$Main$UpdateTimeoutPolicyEntryPointName),
-												A3(
-												$author$project$Main$mkRowTextEntry,
-												'Hours',
-												$elm$core$String$fromInt(policy.hours),
-												$author$project$Main$UpdateTimeoutPolicyHours),
-												A3(
-												$author$project$Main$mkRowTextEntry,
-												'Minutes',
-												$elm$core$String$fromInt(policy.minutes),
-												$author$project$Main$UpdateTimeoutPolicyMinutes)
-											]))
+										A3($author$project$Main$mkFormRowTextEntry, 'Entry Point Name', entryPointName, $author$project$Main$UpdateTimeoutPolicyEntryPointName),
+										A3(
+										$author$project$Main$mkFormRowTextEntry,
+										'Hours',
+										$elm$core$String$fromInt(policy.hours),
+										$author$project$Main$UpdateTimeoutPolicyHours),
+										A3(
+										$author$project$Main$mkFormRowTextEntry,
+										'Minutes',
+										$elm$core$String$fromInt(policy.minutes),
+										$author$project$Main$UpdateTimeoutPolicyMinutes)
 									]))
 							]))
 					]));
@@ -12203,6 +15308,9 @@ var $author$project$Main$modifyTimeoutPolicyDialog = function (model) {
 			},
 			model.timeoutPolicyToModify));
 };
+var $rundis$elm_bootstrap$Bootstrap$Internal$Button$Secondary = {$: 'Secondary'};
+var $rundis$elm_bootstrap$Bootstrap$Button$secondary = $rundis$elm_bootstrap$Bootstrap$Internal$Button$Coloring(
+	$rundis$elm_bootstrap$Bootstrap$Internal$Button$Roled($rundis$elm_bootstrap$Bootstrap$Internal$Button$Secondary));
 var $author$project$Main$DeleteTimeoutPolicy = function (a) {
 	return {$: 'DeleteTimeoutPolicy', a: a};
 };
@@ -12210,24 +15318,24 @@ var $author$project$Main$SetTimeoutPolicyToModify = function (a) {
 	return {$: 'SetTimeoutPolicyToModify', a: a};
 };
 var $author$project$Main$timeoutPolicyTable = function (policies) {
-	var inputTr = F2(
+	var mkRow = F2(
 		function (index, _v1) {
 			var entryPointName = _v1.a;
 			var policy = _v1.b;
 			return A2(
-				$elm$html$Html$tr,
+				$rundis$elm_bootstrap$Bootstrap$Table$tr,
 				_List_Nil,
 				_List_fromArray(
 					[
 						A2(
-						$elm$html$Html$td,
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
 						_List_Nil,
 						_List_fromArray(
 							[
 								$elm$html$Html$text(entryPointName)
 							])),
 						A2(
-						$elm$html$Html$td,
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
 						_List_Nil,
 						_List_fromArray(
 							[
@@ -12235,7 +15343,7 @@ var $author$project$Main$timeoutPolicyTable = function (policies) {
 								$elm$core$String$fromInt(policy.hours))
 							])),
 						A2(
-						$elm$html$Html$td,
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
 						_List_Nil,
 						_List_fromArray(
 							[
@@ -12243,16 +15351,16 @@ var $author$project$Main$timeoutPolicyTable = function (policies) {
 								$elm$core$String$fromInt(policy.minutes))
 							])),
 						A2(
-						$elm$html$Html$td,
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
 						_List_Nil,
 						_List_fromArray(
 							[
 								A2(
-								$elm$html$Html$button,
+								$rundis$elm_bootstrap$Bootstrap$Button$button,
 								_List_fromArray(
 									[
-										$elm$html$Html$Attributes$class('btn btn-default'),
-										$elm$html$Html$Events$onClick(
+										$rundis$elm_bootstrap$Bootstrap$Button$primary,
+										$rundis$elm_bootstrap$Bootstrap$Button$onClick(
 										$author$project$Main$SetTimeoutPolicyToModify(index))
 									]),
 								_List_fromArray(
@@ -12261,16 +15369,16 @@ var $author$project$Main$timeoutPolicyTable = function (policies) {
 									]))
 							])),
 						A2(
-						$elm$html$Html$td,
+						$rundis$elm_bootstrap$Bootstrap$Table$td,
 						_List_Nil,
 						_List_fromArray(
 							[
 								A2(
-								$elm$html$Html$button,
+								$rundis$elm_bootstrap$Bootstrap$Button$button,
 								_List_fromArray(
 									[
-										$elm$html$Html$Attributes$class('btn btn-default'),
-										$elm$html$Html$Events$onClick(
+										$rundis$elm_bootstrap$Bootstrap$Button$danger,
+										$rundis$elm_bootstrap$Bootstrap$Button$onClick(
 										$author$project$Main$DeleteTimeoutPolicy(index))
 									]),
 								_List_fromArray(
@@ -12280,69 +15388,57 @@ var $author$project$Main$timeoutPolicyTable = function (policies) {
 							]))
 					]));
 		});
-	var tbl = A2(
-		$elm$html$Html$table,
-		_List_fromArray(
-			[
-				$elm$html$Html$Attributes$class('table')
-			]),
-		_List_fromArray(
-			[
-				A2(
-				$elm$html$Html$thead,
-				_List_Nil,
-				_List_fromArray(
-					[
-						A2(
-						$elm$html$Html$tr,
-						_List_Nil,
-						_List_fromArray(
-							[
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('Entry Point')
-									])),
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('Hours')
-									])),
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('Minutes')
-									])),
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('')
-									])),
-								A2(
-								$elm$html$Html$th,
-								_List_Nil,
-								_List_fromArray(
-									[
-										$elm$html$Html$text('')
-									]))
-							]))
-					])),
-				A2(
-				$elm$html$Html$tbody,
+	var tbl = $rundis$elm_bootstrap$Bootstrap$Table$table(
+		{
+			options: _List_fromArray(
+				[$rundis$elm_bootstrap$Bootstrap$Table$striped, $rundis$elm_bootstrap$Bootstrap$Table$hover]),
+			tbody: A2(
+				$rundis$elm_bootstrap$Bootstrap$Table$tbody,
 				_List_Nil,
 				A2(
 					$elm$core$List$indexedMap,
-					inputTr,
-					$elm$core$Dict$toList(policies)))
-			]));
+					mkRow,
+					$elm$core$Dict$toList(policies))),
+			thead: $rundis$elm_bootstrap$Bootstrap$Table$simpleThead(
+				_List_fromArray(
+					[
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Entry Point')
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Hours')
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Minutes')
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('')
+							])),
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Table$th,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('')
+							]))
+					]))
+		});
 	var _v0 = $elm$core$Dict$isEmpty(policies);
 	if (_v0) {
 		return A2(
@@ -12358,29 +15454,60 @@ var $author$project$Main$timeoutPolicyTable = function (policies) {
 };
 var $author$project$Main$paneTimeoutPolicy = function (model) {
 	return A2(
-		$elm$html$Html$div,
-		_List_fromArray(
-			[
-				$elm$html$Html$Attributes$class('form-group'),
-				A2($elm$html$Html$Attributes$style, 'text-align', 'center')
-			]),
+		$rundis$elm_bootstrap$Bootstrap$Grid$container,
+		_List_Nil,
 		_List_fromArray(
 			[
 				A2(
-				$elm$html$Html$button,
+				$rundis$elm_bootstrap$Bootstrap$Grid$row,
+				_List_Nil,
 				_List_fromArray(
 					[
-						$elm$html$Html$Attributes$type_('button'),
-						$elm$html$Html$Attributes$class('btn btn-default'),
-						$elm$html$Html$Events$onClick(
-						A3($author$project$Main$ModifyTimeoutPolicyDialog, '*', $author$project$Main$initialTimeoutPolicy, $elm$core$Maybe$Nothing))
-					]),
-				_List_fromArray(
-					[
-						$elm$html$Html$text('Add Timeout')
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Grid$col,
+						_List_Nil,
+						_List_fromArray(
+							[
+								A2(
+								$rundis$elm_bootstrap$Bootstrap$Button$button,
+								_List_fromArray(
+									[
+										$rundis$elm_bootstrap$Bootstrap$Button$secondary,
+										$rundis$elm_bootstrap$Bootstrap$Button$onClick(
+										A3($author$project$Main$ModifyTimeoutPolicyDialog, '*', $author$project$Main$initialTimeoutPolicy, $elm$core$Maybe$Nothing))
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('Add Timeout')
+									]))
+							]))
 					])),
-				$author$project$Main$modifyTimeoutPolicyDialog(model),
-				$author$project$Main$timeoutPolicyTable(model.app.runSpec.timeoutPolicy)
+				A2(
+				$rundis$elm_bootstrap$Bootstrap$Grid$row,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Grid$col,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$author$project$Main$timeoutPolicyTable(model.app.runSpec.timeoutPolicy)
+							]))
+					])),
+				A2(
+				$rundis$elm_bootstrap$Bootstrap$Grid$row,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$rundis$elm_bootstrap$Bootstrap$Grid$col,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$author$project$Main$modifyTimeoutPolicyDialog(model)
+							]))
+					]))
 			]));
 };
 var $author$project$Main$DeleteAuthorizedUser = function (a) {
@@ -12407,12 +15534,12 @@ var $author$project$Main$paneUsers = function (model) {
 					[
 						$elm$html$Html$text(val),
 						A2(
-						$elm$html$Html$button,
+						$rundis$elm_bootstrap$Bootstrap$Button$button,
 						_List_fromArray(
 							[
-								$elm$html$Html$Attributes$type_('button'),
-								$elm$html$Html$Attributes$class('btn btn-default'),
-								$elm$html$Html$Events$onClick(
+								$rundis$elm_bootstrap$Bootstrap$Button$small,
+								$rundis$elm_bootstrap$Bootstrap$Button$light,
+								$rundis$elm_bootstrap$Bootstrap$Button$onClick(
 								f(val))
 							]),
 						_List_fromArray(
@@ -12452,25 +15579,19 @@ var $author$project$Main$paneUsers = function (model) {
 		}
 	}();
 	return A2(
-		$elm$html$Html$div,
+		$rundis$elm_bootstrap$Bootstrap$Grid$container,
 		_List_Nil,
 		_List_fromArray(
 			[
 				A2(
-				$elm$html$Html$form,
+				$rundis$elm_bootstrap$Bootstrap$Form$form,
 				_List_Nil,
 				_List_fromArray(
 					[
-						A2(
-						$elm$html$Html$table,
-						_List_Nil,
-						_List_fromArray(
-							[
-								A4($author$project$Main$mkRowTextEntrySubmit, 'Add Developer', model.developer, $author$project$Main$UpdateDeveloper, $author$project$Main$UpdateAddDeveloper),
-								A2($author$project$Main$mkRowHtml, 'Developers', curDevelopers),
-								A4($author$project$Main$mkRowTextEntrySubmit, 'Add Authorized User', model.authorizedUser, $author$project$Main$UpdateAuthorizedUser, $author$project$Main$UpdateAddAuthorizedUser),
-								A2($author$project$Main$mkRowHtml, 'Authorized Users', curAuthorizedUsers)
-							]))
+						A4($author$project$Main$mkFormRowTextEntrySubmit, 'Add Developer', model.developer, $author$project$Main$UpdateDeveloper, $author$project$Main$UpdateAddDeveloper),
+						A2($author$project$Main$mkFormRowHtml, 'Developers', curDevelopers),
+						A4($author$project$Main$mkFormRowTextEntrySubmit, 'Add Authorized User', model.authorizedUser, $author$project$Main$UpdateAuthorizedUser, $author$project$Main$UpdateAddAuthorizedUser),
+						A2($author$project$Main$mkFormRowHtml, 'Authorized Users', curAuthorizedUsers)
 					]))
 			]));
 };
@@ -12630,7 +15751,6 @@ var $rundis$elm_bootstrap$Bootstrap$Tab$activeTabAttributes = F2(
 					$rundis$elm_bootstrap$Bootstrap$Tab$transitionStyles(1));
 		}
 	});
-var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
 var $rundis$elm_bootstrap$Bootstrap$Tab$renderTabPane = F5(
 	function (id, active, _v0, state, configRec) {
 		var attributes = _v0.a.attributes;
@@ -12855,26 +15975,7 @@ var $author$project$Main$view = function (model) {
 											_List_fromArray(
 												[
 													A2($elm$html$Html$br, _List_Nil, _List_Nil),
-													$author$project$Main$paneRunSpec(model.app.runSpec)
-												]))
-									}),
-									$rundis$elm_bootstrap$Bootstrap$Tab$item(
-									{
-										id: 'tabSystemsRequirements',
-										link: A2(
-											$rundis$elm_bootstrap$Bootstrap$Tab$link,
-											_List_Nil,
-											_List_fromArray(
-												[
-													$elm$html$Html$text('SysReq')
-												])),
-										pane: A2(
-											$rundis$elm_bootstrap$Bootstrap$Tab$pane,
-											_List_Nil,
-											_List_fromArray(
-												[
-													A2($elm$html$Html$br, _List_Nil, _List_Nil),
-													$author$project$Main$paneSysReq(model)
+													$author$project$Main$paneRunSpec(model)
 												]))
 									}),
 									$rundis$elm_bootstrap$Bootstrap$Tab$item(
@@ -12923,7 +16024,7 @@ var $author$project$Main$view = function (model) {
 											_List_Nil,
 											_List_fromArray(
 												[
-													$elm$html$Html$text('InputSpec')
+													$elm$html$Html$text('Input')
 												])),
 										pane: A2(
 											$rundis$elm_bootstrap$Bootstrap$Tab$pane,
@@ -12942,7 +16043,7 @@ var $author$project$Main$view = function (model) {
 											_List_Nil,
 											_List_fromArray(
 												[
-													$elm$html$Html$text('OutputSpec')
+													$elm$html$Html$text('Output')
 												])),
 										pane: A2(
 											$rundis$elm_bootstrap$Bootstrap$Tab$pane,
@@ -12961,7 +16062,7 @@ var $author$project$Main$view = function (model) {
 											_List_Nil,
 											_List_fromArray(
 												[
-													$elm$html$Html$text('AccessSpec')
+													$elm$html$Html$text('Access')
 												])),
 										pane: A2(
 											$rundis$elm_bootstrap$Bootstrap$Tab$pane,
@@ -13065,25 +16166,6 @@ var $author$project$Main$view = function (model) {
 												[
 													A2($elm$html$Html$br, _List_Nil, _List_Nil),
 													$author$project$Main$paneJson(model)
-												]))
-									}),
-									$rundis$elm_bootstrap$Bootstrap$Tab$item(
-									{
-										id: 'tabHelp',
-										link: A2(
-											$rundis$elm_bootstrap$Bootstrap$Tab$link,
-											_List_Nil,
-											_List_fromArray(
-												[
-													$elm$html$Html$text('Help')
-												])),
-										pane: A2(
-											$rundis$elm_bootstrap$Bootstrap$Tab$pane,
-											_List_Nil,
-											_List_fromArray(
-												[
-													A2($elm$html$Html$br, _List_Nil, _List_Nil),
-													$author$project$Main$paneHelp
 												]))
 									})
 								]),
