@@ -14470,7 +14470,7 @@ var $author$project$Main$modifySysReqDialog = F2(
 					A2(
 						$elm$core$List$filter,
 						function (instance) {
-							return _Utils_cmp(instance.gpus, model.editingSysReqMinGpus) > 0;
+							return _Utils_cmp(instance.gpus, model.editingSysReqMinGpus) > -1;
 						},
 						A2(
 							$elm$core$List$filter,
